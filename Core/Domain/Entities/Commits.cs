@@ -1,8 +1,9 @@
-﻿namespace Domain.Entities
+﻿using Domain.Common;
+
+namespace Domain.Entities
 {
-    public sealed class Commits
+    public sealed class Commits : EntityBase, IEntityBase
     {
-        public int Id { get; set; }
         public string CommitMessage { get; set; }
         public int CustumerId { get; set; }
         public Customers Customers { get; set; }

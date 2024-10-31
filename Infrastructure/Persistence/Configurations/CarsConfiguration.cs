@@ -9,7 +9,7 @@ namespace Persistence.Configurations
         public void Configure(EntityTypeBuilder<Cars> builder)
         {
             builder.Property(x => x.Id).IsRequired();
-            builder.Property(x => x.Name).HasMaxLength(50);
+            builder.Property(x => x.Model).HasMaxLength(50);
         }
     }
 }

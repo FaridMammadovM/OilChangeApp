@@ -8,8 +8,8 @@ namespace Domain.Entities
         public string Surname { get; set; }
         public string Password { get; set; }
         public string Phone { get; set; }
-        public ICollection<Commit> Commits { get; set; }
-        public ICollection<OilChange> OilChanges { get; set; }
+        public ICollection<Commits> Commits { get; set; }
+        public ICollection<OilChanges> OilChanges { get; set; }
         public ICollection<UsersCarsMatrix> UsersCars { get; set; }
     }
 }
