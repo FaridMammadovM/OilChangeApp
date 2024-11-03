@@ -1,13 +1,15 @@
-﻿using Domain.Common;
-
-namespace Domain.Entities
+﻿namespace Domain.Entities
 {
-    public sealed class Employees : EntityBase, IEntityBase
+    public sealed class Employees
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string Number { get; set; }
         public ICollection<OilChanges> OilChanges { get; set; }
+        public bool IsDeleted { get; set; } = false;
+        public int InsertedBy { get; set; }
+        public DateTime InsertedDate { get; set; } = DateTime.Now;
+        public int UpdatedBy { get; set; }
+        public TimeSpan UpdatedDate { get; set; }
     }
 }
