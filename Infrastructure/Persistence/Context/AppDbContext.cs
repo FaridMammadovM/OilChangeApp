@@ -35,7 +35,20 @@ namespace Persistence.Context
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.ApplyConfiguration(new BranchiesConfiguration());
             modelBuilder.ApplyConfiguration(new CarsConfiguration());
+            modelBuilder.ApplyConfiguration(new ColorsConfiguration());
+            modelBuilder.ApplyConfiguration(new CommitsConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomersConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeesConfiguration());
+            modelBuilder.ApplyConfiguration(new FiltersConfiguration());
+            modelBuilder.ApplyConfiguration(new FuelTypesConfiguration());
+            modelBuilder.ApplyConfiguration(new OilChangeFiltersMatrixConfiguration());
+            modelBuilder.ApplyConfiguration(new OilChangesConfiguration());
+            modelBuilder.ApplyConfiguration(new OilTypesConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductsConfiguration());
+            modelBuilder.ApplyConfiguration(new ServicesConfiguration());
+            modelBuilder.ApplyConfiguration(new UsersCarsMatrixConfiguration());
 
         }
     }

@@ -4,11 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Configurations
 {
-    public sealed class UsersConfigurtion : IEntityTypeConfiguration<Users>
+    public class OilTypesConfiguration : IEntityTypeConfiguration<OilTypes>
     {
-        public void Configure(EntityTypeBuilder<Users> builder)
+        public void Configure(EntityTypeBuilder<OilTypes> builder)
         {
             builder.Property(x => x.Id).IsRequired();
+            builder.Property(x => x.Name).HasMaxLength(50);
         }
     }
 }
