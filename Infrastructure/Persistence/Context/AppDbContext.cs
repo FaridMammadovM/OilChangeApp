@@ -1,19 +1,18 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Persistence.Configurations;
+using System.Reflection;
 
 namespace Persistence.Context
 {
     public class AppDbContext : DbContext
     {
+
         public AppDbContext()
         {
-
         }
 
         public AppDbContext(DbContextOptions options) : base(options)
         {
-
         }
 
         public DbSet<Branchies> Branchies { get; set; }
@@ -34,22 +33,7 @@ namespace Persistence.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.ApplyConfiguration(new BranchiesConfiguration());
-            modelBuilder.ApplyConfiguration(new CarsConfiguration());
-            modelBuilder.ApplyConfiguration(new ColorsConfiguration());
-            modelBuilder.ApplyConfiguration(new CommitsConfiguration());
-            modelBuilder.ApplyConfiguration(new CustomersConfiguration());
-            modelBuilder.ApplyConfiguration(new EmployeesConfiguration());
-            modelBuilder.ApplyConfiguration(new FiltersConfiguration());
-            modelBuilder.ApplyConfiguration(new FuelTypesConfiguration());
-            modelBuilder.ApplyConfiguration(new OilChangeFiltersMatrixConfiguration());
-            modelBuilder.ApplyConfiguration(new OilChangesConfiguration());
-            modelBuilder.ApplyConfiguration(new OilTypesConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductsConfiguration());
-            modelBuilder.ApplyConfiguration(new ServicesConfiguration());
-            modelBuilder.ApplyConfiguration(new UsersCarsMatrixConfiguration());
-
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
