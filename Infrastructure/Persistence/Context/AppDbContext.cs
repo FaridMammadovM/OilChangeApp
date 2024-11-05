@@ -7,13 +7,13 @@ namespace Persistence.Context
     public class AppDbContext : DbContext
     {
         public AppDbContext()
-        {           
+        {
 
         }
 
-        public AppDbContext(DbContextOptions options) : base (options)
+        public AppDbContext(DbContextOptions options) : base(options)
         {
-                
+
         }
 
         public DbSet<Branchies> Branchies { get; set; }
@@ -34,9 +34,9 @@ namespace Persistence.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-           
+
             modelBuilder.ApplyConfiguration(new CarsConfiguration());
-            
+
         }
     }
 }
