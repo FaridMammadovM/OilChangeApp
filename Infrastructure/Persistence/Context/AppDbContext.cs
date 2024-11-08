@@ -15,7 +15,7 @@ namespace Persistence.Context
         {
         }
 
-        public DbSet<Branchies> Branchies { get; set; }
+        
         public DbSet<Cars> Cars { get; set; }
         public DbSet<Colors> Colors { get; set; }
         public DbSet<Commits> Commits { get; set; }
@@ -29,6 +29,7 @@ namespace Persistence.Context
         public DbSet<Products> Products { get; set; }
         public DbSet<Services> Services { get; set; }
         public DbSet<UsersCarsMatrix> UsersCarsMatrix { get; set; }
+        //.public DbSet<Branchies> Branchies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
