@@ -1,5 +1,4 @@
 ﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Persistence.Context
