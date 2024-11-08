@@ -1,5 +1,6 @@
 using Application;
 using Persistence;
+using OilMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Configuration
 builder.Services.AddPersistance(builder.Configuration);
 //builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddCustomMapper();
 
 var app = builder.Build();
 

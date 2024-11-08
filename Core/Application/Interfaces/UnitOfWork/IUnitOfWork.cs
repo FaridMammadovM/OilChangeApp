@@ -1,7 +1,7 @@
-﻿using Domain.Common;
-using Infrastructure.Interfaces.Repositories.Generic;
+﻿using Application.Interfaces.Repositories.Generic;
+using Domain.Common;
 
-namespace Infrastructure.Interfaces.UnitOfWork
+namespace Application.Interfaces.UnitOfWork
 {
     public interface IUnitOfWork : IAsyncDisposable
     {

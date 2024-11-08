@@ -1,5 +1,5 @@
-﻿using Domain.Entities;
-using Infrastructure.Interfaces.UnitOfWork;
+﻿using Application.Interfaces.UnitOfWork;
+using Domain.Entities;
 using MediatR;
 
 namespace Application.CQRS.Queries.Car.GetAll

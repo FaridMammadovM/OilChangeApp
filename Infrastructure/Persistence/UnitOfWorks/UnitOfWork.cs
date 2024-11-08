@@ -1,5 +1,5 @@
-﻿using Infrastructure.Interfaces.Repositories.Generic;
-using Infrastructure.Interfaces.UnitOfWork;
+﻿using Application.Interfaces.Repositories.Generic;
+using Application.Interfaces.UnitOfWork;
 using Persistence.Context;
 using Persistence.Repositories;
 

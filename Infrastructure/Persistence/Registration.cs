@@ -1,5 +1,5 @@
-﻿using Infrastructure.Interfaces.Repositories.Generic;
-using Infrastructure.Interfaces.UnitOfWork;
+﻿using Application.Interfaces.Repositories.Generic;
+using Application.Interfaces.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
