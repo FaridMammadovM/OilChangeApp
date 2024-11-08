@@ -2,7 +2,7 @@
 {
     public static class Registration
     {
-        public static void AddPInfra()
+        public static void AddInfrastructure()
         {
         }
     }

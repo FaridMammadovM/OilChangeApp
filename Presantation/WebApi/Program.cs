@@ -1,3 +1,4 @@
+using Application;
 using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,9 @@ builder.Configuration
     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: false);
 
 builder.Services.AddPersistance(builder.Configuration);
+//builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
