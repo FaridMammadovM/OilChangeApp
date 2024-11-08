@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Interfaces.Repositories.Generic
 {
-    internal interface IWriteRepository<T> where T : class, IEntityBase, new()
+    public interface IWriteRepository<T> where T : class, IEntityBase, new()
     {
         Task AddAsync(T entity);
         Task AddRangeAsync(IList<T> entities);

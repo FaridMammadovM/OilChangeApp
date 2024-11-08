@@ -15,7 +15,7 @@ namespace Persistence.Context
         {
         }
 
-        
+
         public DbSet<Cars> Cars { get; set; }
         public DbSet<Colors> Colors { get; set; }
         public DbSet<Commits> Commits { get; set; }

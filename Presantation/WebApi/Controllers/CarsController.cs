@@ -6,5 +6,9 @@ namespace WebApi.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
+        public CarsController()
+        {
+
+        }
     }
 }
