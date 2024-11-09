@@ -1,6 +1,8 @@
 using Application;
-using Persistence;
+using Application.Exceptions;
+using Infrastructure;
 using OilMapper;
+using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +19,7 @@ builder.Configuration
     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: false);
 
 builder.Services.AddPersistance(builder.Configuration);
-//builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
 
@@ -31,6 +33,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.ConfigureExceptionHandlingMiddleware();
 
 app.UseAuthorization();
 

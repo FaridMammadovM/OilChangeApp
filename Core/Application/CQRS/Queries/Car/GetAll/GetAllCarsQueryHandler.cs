@@ -21,7 +21,7 @@ namespace Application.CQRS.Queries.Car.GetAll
         {
             var cars = await _unitOfWork.GetReadRepository<Cars>().GetAllAsync(include: x => x.Include(b => b.Colors));
 
-            return _mapper.Map<GetAllCarsResDto, Cars>(cars);           
+            return _mapper.Map<GetAllCarsResDto, Cars>(cars);
         }
     }
 }
