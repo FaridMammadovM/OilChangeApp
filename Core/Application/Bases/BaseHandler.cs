@@ -14,7 +14,7 @@ namespace Application.Bases
 
         public BaseHandler(ICostumMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor)
         {
-            this.mapper = mapper;
+            this.mapper = mapper;   
             this.unitOfWork = unitOfWork;
             this.httpContextAccessor = httpContextAccessor;
             userId = httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);

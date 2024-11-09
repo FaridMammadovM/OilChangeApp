@@ -1,4 +1,5 @@
-﻿using Application.Beheviors;
+﻿using Application.Bases;
+using Application.Beheviors;
 using Application.Exceptions;
 using FluentValidation;
 using MediatR;
@@ -13,11 +14,17 @@ namespace Application
         public static void AddApplication(this IServiceCollection services)
         {
             var assembly = Assembly.GetExecutingAssembly();
+
             services.AddTransient<ExceptionMiddleware>();
 
+            services.AddRulesFromAssemblyContaining(assembly, typeof(BaseRules));
+
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
+
             services.AddValidatorsFromAssembly(assembly);
+
             ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("az-Latn-AZ");
+
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
 
         }
