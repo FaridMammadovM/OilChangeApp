@@ -12,8 +12,8 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241108173712_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241110064358_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,10 +74,10 @@ namespace Persistence.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("ColorId")
+                    b.Property<int?>("ColorsId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FuelTypeId")
+                    b.Property<int?>("FuelTypesId")
                         .HasColumnType("int");
 
                     b.Property<int?>("InsertedBy")
@@ -94,24 +94,17 @@ namespace Persistence.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<decimal?>("Motor")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
 
                     b.Property<TimeSpan?>("UpdatedDate")
                         .HasColumnType("time");
 
-                    b.Property<int?>("Year")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ColorId");
+                    b.HasIndex("ColorsId");
 
-                    b.HasIndex("FuelTypeId");
+                    b.HasIndex("FuelTypesId");
 
                     b.ToTable("Cars");
                 });
@@ -223,6 +216,9 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Surname")
                         .IsRequired()
@@ -591,6 +587,43 @@ namespace Persistence.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CustomersId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InsertedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("InsertedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan?>("UpdatedDate")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomersId");
+
+                    b.ToTable("Role");
+                });
+
             modelBuilder.Entity("Domain.Entities.Services", b =>
                 {
                     b.Property<int>("Id")
@@ -624,34 +657,6 @@ namespace Persistence.Migrations
                     b.ToTable("Services");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Users", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("InsertedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("InsertedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<TimeSpan?>("UpdatedDate")
-                        .HasColumnType("time");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("Domain.Entities.UsersCarsMatrix", b =>
                 {
                     b.Property<int>("Id")
@@ -668,7 +673,16 @@ namespace Persistence.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<int?>("ColorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ColorsId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CustumerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FuelTypeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("InsertedBy")
@@ -680,34 +694,40 @@ namespace Persistence.Migrations
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<decimal?>("Motor")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
 
                     b.Property<TimeSpan?>("UpdatedDate")
                         .HasColumnType("time");
 
+                    b.Property<int?>("Year")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CarId");
 
+                    b.HasIndex("ColorsId");
+
                     b.HasIndex("CustumerId");
+
+                    b.HasIndex("FuelTypeId");
 
                     b.ToTable("UsersCarsMatrix");
                 });
 
             modelBuilder.Entity("Domain.Entities.Cars", b =>
                 {
-                    b.HasOne("Domain.Entities.Colors", "Colors")
+                    b.HasOne("Domain.Entities.Colors", null)
                         .WithMany("Cars")
-                        .HasForeignKey("ColorId");
+                        .HasForeignKey("ColorsId");
 
-                    b.HasOne("Domain.Entities.FuelTypes", "FuelType")
+                    b.HasOne("Domain.Entities.FuelTypes", null)
                         .WithMany("Cars")
-                        .HasForeignKey("FuelTypeId");
-
-                    b.Navigation("Colors");
-
-                    b.Navigation("FuelType");
+                        .HasForeignKey("FuelTypesId");
                 });
 
             modelBuilder.Entity("Domain.Entities.Commits", b =>
@@ -718,7 +738,7 @@ namespace Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Users", "Users")
+                    b.HasOne("Domain.Entities.Role", "Users")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -814,11 +834,24 @@ namespace Persistence.Migrations
                         .HasForeignKey("BranchiesId");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Role", b =>
+                {
+                    b.HasOne("Domain.Entities.Customers", null)
+                        .WithMany("Role")
+                        .HasForeignKey("CustomersId");
+                });
+
             modelBuilder.Entity("Domain.Entities.UsersCarsMatrix", b =>
                 {
                     b.HasOne("Domain.Entities.Cars", "Cars")
                         .WithMany("UsersCars")
                         .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Colors", "Colors")
+                        .WithMany()
+                        .HasForeignKey("ColorsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -828,9 +861,17 @@ namespace Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.FuelTypes", "FuelType")
+                        .WithMany()
+                        .HasForeignKey("FuelTypeId");
+
                     b.Navigation("Cars");
 
+                    b.Navigation("Colors");
+
                     b.Navigation("Customers");
+
+                    b.Navigation("FuelType");
                 });
 
             modelBuilder.Entity("Domain.Entities.Branchies", b =>
@@ -857,6 +898,8 @@ namespace Persistence.Migrations
                     b.Navigation("Commits");
 
                     b.Navigation("OilChanges");
+
+                    b.Navigation("Role");
 
                     b.Navigation("UsersCars");
                 });

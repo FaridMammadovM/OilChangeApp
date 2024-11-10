@@ -5,7 +5,7 @@
 namespace Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,6 +57,7 @@ namespace Persistence.Migrations
                     Surname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true),
                     InsertedBy = table.Column<int>(type: "int", nullable: true),
                     InsertedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -178,23 +179,6 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: true),
-                    InsertedBy = table.Column<int>(type: "int", nullable: true),
-                    InsertedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedBy = table.Column<int>(type: "int", nullable: true),
-                    UpdatedDate = table.Column<TimeSpan>(type: "time", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Phones",
                 columns: table => new
                 {
@@ -219,6 +203,30 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Role",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoleName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CustomersId = table.Column<int>(type: "int", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true),
+                    InsertedBy = table.Column<int>(type: "int", nullable: true),
+                    InsertedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<int>(type: "int", nullable: true),
+                    UpdatedDate = table.Column<TimeSpan>(type: "time", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Role", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Role_Customers_CustomersId",
+                        column: x => x.CustomersId,
+                        principalTable: "Customers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cars",
                 columns: table => new
                 {
@@ -226,10 +234,8 @@ namespace Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Model = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Brand = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Motor = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: true),
-                    Year = table.Column<int>(type: "int", nullable: true),
-                    ColorId = table.Column<int>(type: "int", nullable: true),
-                    FuelTypeId = table.Column<int>(type: "int", nullable: true),
+                    ColorsId = table.Column<int>(type: "int", nullable: true),
+                    FuelTypesId = table.Column<int>(type: "int", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true),
                     InsertedBy = table.Column<int>(type: "int", nullable: true),
                     InsertedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -240,13 +246,13 @@ namespace Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Cars", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Cars_Colors_ColorId",
-                        column: x => x.ColorId,
+                        name: "FK_Cars_Colors_ColorsId",
+                        column: x => x.ColorsId,
                         principalTable: "Colors",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Cars_FuelTypes_FuelTypeId",
-                        column: x => x.FuelTypeId,
+                        name: "FK_Cars_FuelTypes_FuelTypesId",
+                        column: x => x.FuelTypesId,
                         principalTable: "FuelTypes",
                         principalColumn: "Id");
                 });
@@ -276,9 +282,9 @@ namespace Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Commits_Users_UserId",
+                        name: "FK_Commits_Role_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "Role",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -371,6 +377,11 @@ namespace Persistence.Migrations
                     CarId = table.Column<int>(type: "int", nullable: false),
                     CustumerId = table.Column<int>(type: "int", nullable: false),
                     CarNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Motor = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    Year = table.Column<int>(type: "int", nullable: true),
+                    ColorId = table.Column<int>(type: "int", nullable: true),
+                    FuelTypeId = table.Column<int>(type: "int", nullable: true),
+                    ColorsId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true),
                     InsertedBy = table.Column<int>(type: "int", nullable: true),
                     InsertedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -387,11 +398,22 @@ namespace Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_UsersCarsMatrix_Colors_ColorsId",
+                        column: x => x.ColorsId,
+                        principalTable: "Colors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_UsersCarsMatrix_Customers_CustumerId",
                         column: x => x.CustumerId,
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UsersCarsMatrix_FuelTypes_FuelTypeId",
+                        column: x => x.FuelTypeId,
+                        principalTable: "FuelTypes",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -426,14 +448,14 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cars_ColorId",
+                name: "IX_Cars_ColorsId",
                 table: "Cars",
-                column: "ColorId");
+                column: "ColorsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cars_FuelTypeId",
+                name: "IX_Cars_FuelTypesId",
                 table: "Cars",
-                column: "FuelTypeId");
+                column: "FuelTypesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Commits_CustumerId",
@@ -496,14 +518,29 @@ namespace Persistence.Migrations
                 column: "BranchiesId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Role_CustomersId",
+                table: "Role",
+                column: "CustomersId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UsersCarsMatrix_CarId",
                 table: "UsersCarsMatrix",
                 column: "CarId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UsersCarsMatrix_ColorsId",
+                table: "UsersCarsMatrix",
+                column: "ColorsId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UsersCarsMatrix_CustumerId",
                 table: "UsersCarsMatrix",
                 column: "CustumerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsersCarsMatrix_FuelTypeId",
+                table: "UsersCarsMatrix",
+                column: "FuelTypeId");
         }
 
         /// <inheritdoc />
@@ -522,7 +559,7 @@ namespace Persistence.Migrations
                 name: "UsersCarsMatrix");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Role");
 
             migrationBuilder.DropTable(
                 name: "Filters");

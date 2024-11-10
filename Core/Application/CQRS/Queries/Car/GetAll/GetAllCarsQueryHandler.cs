@@ -3,7 +3,6 @@ using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.CQRS.Queries.Car.GetAll
 {
@@ -19,7 +18,7 @@ namespace Application.CQRS.Queries.Car.GetAll
         }
         public async Task<IList<GetAllCarsResDto>> Handle(GetAllCarsQuery request, CancellationToken cancellationToken)
         {
-            var cars = await _unitOfWork.GetReadRepository<Cars>().GetAllAsync(include: x => x.Include(b => b.Colors));
+            var cars = await _unitOfWork.GetReadRepository<Cars>().GetAllAsync();
 
             return _mapper.Map<GetAllCarsResDto, Cars>(cars);
         }

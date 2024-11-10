@@ -17,13 +17,10 @@ namespace Application.CQRS.Commands.Car.AddCar
         public async Task<Unit> Handle(AddCarCommand request, CancellationToken cancellationToken)
         {
             IList<Cars> carList = await _unitOfWork.GetReadRepository<Cars>().GetAllAsync();
-            _carRules.CarMustNotBeSame(carList, request.Request.Brand, request.Request.Model, request.Request.Year);
+            _carRules.CarMustNotBeSame(carList, request.Request.Brand, request.Request.Model);
             Cars cars = new Cars();
             cars.Brand = request.Request.Brand;
             cars.Model = request.Request.Model;
-            cars.Year = request.Request.Year;
-            cars.ColorId = request.Request.ColorId;
-            cars.FuelTypeId = request.Request.FuelTypeId;
             await _unitOfWork.GetWriteRepository<Cars>().AddAsync(cars);
             await _unitOfWork.SaveAsync();
             return Unit.Value;
