@@ -1,15 +1,14 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Persistence.Context
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User, Role, Guid>
     {
 
-        public AppDbContext()
-        {
-        }
+        public AppDbContext() { }
 
         public AppDbContext(DbContextOptions options) : base(options)
         {
@@ -29,7 +28,7 @@ namespace Persistence.Context
         public DbSet<Products> Products { get; set; }
         public DbSet<Services> Services { get; set; }
         public DbSet<UsersCarsMatrix> UsersCarsMatrix { get; set; }
-        //.public DbSet<Branchies> Branchies { get; set; }
+        public DbSet<Branchies> Branchies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
