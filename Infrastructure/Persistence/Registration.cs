@@ -22,7 +22,7 @@ namespace Persistence
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            services.AddIdentityCore<User>(opt =>
+            services.AddIdentityCore<Customers>(opt =>
             {
                 opt.Password.RequireNonAlphanumeric = false;
                 opt.Password.RequiredLength = 8;

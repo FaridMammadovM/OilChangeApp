@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace Persistence.Context
 {
-    public class AppDbContext : IdentityDbContext<User, Role, Guid>
+    public class AppDbContext : IdentityDbContext<Customers, Role, int>
     {
 
         public AppDbContext() { }
@@ -14,7 +14,7 @@ namespace Persistence.Context
         {
         }
 
-
+        public DbSet<Branchies> Branchies { get; set; }
         public DbSet<Cars> Cars { get; set; }
         public DbSet<Colors> Colors { get; set; }
         public DbSet<Commits> Commits { get; set; }
@@ -25,10 +25,12 @@ namespace Persistence.Context
         public DbSet<OilChangeFiltersMatrix> OilChangeFiltersMatrix { get; set; }
         public DbSet<OilChanges> OilChanges { get; set; }
         public DbSet<OilTypes> OilTypes { get; set; }
+        public DbSet<Phones> Phones { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Services> Services { get; set; }
         public DbSet<UsersCarsMatrix> UsersCarsMatrix { get; set; }
-        public DbSet<Branchies> Branchies { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

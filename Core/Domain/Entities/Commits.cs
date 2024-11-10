@@ -6,8 +6,8 @@ namespace Domain.Entities
     {
         public string CommitMessage { get; set; }
         public int CustumerId { get; set; }
-        public int UserId { get; set; }
-        public Role Users { get; set; }
+        public int RoleId { get; set; }
+        public Role Roles { get; set; }
         public Customers Customers { get; set; }
 
     }
