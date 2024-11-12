@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public sealed class UsersCarsMatrix : EntityBase
+    public sealed class CustomersCarsMatrix : EntityBase
     {
         public int CarId { get; set; }
         public int CustumerId { get; set; }

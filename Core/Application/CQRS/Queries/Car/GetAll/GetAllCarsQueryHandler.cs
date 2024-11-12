@@ -19,7 +19,6 @@ namespace Application.CQRS.Queries.Car.GetAll
         public async Task<IList<GetAllCarsResDto>> Handle(GetAllCarsQuery request, CancellationToken cancellationToken)
         {
             var cars = await _unitOfWork.GetReadRepository<Cars>().GetAllAsync();
-
             return _mapper.Map<GetAllCarsResDto, Cars>(cars);
         }
     }

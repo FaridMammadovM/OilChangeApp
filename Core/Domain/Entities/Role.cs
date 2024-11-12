@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Domain.Common;
 
 namespace Domain.Entities
 {
-    public sealed class Role : IdentityRole<int>
+    public sealed class Role : EntityBase
     {
         public string RoleName { get; set; }
     }

@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Domain.Common;
 
 namespace Domain.Entities
 {
-    public sealed class Customers : IdentityUser<int>
+    public sealed class Customers : EntityBase
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -13,7 +13,7 @@ namespace Domain.Entities
         public DateTime? RefreshTokenExpiryTime { get; set; }
         public ICollection<Commits> Commits { get; set; }
         public ICollection<OilChanges> OilChanges { get; set; }
-        public ICollection<UsersCarsMatrix> UsersCars { get; set; }
+        public ICollection<CustomersCarsMatrix> CustomersCars { get; set; }
         public ICollection<Role> Roles { get; set; }
     }
 }

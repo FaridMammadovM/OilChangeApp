@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Configurations
 {
-    public class UsersCarsMatrixConfiguration : IEntityTypeConfiguration<UsersCarsMatrix>
+    public class UsersCarsMatrixConfiguration : IEntityTypeConfiguration<CustomersCarsMatrix>
     {
-        public void Configure(EntityTypeBuilder<UsersCarsMatrix> builder)
+        public void Configure(EntityTypeBuilder<CustomersCarsMatrix> builder)
         {
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.CarNumber).HasMaxLength(20);
@@ -14,7 +14,7 @@ namespace Persistence.Configurations
                 .WithMany(c => c.UsersCars)
                 .HasForeignKey(x => x.CarId);
             builder.HasOne(x => x.Customers)
-                .WithMany(c => c.UsersCars)
+                .WithMany(c => c.CustomersCars)
                 .HasForeignKey(x => x.CustumerId);
         }
     }

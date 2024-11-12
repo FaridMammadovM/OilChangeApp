@@ -1,11 +1,10 @@
 ﻿using Domain.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Persistence.Context
 {
-    public class AppDbContext : IdentityDbContext<Customers, Role, int>
+    public class AppDbContext : DbContext
     {
 
         public AppDbContext() { }
@@ -29,7 +28,7 @@ namespace Persistence.Context
         public DbSet<Role> Roles { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Services> Services { get; set; }
-        public DbSet<UsersCarsMatrix> UsersCarsMatrix { get; set; }
+        public DbSet<CustomersCarsMatrix> UsersCarsMatrix { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
