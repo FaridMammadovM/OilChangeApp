@@ -1,7 +1,7 @@
-﻿using Application.CQRS.Commands.Customers.AddCustomer.Dtos;
+﻿using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
 using MediatR;
 
-namespace Application.CQRS.Commands.Customers.AddCustomer
+namespace Application.CQRS.Commands.Customer.AddCustomer
 {
     public class AddCustomerCommand : IRequest<Unit>
     {

@@ -1,5 +1,5 @@
-﻿using Application.CQRS.Commands.Customers.AddCustomer;
-using Application.CQRS.Commands.Customers.AddCustomer.Dtos;
+﻿using Application.CQRS.Commands.Customer.AddCustomer;
+using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +15,7 @@ namespace WebApi.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> AddCustomer([FromBody] AddCustomerReqDto request)
         {
             AddCustomerCommand command = new AddCustomerCommand() { Request = request };

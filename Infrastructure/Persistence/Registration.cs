@@ -1,6 +1,5 @@
 ﻿using Application.Interfaces.Repositories.Generic;
 using Application.Interfaces.UnitOfWork;
-using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,17 +21,17 @@ namespace Persistence
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            services.AddIdentityCore<Customers>(opt =>
-            {
-                opt.Password.RequireNonAlphanumeric = false;
-                opt.Password.RequiredLength = 8;
-                opt.Password.RequireLowercase = false;
-                opt.Password.RequireUppercase = false;
-                opt.Password.RequireDigit = false;
-                opt.SignIn.RequireConfirmedPhoneNumber = false;
-            })
-        .AddRoles<Role>()
-        .AddEntityFrameworkStores<AppDbContext>();
+            //    services.AddIdentityCore<Customers>(opt =>
+            //    {
+            //        opt.Password.RequireNonAlphanumeric = false;
+            //        opt.Password.RequiredLength = 8;
+            //        opt.Password.RequireLowercase = false;
+            //        opt.Password.RequireUppercase = false;
+            //        opt.Password.RequireDigit = false;
+            //        opt.SignIn.RequireConfirmedPhoneNumber = false;
+            //    })
+            //.AddRoles<Role>()
+            //.AddEntityFrameworkStores<AppDbContext>();
 
         }
     }
