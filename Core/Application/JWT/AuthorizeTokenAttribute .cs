@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Application.JWT
 {
@@ -11,7 +11,7 @@ namespace Application.JWT
 
             if (string.IsNullOrEmpty(token))
             {
-                context.Result = new UnauthorizedObjectResult(new { success = false, message = "Token bulunamadı." });
+                context.Result = new UnauthorizedObjectResult(new { success = false, message = "Token tapılmadı." });
                 return;
             }
 
@@ -21,7 +21,7 @@ namespace Application.JWT
 
             if (claimsPrincipal == null)
             {
-                context.Result = new UnauthorizedObjectResult(new { success = false, message = "Geçersiz token." });
+                context.Result = new UnauthorizedObjectResult(new { success = false, message = "Geçərsiz token." });
                 return;
             }
 

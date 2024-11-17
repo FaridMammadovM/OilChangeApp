@@ -9,12 +9,12 @@ namespace Application.CQRS.Commands.Car.AddCar
             RuleFor(x => x.Request.Model)
                .NotEmpty()
                .NotNull()
-               .WithName("Model hayir");
+               .WithName("Model boş ola bilməz");
 
-            RuleFor(x => x.Request.Year)
+            RuleFor(x => x.Request.Brand)
+                .NotEmpty()
                 .NotNull()
-                .GreaterThanOrEqualTo(0)
-                 .WithName("Year olmaaaz");
+                .WithName("Brand boş ola bilməz");
 
         }
     }

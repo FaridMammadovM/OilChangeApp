@@ -5,8 +5,6 @@ using Application.CQRS.Queries.Customer.Login.Dto;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using WebApi.Helper;
 
 namespace WebApi.Controllers
 {
@@ -14,13 +12,13 @@ namespace WebApi.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly IMediator _mediator;      
+        private readonly IMediator _mediator;
 
         public CustomersController(IMediator mediator)
         {
-            _mediator = mediator;           
-        }       
-     
+            _mediator = mediator;
+        }
+
 
         [HttpPost]
         [AtributteAuthenticator]
@@ -38,11 +36,11 @@ namespace WebApi.Controllers
 
                 return BadRequest(new { success = false, message = "Müştəri əlavə edilə bilmədi." });
             }
-            catch (UnauthorizedAccessException) 
+            catch (UnauthorizedAccessException)
             {
                 return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
             }
@@ -61,14 +59,14 @@ namespace WebApi.Controllers
                     return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
                 }
 
-                // İstifadəçi tapılmadıqda 404 Not Found
+
                 return NotFound(new { success = false, message = "İstifadəçi tapılmadı." });
             }
-            catch (UnauthorizedAccessException) // İcazə xətası
+            catch (UnauthorizedAccessException)
             {
                 return Unauthorized(new { success = false, message = "Giriş məlumatları düzgün deyil." });
             }
-            catch (Exception ex) // Digər xətalar
+            catch (Exception ex)
             {
                 return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
             }

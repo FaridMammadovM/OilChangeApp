@@ -1,10 +1,9 @@
-﻿namespace Application.CQRS.Queries.Car.GetAll.Dtos
+﻿namespace Application.CQRS.Queries.Car.GetByİd.Dtos
 {
-    public sealed class GetAllCarsResDto
+    public sealed class GeByIdCarDto
     {
         public int Id { get; set; }
         public string Model { get; set; }
         public string Brand { get; set; }
-
     }
 }
