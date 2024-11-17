@@ -5,9 +5,7 @@ namespace Domain.Entities
     public sealed class Commits : EntityBase
     {
         public string CommitMessage { get; set; }
-        public int CustumerId { get; set; }
-        public int RoleId { get; set; }
-        public Role Roles { get; set; }
+        public int CustumerId { get; set; }        
         public Customers Customers { get; set; }
 
     }

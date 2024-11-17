@@ -14,6 +14,6 @@ namespace Domain.Entities
         public ICollection<Commits> Commits { get; set; }
         public ICollection<OilChanges> OilChanges { get; set; }
         public ICollection<CustomersCarsMatrix> CustomersCars { get; set; }
-        public ICollection<Role> Roles { get; set; }
+        public Role Role { get; set; }
     }
 }
