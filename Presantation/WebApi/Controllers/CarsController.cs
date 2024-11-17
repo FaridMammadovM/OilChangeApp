@@ -138,11 +138,11 @@ namespace WebApi.Controllers
             }
         }
 
-                /// <summary>
-                /// Maşının silinməsi
-                /// </summary>
-                /// <returns></returns>
-                [HttpDelete]
+        /// <summary>
+        /// Maşının silinməsi
+        /// </summary>
+        /// <returns></returns>
+        [HttpDelete]
         [AtributteAuthenticator]
         public async Task<IActionResult> DeleteCar([FromQuery] int carId)
         {
