@@ -1,7 +1,12 @@
 ﻿using Application.CQRS.Commands.Customer.AddCustomer;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
+using Application.CQRS.Queries.Customer.Login;
+using Application.CQRS.Queries.Customer.Login.Dto;
+using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using WebApi.Helper;
 
 namespace WebApi.Controllers
 {
@@ -9,18 +14,64 @@ namespace WebApi.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly IMediator _mediator;
+        private readonly IMediator _mediator;      
+
         public CustomersController(IMediator mediator)
         {
-            _mediator = mediator;
+            _mediator = mediator;           
+        }       
+     
+
+        [HttpPost]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> AddCustomer([FromBody] AddCustomerReqDto request)
+        {
+            try
+            {
+                var command = new AddCustomerCommand { Request = request };
+                var result = await _mediator.Send(command);
+
+                if (result != null)
+                {
+                    return Ok(new { success = true, message = "Müştəri uğurla əlavə edildi.", data = result });
+                }
+
+                return BadRequest(new { success = false, message = "Müştəri əlavə edilə bilmədi." });
+            }
+            catch (UnauthorizedAccessException) 
+            {
+                return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
+            }
+            catch (Exception ex) 
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCustomer([FromBody] AddCustomerReqDto request)
+        public async Task<IActionResult> Login([FromBody] LoginReqDto request)
         {
-            AddCustomerCommand command = new AddCustomerCommand() { Request = request };
-            var response = await _mediator.Send(command);
-            return Ok(response);
+            try
+            {
+                var query = new LoginQuery { Request = request };
+                var result = await _mediator.Send(query);
+
+                if (result != null)
+                {
+                    return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
+                }
+
+                // İstifadəçi tapılmadıqda 404 Not Found
+                return NotFound(new { success = false, message = "İstifadəçi tapılmadı." });
+            }
+            catch (UnauthorizedAccessException) // İcazə xətası
+            {
+                return Unauthorized(new { success = false, message = "Giriş məlumatları düzgün deyil." });
+            }
+            catch (Exception ex) // Digər xətalar
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
         }
     }
 }

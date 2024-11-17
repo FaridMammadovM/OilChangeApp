@@ -1,5 +1,4 @@
-﻿using Infrastructure.Tokens;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure
@@ -8,7 +7,7 @@ namespace Infrastructure
     {
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<TokenSettings>(configuration.GetSection("JWT"));
+            //services.Configure<TokenSettings>(configuration.GetSection("JWT"));
             //services.AddTransient<ITokenService, TokenService>();
 
 

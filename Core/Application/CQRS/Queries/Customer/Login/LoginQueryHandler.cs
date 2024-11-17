@@ -3,6 +3,7 @@ using Application.Interfaces.UnitOfWork;
 using Application.JWT;
 using Domain.Entities;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 
 namespace Application.CQRS.Queries.Customer.Login
 {
@@ -10,11 +11,13 @@ namespace Application.CQRS.Queries.Customer.Login
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly JwtHelper _jwtHelper;
-
-        public LoginQueryHandler(IUnitOfWork unitOfWork, JwtHelper jwtHelper)
+        private readonly int _refreshTokenExpiration;
+        public LoginQueryHandler(IUnitOfWork unitOfWork, JwtHelper jwtHelper, IConfiguration configuration)
         {
             _unitOfWork = unitOfWork;
             _jwtHelper = jwtHelper;
+            _refreshTokenExpiration = int.Parse(configuration["JwtSettings:RefreshTokenExpiration"]);
+
         }
 
         public async Task<LoginResDto> Handle(LoginQuery request, CancellationToken cancellationToken)
@@ -23,16 +26,15 @@ namespace Application.CQRS.Queries.Customer.Login
                 .GetAsync(x => x.Phone == request.Request.Phone && x.IsDeleted == false);
 
             if (customer == null)
-                throw new Exception("Kullanıcı bulunamadı.");
+                return null;
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(request.Request.Password, customer.Password);
             if (!isPasswordValid)
-                throw new Exception("Geçersiz parola.");
+                return null;
 
             var accessToken = _jwtHelper.GenerateAccessToken(customer.Id.ToString());
             var refreshToken = customer.RefreshToken;
 
-            // Refresh token geçerlilik süresini kontrol et, gerekiyorsa yenile
             if (customer.RefreshTokenExpiryTime <= DateTime.UtcNow)
             {
                 refreshToken = _jwtHelper.GenerateRefreshToken();
@@ -46,7 +48,7 @@ namespace Application.CQRS.Queries.Customer.Login
             {
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,
-                RefreshTokenExpiryTime = DateTime.Now
+                RefreshTokenExpiryTime = DateTime.UtcNow.AddMinutes(_refreshTokenExpiration),
             };
         }
     }

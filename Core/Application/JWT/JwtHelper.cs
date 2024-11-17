@@ -45,7 +45,32 @@ namespace Application.JWT
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        public ClaimsPrincipal ValidateToken(string token)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
+            var tokenHandler = new JwtSecurityTokenHandler();
 
+            try
+            {
+                var validationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero,  // Set this to zero to avoid token expiration delay
+                    ValidIssuer = _issuer,
+                    ValidAudience = _audience,
+                    IssuerSigningKey = securityKey
+                };
+
+                var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
+                return principal;
+            }
+            catch
+            {
+                return null;  // If the token is invalid, return null
+            }
+        }
         public string HashPassword(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);

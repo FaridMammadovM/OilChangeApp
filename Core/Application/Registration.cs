@@ -26,6 +26,7 @@ namespace Application
             ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("az-Latn-AZ");
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
+            services.AddTransient<JWT.JwtHelper>();
 
         }
 

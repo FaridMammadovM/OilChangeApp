@@ -1,6 +1,7 @@
-using Application;
+﻿using Application;
 using Application.Exceptions;
 using Infrastructure;
+using Microsoft.OpenApi.Models;
 using OilMapper;
 using Persistence;
 
@@ -9,9 +10,35 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    // JWT Bearer Authentication için Swagger yapılandırması
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Lütfen Bearer token'ınızı girin.",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
 var env = builder.Environment;
 builder.Configuration
     .SetBasePath(env.ContentRootPath)

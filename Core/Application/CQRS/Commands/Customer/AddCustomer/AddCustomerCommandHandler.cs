@@ -37,14 +37,11 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
             customers.Password = _jwtHelper.HashPassword(request.Request.Password);
 
             customers.RefreshToken = _jwtHelper.GenerateRefreshToken();
-            customers.RefreshTokenExpiryTime = DateTime.UtcNow.AddMinutes(_refreshTokenExpiration);
-
+            customers.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
 
             await _unitOfWork.GetWriteRepository<Customers>().AddAsync(customers);
             await _unitOfWork.SaveAsync();
             return Unit.Value;
         }
-
-
     }
 }
