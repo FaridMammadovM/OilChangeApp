@@ -21,7 +21,7 @@ namespace WebApi.Controllers
 
 
         [HttpPost]
-        [AtributteAuthenticator]
+       // [AtributteAuthenticator]
         public async Task<IActionResult> AddCustomer([FromBody] AddCustomerReqDto request)
         {
             try

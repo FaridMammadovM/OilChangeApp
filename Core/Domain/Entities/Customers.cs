@@ -17,3 +17,4 @@ namespace Domain.Entities
         public Role Role { get; set; }
     }
 }
+       

@@ -24,7 +24,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [AtributteAuthenticator]
+        //[AtributteAuthenticator]
         public async Task<IActionResult> GetCars()
         {
             try
