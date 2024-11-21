@@ -1,5 +1,7 @@
 ﻿using Application.CQRS.Commands.Customer.AddCustomer;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
+using Application.CQRS.Queries.Car.GetAll;
+using Application.CQRS.Queries.Customer.GetAllCustomer;
 using Application.CQRS.Queries.Customer.Login;
 using Application.CQRS.Queries.Customer.Login.Dto;
 using Application.JWT;
@@ -39,6 +41,27 @@ namespace WebApi.Controllers
             catch (UnauthorizedAccessException)
             {
                 return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetCustomers()
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetAllCustomerQuery());
+                if (response == null || !response.Any())
+                {
+                    return NotFound(new { success = false, message = "Müştərilər tapılmadı." });
+                }
+
+                return Ok(new { success = true, data = response });
             }
             catch (Exception ex)
             {
