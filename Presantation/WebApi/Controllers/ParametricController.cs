@@ -1,5 +1,6 @@
 ﻿using Application.CQRS.Queries.Car.GetAll;
 using Application.CQRS.Queries.Parametric.Brancies;
+using Application.CQRS.Queries.Parametric.GetColors;
 using Application.CQRS.Queries.Parametric.GetFuelTypes;
 using Application.JWT;
 using MediatR;
@@ -58,5 +59,27 @@ namespace WebApi.Controllers
                 return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
             }
         }
+
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetColors()
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetColorsQuery());
+                if (response == null || !response.Any())
+                {
+                    return NotFound(new { success = false, message = "Rəng tapılmadı." });
+                }
+
+                return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
     }
+}
 }
