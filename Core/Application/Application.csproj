@@ -26,8 +26,6 @@
 
   <ItemGroup>
     <Folder Include="CQRS\Commands\Car\DeleteCar\Dtos\" />
-    <Folder Include="CQRS\Commands\CostumersCarsMatrix\Delete\" />
-    <Folder Include="CQRS\Commands\CostumersCarsMatrix\Update\" />
   </ItemGroup>
 
 </Project>
