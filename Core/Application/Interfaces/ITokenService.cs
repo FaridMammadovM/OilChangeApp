@@ -1,6 +1,6 @@
-﻿using Domain.Entities;
-using System.IdentityModel.Tokens.Jwt;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Domain.Entities;
 
 namespace Application.Interfaces
 {

@@ -1,7 +1,7 @@
-﻿using Application.Interfaces.AutoMapper;
+﻿using System.Security.Claims;
+using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
 
 namespace Application.Bases
 {

@@ -1,6 +1,6 @@
-﻿using Domain.Common;
+﻿using System.Linq.Expressions;
+using Domain.Common;
 using Microsoft.EntityFrameworkCore.Query;
-using System.Linq.Expressions;
 
 namespace Application.Interfaces.Repositories.Generic
 {

@@ -1,6 +1,5 @@
 ﻿using Application.CQRS.Commands.Customer.AddCustomer;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
-using Application.CQRS.Queries.Car.GetAll;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
 using Application.CQRS.Queries.Customer.Login;
 using Application.CQRS.Queries.Customer.Login.Dto;
@@ -23,7 +22,7 @@ namespace WebApi.Controllers
 
 
         [HttpPost]
-       // [AtributteAuthenticator]
+        // [AtributteAuthenticator]
         public async Task<IActionResult> AddCustomer([FromBody] AddCustomerReqDto request)
         {
             try

@@ -1,10 +1,8 @@
-﻿using Application.CQRS.Queries.Parametric.GetFuelTypes.Dtos;
-using Application.CQRS.Queries.Parametric.GetFuelTypes;
+﻿using Application.CQRS.Queries.Parametric.GetColors.Dtos;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
-using Application.CQRS.Queries.Parametric.GetColors.Dtos;
 
 namespace Application.CQRS.Queries.Parametric.GetColors
 {

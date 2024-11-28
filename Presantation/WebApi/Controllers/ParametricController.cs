@@ -1,10 +1,8 @@
-﻿using Application.CQRS.Queries.Car.GetAll;
-using Application.CQRS.Queries.Parametric.Brancies;
+﻿using Application.CQRS.Queries.Parametric.Brancies;
 using Application.CQRS.Queries.Parametric.GetColors;
 using Application.CQRS.Queries.Parametric.GetFuelTypes;
 using Application.JWT;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -42,7 +40,7 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> GetFuelTypes() 
+        public async Task<IActionResult> GetFuelTypes()
         {
             try
             {

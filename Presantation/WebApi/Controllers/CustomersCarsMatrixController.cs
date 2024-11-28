@@ -1,10 +1,8 @@
-﻿using Application.CQRS.Commands.Car.AddCar.Dtos;
-using Application.CQRS.Commands.Car.AddCar;
+﻿using Application.CQRS.Commands.CostumersCarsMatrix.Add;
+using Application.CQRS.Commands.CostumersCarsMatrix.Add.Dtos;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Application.CQRS.Commands.CostumersCarsMatrix.Add.Dtos;
-using Application.CQRS.Commands.CostumersCarsMatrix.Add;
 
 namespace WebApi.Controllers
 {

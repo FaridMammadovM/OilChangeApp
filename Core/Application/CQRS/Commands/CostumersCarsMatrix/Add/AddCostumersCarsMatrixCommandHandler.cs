@@ -1,6 +1,4 @@
-﻿using Application.CQRS.Commands.Car.AddCar;
-using Application.CQRS.Commands.CostumersCarsMatrix.Add.Dtos;
-using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
+﻿using Application.CQRS.Commands.CostumersCarsMatrix.Add.Dtos;
 using Application.CQRS.Rules;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;

@@ -1,11 +1,11 @@
-﻿using Application.Bases;
+﻿using System.Globalization;
+using System.Reflection;
+using Application.Bases;
 using Application.Beheviors;
 using Application.Exceptions;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System.Globalization;
-using System.Reflection;
 
 namespace Application
 {

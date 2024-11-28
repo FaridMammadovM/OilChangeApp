@@ -1,8 +1,8 @@
-﻿using Application.Interfaces.Repositories.Generic;
+﻿using System.Linq.Expressions;
+using Application.Interfaces.Repositories.Generic;
 using Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using System.Linq.Expressions;
 
 namespace Persistence.Repositories
 {

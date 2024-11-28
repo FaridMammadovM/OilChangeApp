@@ -1,10 +1,8 @@
-﻿using Application.CQRS.Queries.Car.GetAll.Dtos;
-using Application.CQRS.Queries.Car.GetAll;
+﻿using Application.CQRS.Queries.Customer.GetAllCustomer.Dtos;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
-using Application.CQRS.Queries.Customer.GetAllCustomer.Dtos;
 
 namespace Application.CQRS.Queries.Customer.GetAllCustomer
 {
