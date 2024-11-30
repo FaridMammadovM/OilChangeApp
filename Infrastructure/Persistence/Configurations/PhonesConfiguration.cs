@@ -10,6 +10,14 @@ namespace Persistence.Configurations
         {
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Phone).HasMaxLength(20);
+
+            var phones = new[]
+          {
+                new Phones { Id = 1, Phone = "+994703305788", IsDeleted = false },  // Əhmədli filialı
+                new Phones { Id = 2, Phone = "+994702343134", IsDeleted = false },  // Yasamal filialı
+                new Phones { Id = 3, Phone = "+994707552322", IsDeleted = false },  // Sumqayıt filialı
+                new Phones { Id = 4, Phone = "+994077332322", IsDeleted = false }   // Bakıxanov filialı
+            };
         }
     }
 }

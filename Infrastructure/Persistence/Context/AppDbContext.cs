@@ -6,7 +6,6 @@ namespace Persistence.Context
 {
     public class AppDbContext : DbContext
     {
-
         public AppDbContext() { }
 
         public AppDbContext(DbContextOptions options) : base(options)
@@ -35,6 +34,9 @@ namespace Persistence.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+
+
         }
     }
 }

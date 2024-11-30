@@ -12,5 +12,11 @@ namespace Application.CQRS.Rules
             if (customers.Any(x => x.Phone == dto.Phone)) throw new CustomerFindPhoneException();
             return Task.CompletedTask;
         }
+
+        public Task FindRole(IList<Customers> customers, int id)
+        {
+            if (customers.Any(x => x.Id == id && x.RoleId == 2)) throw new CustomerFindPhoneException();
+            return Task.CompletedTask;
+        }
     }
 }
