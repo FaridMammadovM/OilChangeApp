@@ -4,6 +4,7 @@ using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace Application.CQRS.Commands.CostumersCarsMatrix.Add
 {
@@ -12,12 +13,14 @@ namespace Application.CQRS.Commands.CostumersCarsMatrix.Add
         private readonly IUnitOfWork _unitOfWork;
         private readonly CostumersCarsMatrixRules _rules;
         private readonly ICostumMapper _mapper;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AddCostumersCarsMatrixCommandHandler(IUnitOfWork unitOfWork, CostumersCarsMatrixRules rules, ICostumMapper mapper)
+        public AddCostumersCarsMatrixCommandHandler(IUnitOfWork unitOfWork, CostumersCarsMatrixRules rules, ICostumMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork = unitOfWork;
             _rules = rules;
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
         }
         public async Task<Unit> Handle(AddCostumersCarsMatrixCommand request, CancellationToken cancellationToken)
         {

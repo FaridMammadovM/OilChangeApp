@@ -27,7 +27,7 @@ namespace Application
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
             services.AddTransient<JWT.JwtHelper>();
-
+            services.AddHttpContextAccessor();
         }
 
 
