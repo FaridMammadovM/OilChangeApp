@@ -124,7 +124,7 @@ namespace Persistence.Configurations
                 new Cars { Id = 88, Model = "911", Brand = "Porsche", IsDeleted = false, InsertedDate = DateTime.Now },
                 new Cars { Id = 89, Model = "Cayenne", Brand = "Porsche", IsDeleted = false, InsertedDate = DateTime.Now }
 
-            };       
+            };
 
 
             builder.HasData(cars);

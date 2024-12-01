@@ -11,8 +11,8 @@ namespace Persistence.Configurations
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Phone).HasMaxLength(20);
 
-            builder.HasOne(x => x.Branchies)  
-                .WithMany(b => b.Phones)  
+            builder.HasOne(x => x.Branchies)
+                .WithMany(b => b.Phones)
                 .HasForeignKey(x => x.BranchId);
 
             var phones = new[]

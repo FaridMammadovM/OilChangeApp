@@ -16,7 +16,7 @@ namespace Persistence.Configurations
 
             builder.HasOne(x => x.CustomersCarsMatrix)
                 .WithMany(c => c.OilChanges)
-                .HasForeignKey(x => x.CustomersCarsMatrix);            
+                .HasForeignKey(x => x.CustomersCarsMatrix);
 
             builder.HasOne(x => x.Services)
                 .WithMany(s => s.OilChanges)
