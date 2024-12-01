@@ -7,7 +7,6 @@ namespace Domain.Entities
         public string Model { get; set; }
         public string Brand { get; set; }
         public ICollection<CustomersCarsMatrix> UsersCars { get; set; }
-        public ICollection<OilChanges> OilChanges { get; set; }
     }
 
 }

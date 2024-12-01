@@ -13,6 +13,8 @@ namespace Persistence.Configurations
             builder.Property(x => x.Surname).HasMaxLength(50);
             builder.Property(x => x.Password).HasMaxLength(100);
             builder.Property(x => x.Phone).HasMaxLength(20);
+            builder.Property(x => x.IsDeleted).HasDefaultValue(false);
+
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<OilChangeFiltersMatrix> builder)
         {
+            builder.Property(x => x.IsDeleted).HasDefaultValue(false);
+
             builder.Property(x => x.Id).IsRequired();
             builder.HasOne(x => x.OilChanges)
                 .WithMany(o => o.OilChangeFilters)

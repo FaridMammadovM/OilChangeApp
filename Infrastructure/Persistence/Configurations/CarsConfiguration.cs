@@ -11,6 +11,7 @@ namespace Persistence.Configurations
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Model).HasMaxLength(50);
             builder.Property(x => x.Brand).HasMaxLength(50);
+            builder.Property(x => x.IsDeleted).HasDefaultValue(false);
 
             var cars = new[]
             {

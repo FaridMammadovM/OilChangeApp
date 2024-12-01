@@ -15,6 +15,7 @@ namespace Domain.Entities
         public FuelTypes FuelType { get; set; }
         public Cars Cars { get; set; }
         public Customers Customers { get; set; }
+        public ICollection<OilChanges> OilChanges { get; set; }
 
     }
 }

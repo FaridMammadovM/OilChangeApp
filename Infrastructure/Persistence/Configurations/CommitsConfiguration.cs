@@ -10,6 +10,8 @@ namespace Persistence.Configurations
         {
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.CommitMessage).HasMaxLength(250);
+            builder.Property(x => x.IsDeleted).HasDefaultValue(false);
+
             //builder.HasOne(x => x.Users)
             //    .WithMany()
             //    .HasForeignKey(x => x.UserId);

@@ -10,13 +10,15 @@ namespace Persistence.Configurations
         {
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Name).HasMaxLength(50);
+            builder.Property(x => x.IsDeleted).HasDefaultValue(false);
+
 
             var filters = new[]
            {
-                new Filters { Id = 1, Name = "Yağ", IsDeleted = false },
-                new Filters { Id = 2, Name = "Hava", IsDeleted = false },
-                new Filters { Id = 3, Name = "Yanacaq", IsDeleted = false },
-                new Filters { Id = 4, Name = "Salon", IsDeleted = false }
+                new Filters { Id = 1, Name = "Yağ", IsDeleted = false, InsertedDate = DateTime.Now },
+                new Filters { Id = 2, Name = "Hava", IsDeleted = false, InsertedDate = DateTime.Now },
+                new Filters { Id = 3, Name = "Yanacaq", IsDeleted = false, InsertedDate = DateTime.Now },
+                new Filters { Id = 4, Name = "Salon", IsDeleted = false, InsertedDate = DateTime.Now }
             };
 
             builder.HasData(filters);

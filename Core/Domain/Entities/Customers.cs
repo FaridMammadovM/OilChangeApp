@@ -12,7 +12,6 @@ namespace Domain.Entities
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpiryTime { get; set; }
         public ICollection<Commits> Commits { get; set; }
-        public ICollection<OilChanges> OilChanges { get; set; }
         public ICollection<CustomersCarsMatrix> CustomersCars { get; set; }
         public Role Role { get; set; }
     }

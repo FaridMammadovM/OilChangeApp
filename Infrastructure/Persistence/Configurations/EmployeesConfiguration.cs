@@ -11,6 +11,8 @@ namespace Persistence.Configurations
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Name).HasMaxLength(50);
             builder.Property(x => x.Surname).HasMaxLength(50);
+            builder.Property(x => x.IsDeleted).HasDefaultValue(false);
+
         }
     }
 }

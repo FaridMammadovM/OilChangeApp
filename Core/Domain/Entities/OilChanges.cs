@@ -4,8 +4,7 @@ namespace Domain.Entities
 {
     public sealed class OilChanges : EntityBase
     {
-        public int CustumerId { get; set; }
-        public int CarId { get; set; }
+        public int CustomersCarsMatrixId { get; set; }
         public int ServiceId { get; set; }
         public int ProductId { get; set; }
         public int OilTypeId { get; set; }
@@ -17,13 +16,12 @@ namespace Domain.Entities
         public int BranchId { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
-        public Customers Customers { get; set; }
-        public Cars Cars { get; set; }
         public Services Services { get; set; }
         public Products Products { get; set; }
         public OilTypes OilTypes { get; set; }
         public Employees Employees { get; set; }
         public Branchies Branchies { get; set; }
+        public CustomersCarsMatrix CustomersCarsMatrix { get; set; }
         public ICollection<OilChangeFiltersMatrix> OilChangeFilters { get; set; }
     }
 }

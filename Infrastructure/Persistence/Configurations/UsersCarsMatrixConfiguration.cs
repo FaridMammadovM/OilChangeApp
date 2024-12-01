@@ -16,6 +16,10 @@ namespace Persistence.Configurations
             builder.HasOne(x => x.Customers)
                 .WithMany(c => c.CustomersCars)
                 .HasForeignKey(x => x.CustumerId);
+            builder.HasOne(c => c.Colors)
+                .WithMany(c => c.UsersCars)
+                .HasForeignKey(x => x.CarId);
+
         }
     }
 }

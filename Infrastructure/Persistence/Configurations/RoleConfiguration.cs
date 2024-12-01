@@ -13,8 +13,8 @@ namespace Persistence.Configurations
 
             var roles = new[]
             {
-                new Role { Id = 1, RoleName = "Costumer", IsDeleted = false },
-                new Role { Id = 2, RoleName = "Branch", IsDeleted = false }
+                new Role { Id = 1, RoleName = "Costumer", IsDeleted = false, InsertedDate = DateTime.Now },
+                new Role { Id = 2, RoleName = "Branch", IsDeleted = false, InsertedDate = DateTime.Now }
             };
 
             builder.HasData(roles);
