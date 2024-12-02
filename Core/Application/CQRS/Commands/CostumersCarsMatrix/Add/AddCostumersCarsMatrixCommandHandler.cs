@@ -1,4 +1,5 @@
-﻿using Application.CQRS.Commands.CostumersCarsMatrix.Add.Dtos;
+﻿using Application.Beheviors;
+using Application.CQRS.Commands.CostumersCarsMatrix.Add.Dtos;
 using Application.CQRS.Rules;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
@@ -24,10 +25,12 @@ namespace Application.CQRS.Commands.CostumersCarsMatrix.Add
         }
         public async Task<Unit> Handle(AddCostumersCarsMatrixCommand request, CancellationToken cancellationToken)
         {
-            IList<CustomersCarsMatrix> list = await _unitOfWork.GetReadRepository<CustomersCarsMatrix>().GetAllAsync();
+            int userId = OpenToken.FindId(_httpContextAccessor);
+
+            IList<CustomersCarsMatrix> list = await _unitOfWork.GetReadRepository<CustomersCarsMatrix>().GetAllAsync(c => c.IsDeleted == false);
             await _rules.MustNotBeSame(list, request.Request);
             CustomersCarsMatrix model = _mapper.Map<CustomersCarsMatrix, AddCostumersCarsMatrixReqDto>(request.Request);
-
+            model.InsertedBy = userId;
             await _unitOfWork.GetWriteRepository<CustomersCarsMatrix>().AddAsync(model);
             await _unitOfWork.SaveAsync();
             return Unit.Value;

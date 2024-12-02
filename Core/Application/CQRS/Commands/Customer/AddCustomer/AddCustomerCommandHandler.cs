@@ -39,11 +39,12 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
 
             await _customerRules.CustomerFindPhone(customersList, request.Request);
             await _customerRules.FindRole(customersList, userId);
+
             Customers customers = _mapper.Map<Customers, AddCustomerReqDto>(request.Request);
             customers.Password = _jwtHelper.HashPassword(request.Request.Password);
-
             customers.RefreshToken = _jwtHelper.GenerateRefreshToken();
             customers.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
+            customers.InsertedBy = userId;
 
             await _unitOfWork.GetWriteRepository<Customers>().AddAsync(customers);
             await _unitOfWork.SaveAsync();

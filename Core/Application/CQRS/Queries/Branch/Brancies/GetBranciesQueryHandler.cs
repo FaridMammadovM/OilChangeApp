@@ -1,10 +1,10 @@
-﻿using Application.CQRS.Queries.Parametric.Brancies.Dtos;
+﻿using Application.CQRS.Queries.Branch.Brancies.Dtos;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
 
-namespace Application.CQRS.Queries.Parametric.Brancies
+namespace Application.CQRS.Queries.Branch.Brancies
 {
     public sealed class GetBranciesQueryHandler : IRequestHandler<GetBranciesQuery, IList<GetBranchResDto>>
     {

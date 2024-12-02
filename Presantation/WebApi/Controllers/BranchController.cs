@@ -1,5 +1,5 @@
-﻿using Application.CQRS.Queries.Parametric.GetColors;
-using Application.CQRS.Queries.Parametric.GetFuelTypes;
+﻿using Application.CQRS.Queries.Branch.Brancies;
+using Application.CQRS.Queries.Branch.GetById;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -8,24 +8,24 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class ParametricController : ControllerBase
+    public class BranchController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public ParametricController(IMediator mediator)
+        public BranchController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> GetFuelTypes()
+        public async Task<IActionResult> GetBranch()
         {
             try
             {
-                var response = await _mediator.Send(new GetFuelTypesQuery());
+                var response = await _mediator.Send(new GetBranciesQuery());
                 if (response == null || !response.Any())
                 {
-                    return NotFound(new { success = false, message = "Mühərrik tapılmadı." });
+                    return NotFound(new { success = false, message = "Filal tapılmadı." });
                 }
 
                 return Ok(new { success = true, data = response });
@@ -36,17 +36,16 @@ namespace WebApi.Controllers
             }
         }
 
-
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> GetColors()
+        public async Task<IActionResult> GetBranchById(int id)
         {
             try
             {
-                var response = await _mediator.Send(new GetColorsQuery());
-                if (response == null || !response.Any())
+                var response = await _mediator.Send(new GetBranchByIdQuery() { Id = id });
+                if (response == null)
                 {
-                    return NotFound(new { success = false, message = "Rəng tapılmadı." });
+                    return NotFound(new { success = false, message = "Filal tapılmadı." });
                 }
 
                 return Ok(new { success = true, data = response });
@@ -58,4 +57,3 @@ namespace WebApi.Controllers
         }
     }
 }
-

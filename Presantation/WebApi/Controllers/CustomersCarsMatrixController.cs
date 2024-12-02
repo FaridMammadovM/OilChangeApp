@@ -1,5 +1,6 @@
 ﻿using Application.CQRS.Commands.CostumersCarsMatrix.Add;
 using Application.CQRS.Commands.CostumersCarsMatrix.Add.Dtos;
+using Application.CQRS.Queries.CostumersCarsMatrix.GetCostumersCarsMatrixId;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -33,10 +34,32 @@ namespace WebApi.Controllers
 
                 if (result == null)
                 {
-                    return BadRequest(new { success = false, message = "Maşın əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                    return BadRequest(new { success = false, message = "Müştəriyэ uyğun maşın əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
                 }
 
                 return Ok(new { success = true, message = "Maşın uğurla əlavə edildi." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetCostumersCarsWithPhone(string phone)
+        {
+            try
+            {
+                GetCostumersCarsMatrixIdQuery query = new GetCostumersCarsMatrixIdQuery() { Phone = phone };
+                var response = await _mediator.Send(query);
+
+                if (response == null || !response.Any())
+                {
+                    return NotFound(new { success = false, message = "Müştəriyэ uyğun maşın tapılmadı." });
+                }
+
+                return Ok(new { success = true, data = response });
             }
             catch (Exception ex)
             {

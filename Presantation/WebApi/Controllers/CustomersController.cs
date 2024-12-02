@@ -1,6 +1,8 @@
 ﻿using Application.CQRS.Commands.Customer.AddCustomer;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
+using Application.CQRS.Queries.Branch.GetById;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
+using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.Customer.Login;
 using Application.CQRS.Queries.Customer.Login.Dto;
 using Application.JWT;
@@ -22,7 +24,7 @@ namespace WebApi.Controllers
 
 
         [HttpPost]
-        // [AtributteAuthenticator]
+        //[AtributteAuthenticator]
         public async Task<IActionResult> AddCustomer([FromBody] AddCustomerReqDto request)
         {
             try
@@ -87,6 +89,26 @@ namespace WebApi.Controllers
             catch (UnauthorizedAccessException)
             {
                 return Unauthorized(new { success = false, message = "Giriş məlumatları düzgün deyil." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetCustomerById(string phone)
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetCustomerByIdQuery() { Phone = phone });
+                if (response == null)
+                {
+                    return NotFound(new { success = false, message = "Müştəri tapılmadı." });
+                }
+
+                return Ok(new { success = true, data = response });
             }
             catch (Exception ex)
             {

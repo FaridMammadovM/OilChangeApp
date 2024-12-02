@@ -9,7 +9,8 @@ namespace Application.CQRS.Rules
     {
         public Task MustNotBeSame(IList<CustomersCarsMatrix> model, AddCostumersCarsMatrixReqDto request)
         {
-            if (model.Any(x => x.CarId == request.CarId && x.CustumerId == request.CostumerId)) throw new CustomersCarsMatrixException();
+            if (model.Any(x => x.CarNumber == request.CarNumber))
+                throw new CustomersCarsMatrixException();
             return Task.CompletedTask;
         }
     }

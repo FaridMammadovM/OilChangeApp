@@ -2,12 +2,12 @@
 {
     public sealed class AddCostumersCarsMatrixReqDto
     {
-        public int CostumerId { get; set; }
         public int CarId { get; set; }
+        public int CustomerId { get; set; }
         public string CarNumber { get; set; }
         public decimal? Motor { get; set; }
         public int? Year { get; set; }
-        public int? ColorId { get; set; }
+        public int? ColorsId { get; set; }
         public int? FuelTypeId { get; set; }
         internal int? InsertedBy { get; set; }
     }

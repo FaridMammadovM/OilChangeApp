@@ -16,7 +16,7 @@ namespace Application.CQRS.Rules
 
         public Task FindRole(IList<Customers> customers, int id)
         {
-            if (customers.Any(x => x.Id == id && x.RoleId == 2))
+            if (!customers.Any(x => x.Id == id && x.RoleId == 2))
                 throw new ValidationException("Sizin icazəniz yoxdur!");
             return Task.CompletedTask;
         }

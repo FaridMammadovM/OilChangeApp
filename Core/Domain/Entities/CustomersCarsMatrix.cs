@@ -5,7 +5,7 @@ namespace Domain.Entities
     public sealed class CustomersCarsMatrix : EntityBase
     {
         public int CarId { get; set; }
-        public int CustumerId { get; set; }
+        public int CustomerId { get; set; }
         public string CarNumber { get; set; }
         public decimal? Motor { get; set; }
         public int? Year { get; set; }
