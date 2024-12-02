@@ -16,12 +16,15 @@ namespace Persistence.Configurations
                 .HasForeignKey(x => x.BranchId);
 
             var phones = new[]
-          {
-                new Phones { Id = 1, Phone = "+994703305788", IsDeleted = false, InsertedDate = DateTime.Now },  // Əhmədli filialı
-                new Phones { Id = 2, Phone = "+994702343134", IsDeleted = false, InsertedDate = DateTime.Now },  // Yasamal filialı
-                new Phones { Id = 3, Phone = "+994707552322", IsDeleted = false, InsertedDate = DateTime.Now },  // Sumqayıt filialı
-                new Phones { Id = 4, Phone = "+994077332322", IsDeleted = false, InsertedDate = DateTime.Now }   // Bakıxanov filialı
+            {
+                new Phones { Id = 1, Phone = "+994703305788", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },  // Əhmədli filialı
+                new Phones { Id = 2, Phone = "+994702343134", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },  // Yasamal filialı
+                new Phones { Id = 3, Phone = "+994707552322", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },  // Sumqayıt filialı
+                new Phones { Id = 4, Phone = "+994077332322", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 }   // Bakıxanov filialı
             };
+
+            builder.HasData(phones);
+
         }
     }
 }

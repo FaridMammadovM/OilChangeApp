@@ -10,6 +10,14 @@ namespace Persistence.Configurations
         {
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Name).HasMaxLength(100);
+
+            var products = new[]
+        {
+                new Products { Id = 1, Name = "Elf", IsDeleted = false, InsertedDate = DateTime.Now },
+             
+            };
+
+            builder.HasData(products);
         }
     }
 }
