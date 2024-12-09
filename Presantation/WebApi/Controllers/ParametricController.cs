@@ -1,5 +1,6 @@
 ﻿using Application.CQRS.Queries.Parametric.GetColors;
 using Application.CQRS.Queries.Parametric.GetFuelTypes;
+using Application.CQRS.Queries.Parametric.GetServices;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +48,26 @@ namespace WebApi.Controllers
                 if (response == null || !response.Any())
                 {
                     return NotFound(new { success = false, message = "Rəng tapılmadı." });
+                }
+
+                return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetServices()
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetServicesQuery());
+                if (response == null || !response.Any())
+                {
+                    return NotFound(new { success = false, message = "Xidmətlər tapılmadı." });
                 }
 
                 return Ok(new { success = true, data = response });

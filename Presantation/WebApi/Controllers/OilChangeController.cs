@@ -1,6 +1,6 @@
-﻿using Application.CQRS.Commands.CostumersCarsMatrix.Add;
-using Application.CQRS.Commands.CostumersCarsMatrix.Add.Dtos;
-using Application.CQRS.Queries.CostumersCarsMatrix.GetCostumersCarsMatrixId;
+﻿using Application.CQRS.Commands.OilChange.AddOilChange;
+using Application.CQRS.Commands.OilChange.AddOilChange.Dto;
+using Application.CQRS.Queries.OilChange.GetAllOilChanges;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -9,18 +9,17 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class CustomersCarsMatrixController : ControllerBase
+    public class OilChangeController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public CustomersCarsMatrixController(IMediator mediator)
+        public OilChangeController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
-
         [HttpPost]
         [AtributteAuthenticator]
-        public async Task<IActionResult> AddCostumersCarsMatrix([FromBody] AddCostumersCarsMatrixReqDto request)
+        public async Task<IActionResult> AddOilChange([FromBody] AddOilChangesReqDto request)
         {
             try
             {
@@ -29,15 +28,15 @@ namespace WebApi.Controllers
                     return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
                 }
 
-                AddCostumersCarsMatrixCommand command = new AddCostumersCarsMatrixCommand() { Request = request };
+                AddOilChangesCommand command = new AddOilChangesCommand() { Request = request };
                 var result = await _mediator.Send(command);
 
                 if (result == null)
                 {
-                    return BadRequest(new { success = false, message = "Müştəriyэ uyğun maşın əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                    return BadRequest(new { success = false, message = "Xidmətlər əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
                 }
 
-                return Ok(new { success = true, message = "Maşın uğurla əlavə edildi." });
+                return Ok(new { success = true, message = "Xidmətlər uğurla əlavə edildi." });
             }
             catch (Exception ex)
             {
@@ -47,16 +46,16 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> GetCostumersCarsWithPhone(string phone)
+        public async Task<IActionResult> AddOilChanges(int customersCarsMatrixId)
         {
             try
             {
-                GetCostumersCarsMatrixIdQuery query = new GetCostumersCarsMatrixIdQuery() { Phone = phone };
+                GetAllOilChangesQuery query = new GetAllOilChangesQuery() { CustomersCarsMatrixId = customersCarsMatrixId };
                 var response = await _mediator.Send(query);
 
                 if (response == null || !response.Any())
                 {
-                    return NotFound(new { success = false, message = "Müştəriyə uyğun maşın tapılmadı." });
+                    return NotFound(new { success = false, message = "Müştəriyə uyğun xidmet tapılmadı." });
                 }
 
                 return Ok(new { success = true, data = response });

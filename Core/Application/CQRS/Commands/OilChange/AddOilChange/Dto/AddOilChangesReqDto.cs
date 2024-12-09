@@ -1,8 +1,6 @@
-﻿using Domain.Common;
-
-namespace Domain.Entities
+﻿namespace Application.CQRS.Commands.OilChange.AddOilChange.Dto
 {
-    public sealed class OilChanges : EntityBase
+    public class AddOilChangesReqDto
     {
         public int CustomersCarsMatrixId { get; set; }
         public int ServiceId { get; set; }
@@ -15,12 +13,5 @@ namespace Domain.Entities
         public int BranchId { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
-        public Services Services { get; set; }
-        public Products Products { get; set; }
-        public OilTypes OilTypes { get; set; }
-        public Employees Employees { get; set; }
-        public Branchies Branchies { get; set; }
-        public CustomersCarsMatrix CustomersCarsMatrix { get; set; }
-        public ICollection<OilChangeFiltersMatrix> OilChangeFilters { get; set; }
     }
 }

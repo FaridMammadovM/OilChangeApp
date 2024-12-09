@@ -1,10 +1,8 @@
-﻿using Application.CQRS.Queries.Branch.GetById.Dtos;
-using Application.CQRS.Queries.Branch.GetById;
+﻿using Application.CQRS.Queries.Customer.GetCustomerById.Dtos;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
-using Application.CQRS.Queries.Customer.GetCustomerById.Dtos;
 
 namespace Application.CQRS.Queries.Customer.GetCustomerById
 {

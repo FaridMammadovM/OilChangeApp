@@ -14,7 +14,7 @@ namespace Persistence.Configurations
             var products = new[]
         {
                 new Products { Id = 1, Name = "Elf", IsDeleted = false, InsertedDate = DateTime.Now },
-             
+
             };
 
             builder.HasData(products);

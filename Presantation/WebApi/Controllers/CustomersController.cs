@@ -1,6 +1,5 @@
 ﻿using Application.CQRS.Commands.Customer.AddCustomer;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
-using Application.CQRS.Queries.Branch.GetById;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
 using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.Customer.Login;

@@ -1,5 +1,4 @@
-﻿using Application.CQRS.Queries.Branch.Brancies.Dtos;
-using Application.CQRS.Queries.Branch.GetById.Dtos;
+﻿using Application.CQRS.Queries.Branch.GetById.Dtos;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;

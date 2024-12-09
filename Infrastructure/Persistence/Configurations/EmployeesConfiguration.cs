@@ -13,6 +13,12 @@ namespace Persistence.Configurations
             builder.Property(x => x.Surname).HasMaxLength(50);
             builder.Property(x => x.IsDeleted).HasDefaultValue(false);
 
+            var employee = new[]
+            {
+                new Employees { Id = 1, Name = "Master Employee", Surname = "Master", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 }
+            };
+
+            builder.HasData(employee);
         }
     }
 }

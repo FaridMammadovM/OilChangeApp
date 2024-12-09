@@ -10,6 +10,14 @@ namespace Persistence.Configurations
         {
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Name).HasMaxLength(50);
+
+
+            var oilTypes = new[]
+            {
+                new OilTypes { Id = 1, Name = "5-30", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 }
+            };
+
+            builder.HasData(oilTypes);
         }
     }
 }
