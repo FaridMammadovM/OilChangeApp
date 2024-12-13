@@ -1,5 +1,7 @@
 ﻿using Application.CQRS.Commands.Customer.AddCustomer;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
+using Application.CQRS.Commands.Customer.ChangePassword;
+using Application.CQRS.Commands.Customer.ChangePassword.Dtos;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
 using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.Customer.Login;
@@ -108,6 +110,32 @@ namespace WebApi.Controllers
                 }
 
                 return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpPost]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordReqDto request)
+        {
+            try
+            {
+                var command = new ChangePasswordCommand { Request = request };
+                var result = await _mediator.Send(command);
+
+                if (result != null)
+                {
+                    return Ok(new { success = true, message = "Password uğurla əlavə edildi.", data = result });
+                }
+
+                return BadRequest(new { success = false, message = "Password əlavə edilə bilmədi." });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
             }
             catch (Exception ex)
             {

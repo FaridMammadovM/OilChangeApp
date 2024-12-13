@@ -20,5 +20,12 @@ namespace Application.CQRS.Rules
                 throw new ValidationException("Sizin icazəniz yoxdur!");
             return Task.CompletedTask;
         }
+
+        public Task ChangePasswordWithAdmin(int roleId)
+        {
+            if (roleId == 2)
+                throw new ValidationException("Sizin icazəniz yoxdur!");
+            return Task.CompletedTask;
+        }
     }
 }
