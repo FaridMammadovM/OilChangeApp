@@ -130,8 +130,10 @@ namespace WebApi.Controllers
                 {
                     return Ok(new { success = true, message = "Password uğurla əlavə edildi.", data = result });
                 }
-
-                return BadRequest(new { success = false, message = "Password əlavə edilə bilmədi." });
+                else
+                {
+                    return BadRequest(new { success = false, message = "Password əlavə edilə bilmədi." });
+                }
             }
             catch (UnauthorizedAccessException)
             {
