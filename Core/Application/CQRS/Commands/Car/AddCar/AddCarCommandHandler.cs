@@ -16,7 +16,7 @@ namespace Application.CQRS.Commands.Car.AddCar
         }
         public async Task<Unit> Handle(AddCarCommand request, CancellationToken cancellationToken)
         {
-            IList<Cars> carList = await _unitOfWork.GetReadRepository<Cars>().GetAllAsync();
+            IList<Cars> carList = await _unitOfWork.GetReadRepository<Cars>().GetAllAsync(w => w.IsDeleted == false);
             await _carRules.CarMustNotBeSame(carList, request.Request.Brand, request.Request.Model);
             Cars cars = new Cars();
             cars.Brand = request.Request.Brand;

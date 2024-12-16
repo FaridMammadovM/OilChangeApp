@@ -1,6 +1,9 @@
-﻿namespace Application.CQRS.Commands.CostumersCarsMatrix.Delete
+﻿using MediatR;
+
+namespace Application.CQRS.Commands.CostumersCarsMatrix.Delete
 {
-    public class DeleteCostumersCarsMatrixCommand
+    public class DeleteCostumersCarsMatrixCommand : IRequest<Unit>
     {
+        public int Id { get; set; }
     }
 }

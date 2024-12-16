@@ -1,6 +1,8 @@
 ﻿using Application.CQRS.Commands.Car.AddCar;
 using Application.CQRS.Commands.Car.AddCar.Dtos;
 using Application.CQRS.Commands.Car.DeleteCar;
+using Application.CQRS.Commands.Car.UpdateCar;
+using Application.CQRS.Commands.Car.UpdateCar.Dtos;
 using Application.CQRS.Queries.Car.GetAll;
 using Application.CQRS.Queries.Car.GetByİd;
 using Application.JWT;
@@ -113,7 +115,7 @@ namespace WebApi.Controllers
         /// <returns></returns>
         [HttpPost]
         [AtributteAuthenticator]
-        public async Task<IActionResult> UpdateCar([FromBody] AddCarReqDto request)
+        public async Task<IActionResult> UpdateCar([FromBody] UpdateCarReqDto request)
         {
             try
             {
@@ -122,7 +124,7 @@ namespace WebApi.Controllers
                     return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
                 }
 
-                AddCarCommand command = new AddCarCommand() { Request = request };
+                UpdateCarCommand command = new UpdateCarCommand() { Request = request };
                 var result = await _mediator.Send(command);
 
                 if (result == null)

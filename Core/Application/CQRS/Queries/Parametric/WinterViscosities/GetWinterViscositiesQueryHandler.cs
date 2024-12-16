@@ -18,7 +18,7 @@ namespace Application.CQRS.Queries.Parametric.WinterViscosities
         }
         public async Task<IList<WinterViscositiesDto>> Handle(GetWinterViscositiesQuery request, CancellationToken cancellationToken)
         {
-            var model = await _unitOfWork.GetReadRepository<WinterViscosity>().GetAllAsync(car => car.IsDeleted == false);
+            var model = await _unitOfWork.GetReadRepository<WinterViscosity>().GetAllAsync(m => m.IsDeleted == false && m.IsBrakeFluidChanged == false);
             return _mapper.Map<WinterViscositiesDto, WinterViscosity>(model);
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Application.CQRS.Commands.CostumersCarsMatrix.Update
 {
-    public class UpdateCostumersCarsMatrixCommand
+    public sealed class UpdateCustomersCarsMatrixCommandHandler
     {
     }
 }
