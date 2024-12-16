@@ -22,7 +22,8 @@ namespace Persistence.Context
         public DbSet<FuelTypes> FuelTypes { get; set; }
         public DbSet<OilChangeFiltersMatrix> OilChangeFiltersMatrix { get; set; }
         public DbSet<OilChanges> OilChanges { get; set; }
-        public DbSet<OilTypes> OilTypes { get; set; }
+        public DbSet<SAEViscosity> SAEViscosities { get; set; }
+        public DbSet<WinterViscosity> WinterViscosities { get; set; }
         public DbSet<Phones> Phones { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Products> Products { get; set; }

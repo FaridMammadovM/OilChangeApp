@@ -1,10 +1,8 @@
-﻿using Application.CQRS.Queries.OilChange.GetAllOilChanges.Dtos;
-using Application.CQRS.Queries.OilChange.GetAllOilChanges;
+﻿using Application.CQRS.Queries.OilChange.GetByIdOilChanges.Dto;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
-using Application.CQRS.Queries.OilChange.GetByIdOilChanges.Dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
@@ -26,7 +24,7 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             include: query => query.Include(c => c.Services)
             );
 
-            var oilChangesResDtoList = _mapper.Map<GetByIdOilChangesResDto, OilChanges>(oilChangesList);          
+            var oilChangesResDtoList = _mapper.Map<GetByIdOilChangesResDto, OilChanges>(oilChangesList);
 
             return oilChangesResDtoList;
         }

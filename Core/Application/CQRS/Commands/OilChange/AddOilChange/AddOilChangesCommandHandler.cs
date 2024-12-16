@@ -30,7 +30,6 @@ namespace Application.CQRS.Commands.OilChange.AddOilChange
                 int userId = OpenToken.FindId(_httpContextAccessor);
                 /// IList<OilChanges> carList = await _unitOfWork.GetReadRepository<OilChanges>().GetAllAsync();
                 // await _carRules.CarMustNotBeSame(carList, request.Request.Brand, request.Request.Model);
-                Cars cars = new Cars();
                 OilChanges oilChanges = _mapper.Map<OilChanges, AddOilChangesReqDto>(request.Request);
                 oilChanges.InsertedBy = userId;
                 await _unitOfWork.GetWriteRepository<OilChanges>().AddAsync(oilChanges);

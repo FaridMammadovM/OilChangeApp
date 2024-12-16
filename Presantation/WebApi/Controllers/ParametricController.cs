@@ -1,5 +1,7 @@
 ﻿using Application.CQRS.Queries.Parametric.GetColors;
+using Application.CQRS.Queries.Parametric.GetFilters;
 using Application.CQRS.Queries.Parametric.GetFuelTypes;
+using Application.CQRS.Queries.Parametric.GetProducts;
 using Application.CQRS.Queries.Parametric.GetServices;
 using Application.JWT;
 using MediatR;
@@ -77,6 +79,47 @@ namespace WebApi.Controllers
                 return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
             }
         }
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetProducts()
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetProductsQuery());
+                if (response == null || !response.Any())
+                {
+                    return NotFound(new { success = false, message = "Məhsul tapılmadı." });
+                }
+
+                return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetFilters()
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetFiltersQuery());
+                if (response == null || !response.Any())
+                {
+                    return NotFound(new { success = false, message = "Filter tapılmadı." });
+                }
+
+                return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
     }
 }
 

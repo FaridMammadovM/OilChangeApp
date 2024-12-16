@@ -16,7 +16,12 @@ namespace Persistence.Configurations
             var services = new[]
             {
                 new Services { Id = 1, Name = "Sürətlər qutusu yağ dəyişmə", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
-                new Services { Id = 2, Name = "Mühərrik yağ dəyişmə", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 }
+                new Services { Id = 2, Name = "Mühərrik yağ dəyişmə", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+                new Services { Id = 3, Name = "Antifiriz dəyişmə", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+                new Services { Id = 4, Name = "Əyləc mayesi dəyişmə", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+                new Services { Id = 5, Name = "Arxa körpü", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+                new Services { Id = 6, Name = "Ön körpü", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+                new Services { Id = 7, Name = "Diferensial (Razdatka)", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 }
 
             };
 

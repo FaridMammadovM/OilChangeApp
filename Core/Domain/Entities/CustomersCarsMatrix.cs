@@ -11,6 +11,7 @@ namespace Domain.Entities
         public int? Year { get; set; }
         public int? ColorsId { get; set; }
         public int? FuelTypeId { get; set; }
+        public string Description { get; set; }
         public Colors Colors { get; set; }
         public FuelTypes FuelType { get; set; }
         public Cars Cars { get; set; }

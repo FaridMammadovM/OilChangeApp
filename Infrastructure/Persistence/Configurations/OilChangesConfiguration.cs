@@ -26,9 +26,13 @@ namespace Persistence.Configurations
                 .WithMany(p => p.OilChanges)
                 .HasForeignKey(x => x.ProductId);
 
-            builder.HasOne(x => x.OilTypes)
+            builder.HasOne(x => x.WinterViscosity)
                 .WithMany(o => o.OilChanges)
-                .HasForeignKey(x => x.OilTypeId);
+                .HasForeignKey(x => x.WinterViscosityId);
+
+            builder.HasOne(x => x.SAEViscosity)
+                .WithMany(o => o.OilChanges)
+                .HasForeignKey(x => x.SAEViscosityId);
 
             builder.HasOne(x => x.Employees)
                 .WithMany(e => e.OilChanges)

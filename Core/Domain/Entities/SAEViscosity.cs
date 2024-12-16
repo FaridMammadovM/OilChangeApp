@@ -2,10 +2,9 @@
 
 namespace Domain.Entities
 {
-    public sealed class OilTypes : EntityBase
+    public sealed class SAEViscosity : EntityBase
     {
-        public string Name { get; set; }
+        public int Grade { get; set; }
         public ICollection<OilChanges> OilChanges { get; set; }
-
     }
 }

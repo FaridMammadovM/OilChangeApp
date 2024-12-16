@@ -9,6 +9,7 @@
         public int? Year { get; set; }
         public int? ColorsId { get; set; }
         public int? FuelTypeId { get; set; }
+        public string Description { get; set; }
         internal int? InsertedBy { get; set; }
     }
 }

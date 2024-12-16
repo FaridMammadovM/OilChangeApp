@@ -20,8 +20,7 @@ namespace Persistence.Configurations
                 new FuelTypes { Id = 3, Name = "Dizel", IsDeleted = false, InsertedDate = DateTime.Now },
                 new FuelTypes { Id = 4, Name = "Elektro", IsDeleted = false, InsertedDate = DateTime.Now },
                 new FuelTypes { Id = 5, Name = "Hybrid", IsDeleted = false , InsertedDate = DateTime.Now},
-                new FuelTypes { Id = 6, Name = "Plug-in Hybrid", IsDeleted = false, InsertedDate = DateTime.Now },
-                new FuelTypes { Id = 7, Name = "Hidrogen", IsDeleted = false, InsertedDate = DateTime.Now }
+                new FuelTypes { Id = 6, Name = "Plug-in Hybrid", IsDeleted = false, InsertedDate = DateTime.Now }
             };
 
             builder.HasData(fuelTypes);
