@@ -28,7 +28,7 @@ namespace Application.CQRS.Commands.CostumersCarsMatrix.Add
             int userId = OpenToken.FindId(_httpContextAccessor);
 
             IList<CustomersCarsMatrix> list = await _unitOfWork.GetReadRepository<CustomersCarsMatrix>().GetAllAsync(c => c.IsDeleted == false);
-            await _rules.MustNotBeSame(list, request.Request);
+            await _rules.MustNotBeSame(list, request.Request.CarNumber);
             CustomersCarsMatrix model = _mapper.Map<CustomersCarsMatrix, AddCostumersCarsMatrixReqDto>(request.Request);
             model.InsertedBy = userId;
             await _unitOfWork.GetWriteRepository<CustomersCarsMatrix>().AddAsync(model);
