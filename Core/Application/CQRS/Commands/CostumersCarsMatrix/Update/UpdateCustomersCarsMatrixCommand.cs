@@ -5,6 +5,6 @@ namespace Application.CQRS.Commands.CostumersCarsMatrix.Update
 {
     public class UpdateCustomersCarsMatrixCommand : IRequest<Unit>
     {
-        public UpdateCustomersCarsMatrixCommandReqDto Request { get; set; }
+        public UpdateCustomersCarsMatrixReqDto Request { get; set; }
     }
 }

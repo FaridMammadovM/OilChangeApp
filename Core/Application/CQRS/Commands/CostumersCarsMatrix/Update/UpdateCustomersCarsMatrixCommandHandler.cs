@@ -1,5 +1,4 @@
 ﻿using Application.Beheviors;
-using Application.CQRS.Commands.CostumersCarsMatrix.Update.Dtos;
 using Application.CQRS.Rules;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
@@ -30,7 +29,7 @@ namespace Application.CQRS.Commands.CostumersCarsMatrix.Update
             IList<CustomersCarsMatrix> list = await _unitOfWork.GetReadRepository<CustomersCarsMatrix>().GetAllAsync(c => c.IsDeleted == false && c.Id == request.Request.Id);
             await _rules.MustNotBeSame(list, request.Request.CarNumber);
 
-            CustomersCarsMatrix modelMap = _mapper.Map<CustomersCarsMatrix, UpdateCustomersCarsMatrixCommandReqDto>(request.Request);
+            CustomersCarsMatrix modelMap = _mapper.Map<CustomersCarsMatrix, Dtos.UpdateCustomersCarsMatrixReqDto>(request.Request);
             modelMap.InsertedBy = userId;
 
             await _unitOfWork.GetWriteRepository<CustomersCarsMatrix>().UpdateAsync(modelMap);

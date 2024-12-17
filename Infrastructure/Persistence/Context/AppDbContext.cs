@@ -29,6 +29,7 @@ namespace Persistence.Context
         public DbSet<Products> Products { get; set; }
         public DbSet<Services> Services { get; set; }
         public DbSet<CustomersCarsMatrix> CustomersCarsMatrix { get; set; }
+        public DbSet<Motor> Motors { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
