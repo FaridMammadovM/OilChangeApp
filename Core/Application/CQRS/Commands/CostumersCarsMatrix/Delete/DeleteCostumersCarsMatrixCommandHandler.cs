@@ -16,9 +16,9 @@ namespace Application.CQRS.Commands.CostumersCarsMatrix.Delete
         }
         public async Task<Unit> Handle(DeleteCostumersCarsMatrixCommand request, CancellationToken cancellationToken)
         {
-            var model = await _unitOfWork.GetReadRepository<Customers>().GetAsync(c => c.Id == request.Id && c.IsDeleted == false);
+            var model = await _unitOfWork.GetReadRepository<CustomersCarsMatrix>().GetAsync(c => c.Id == request.Id && c.IsDeleted == false);
             model.IsDeleted = true;
-            await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(model);
+            await _unitOfWork.GetWriteRepository<CustomersCarsMatrix>().UpdateAsync(model);
             await _unitOfWork.SaveAsync();
             return Unit.Value;
         }

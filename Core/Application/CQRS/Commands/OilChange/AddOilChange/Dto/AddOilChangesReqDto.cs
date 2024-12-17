@@ -18,7 +18,7 @@ namespace Application.CQRS.Commands.OilChange.AddOilChange.Dto
         public decimal OilVolume { get; set; }
         public bool OilOwn { get; set; } = false;
         public string OilCode { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; }     
         public ICollection<OilChangeFiltersMatrix> OilChangeFilters { get; set; }
 
     }

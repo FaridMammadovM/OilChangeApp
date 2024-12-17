@@ -9,7 +9,7 @@ namespace Persistence.Configurations
         public void Configure(EntityTypeBuilder<CustomersCarsMatrix> builder)
         {
             builder.Property(x => x.Id).IsRequired();
-            builder.Property(x => x.CarNumber).HasMaxLength(8);
+            builder.Property(x => x.CarNumber).HasMaxLength(20);
 
 
             builder.HasOne(x => x.Cars)

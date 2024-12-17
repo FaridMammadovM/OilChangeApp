@@ -39,7 +39,7 @@ namespace Application.CQRS.Queries.Customer.Login
             {
                 refreshToken = _jwtHelper.GenerateRefreshToken();
                 customer.RefreshToken = refreshToken;
-                customer.RefreshTokenExpiryTime = DateTime.UtcNow.AddMinutes(60);
+                customer.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
                 await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(customer);
                 await _unitOfWork.SaveAsync();
             }
