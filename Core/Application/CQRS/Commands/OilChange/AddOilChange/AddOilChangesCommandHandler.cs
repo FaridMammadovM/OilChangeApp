@@ -25,22 +25,34 @@ namespace Application.CQRS.Commands.OilChange.AddOilChange
         }
         public async Task<Unit> Handle(AddOilChangesCommand request, CancellationToken cancellationToken)
         {
-            try
-            {
-                int userId = OpenToken.FindId(_httpContextAccessor);
-                /// IList<OilChanges> carList = await _unitOfWork.GetReadRepository<OilChanges>().GetAllAsync();
-                // await _carRules.CarMustNotBeSame(carList, request.Request.Brand, request.Request.Model);
-                OilChanges oilChanges = _mapper.Map<OilChanges, AddOilChangesReqDto>(request.Request);
-                oilChanges.InsertedBy = userId;
-                await _unitOfWork.GetWriteRepository<OilChanges>().AddAsync(oilChanges);
-                await _unitOfWork.SaveAsync();
-                return Unit.Value;
-            }
-            catch (Exception ex)
-            {
+            int userId = OpenToken.FindId(_httpContextAccessor);
 
-                throw;
+            OilChanges oilChanges = _mapper.Map<OilChanges, AddOilChangesReqDto>(request.Request);
+
+            oilChanges.InsertedBy = userId;
+            await _unitOfWork.GetWriteRepository<OilChanges>().AddAsync(oilChanges);
+            await _unitOfWork.SaveAsync();
+
+            List<OilChangeFiltersMatrix> filters = new List<OilChangeFiltersMatrix>();
+
+
+            for (int i = 0; i < request.Request.Filters.Count; i++)
+            {
+                OilChangeFiltersMatrix oilchange = new OilChangeFiltersMatrix();
+                oilchange.FiltersId = request.Request.Filters[i].FiltersId;
+                oilchange.FilterOwn = request.Request.Filters[i].FilterOwn;
+                oilchange.FilterCode = request.Request.Filters[i].FilterCode;
+                oilchange.OilChangesId = oilChanges.Id;
+                oilchange.InsertedBy = userId;
+
+                filters.Add(oilchange);
             }
+
+            await _unitOfWork.GetWriteRepository<OilChangeFiltersMatrix>().AddRangeAsync(filters);
+            await _unitOfWork.SaveAsync();
+
+            return Unit.Value;
+
 
         }
     }

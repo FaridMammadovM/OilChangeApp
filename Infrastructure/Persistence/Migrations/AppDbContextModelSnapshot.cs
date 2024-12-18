@@ -64,7 +64,7 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             Address = "General Şixlinski küçəsi,264 saylı məktəbin yanı",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(6157),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 627, DateTimeKind.Local).AddTicks(8115),
                             IsDeleted = false,
                             Name = "Əhmədli filialı"
                         },
@@ -72,7 +72,7 @@ namespace Persistence.Migrations
                         {
                             Id = 2,
                             Address = "Şeyx Məhəmməd Xiyabani 51",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(6160),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 627, DateTimeKind.Local).AddTicks(8117),
                             IsDeleted = false,
                             Name = "Yasamal filialı"
                         },
@@ -80,7 +80,7 @@ namespace Persistence.Migrations
                         {
                             Id = 3,
                             Address = "Binəqədi şosesi 1. Binəqədi 4yol",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(6161),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 627, DateTimeKind.Local).AddTicks(8119),
                             IsDeleted = false,
                             Name = "Binəqədi filialı"
                         },
@@ -88,7 +88,7 @@ namespace Persistence.Migrations
                         {
                             Id = 4,
                             Address = "Yavər Əliyev 68A",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(6163),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 627, DateTimeKind.Local).AddTicks(8120),
                             IsDeleted = false,
                             Name = "Bakıxanov filialı"
                         },
@@ -96,7 +96,7 @@ namespace Persistence.Migrations
                         {
                             Id = 5,
                             Address = "Xətai-8 noyabr prospekti, günəş petrol ydm-in içi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(6164),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 627, DateTimeKind.Local).AddTicks(8121),
                             IsDeleted = false,
                             Name = "Xətai filialı"
                         },
@@ -104,7 +104,7 @@ namespace Persistence.Migrations
                         {
                             Id = 6,
                             Address = "Sumqayıt-çerkasski 78",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(6165),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 627, DateTimeKind.Local).AddTicks(8122),
                             IsDeleted = false,
                             Name = "Sumqayıt filialı"
                         },
@@ -112,7 +112,7 @@ namespace Persistence.Migrations
                         {
                             Id = 7,
                             Address = "Gəncə şəhəri, Əli Məmmədov küçəsi (3 Nömrəli xəstəxananın yanı)",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(6167),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 627, DateTimeKind.Local).AddTicks(8123),
                             IsDeleted = false,
                             Name = "Gəncə filialı"
                         },
@@ -120,7 +120,7 @@ namespace Persistence.Migrations
                         {
                             Id = 8,
                             Address = "Xaçmaz şeheri Xacmaz Xudat yolu Qımıl restoranın yanı",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(6200),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 627, DateTimeKind.Local).AddTicks(8125),
                             IsDeleted = false,
                             Name = "Xaçmaz filialı"
                         },
@@ -128,7 +128,7 @@ namespace Persistence.Migrations
                         {
                             Id = 9,
                             Address = "Quba rayonu Heyder Eliyev prospekti Praqa restoranin yani",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(6201),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 627, DateTimeKind.Local).AddTicks(8126),
                             IsDeleted = false,
                             Name = "Quba filialı"
                         });
@@ -178,7 +178,7 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8064),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(501),
                             IsDeleted = false,
                             Model = "X5"
                         },
@@ -186,7 +186,7 @@ namespace Persistence.Migrations
                         {
                             Id = 2,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8066),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(503),
                             IsDeleted = false,
                             Model = "M3"
                         },
@@ -194,7 +194,7 @@ namespace Persistence.Migrations
                         {
                             Id = 3,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8068),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(505),
                             IsDeleted = false,
                             Model = "M4"
                         },
@@ -202,7 +202,7 @@ namespace Persistence.Migrations
                         {
                             Id = 4,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8069),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(506),
                             IsDeleted = false,
                             Model = "M2"
                         },
@@ -210,7 +210,7 @@ namespace Persistence.Migrations
                         {
                             Id = 5,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8070),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(507),
                             IsDeleted = false,
                             Model = "3 Series"
                         },
@@ -218,7 +218,7 @@ namespace Persistence.Migrations
                         {
                             Id = 6,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8072),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(509),
                             IsDeleted = false,
                             Model = "5 Series"
                         },
@@ -226,7 +226,7 @@ namespace Persistence.Migrations
                         {
                             Id = 7,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8073),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(510),
                             IsDeleted = false,
                             Model = "7 Series"
                         },
@@ -234,7 +234,7 @@ namespace Persistence.Migrations
                         {
                             Id = 8,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8074),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(511),
                             IsDeleted = false,
                             Model = "X3"
                         },
@@ -242,7 +242,7 @@ namespace Persistence.Migrations
                         {
                             Id = 9,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8075),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(513),
                             IsDeleted = false,
                             Model = "X4"
                         },
@@ -250,7 +250,7 @@ namespace Persistence.Migrations
                         {
                             Id = 10,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8077),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(514),
                             IsDeleted = false,
                             Model = "X6"
                         },
@@ -258,7 +258,7 @@ namespace Persistence.Migrations
                         {
                             Id = 11,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8078),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(515),
                             IsDeleted = false,
                             Model = "X7"
                         },
@@ -266,7 +266,7 @@ namespace Persistence.Migrations
                         {
                             Id = 12,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8079),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(516),
                             IsDeleted = false,
                             Model = "i3"
                         },
@@ -274,7 +274,7 @@ namespace Persistence.Migrations
                         {
                             Id = 13,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8081),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(517),
                             IsDeleted = false,
                             Model = "i4"
                         },
@@ -282,7 +282,7 @@ namespace Persistence.Migrations
                         {
                             Id = 14,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8082),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(518),
                             IsDeleted = false,
                             Model = "iX"
                         },
@@ -290,7 +290,7 @@ namespace Persistence.Migrations
                         {
                             Id = 15,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8083),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(520),
                             IsDeleted = false,
                             Model = "Z4"
                         },
@@ -298,7 +298,7 @@ namespace Persistence.Migrations
                         {
                             Id = 16,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8084),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(521),
                             IsDeleted = false,
                             Model = "530e"
                         },
@@ -306,7 +306,7 @@ namespace Persistence.Migrations
                         {
                             Id = 17,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8086),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(522),
                             IsDeleted = false,
                             Model = "750i"
                         },
@@ -314,7 +314,7 @@ namespace Persistence.Migrations
                         {
                             Id = 18,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8087),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(523),
                             IsDeleted = false,
                             Model = "M5"
                         },
@@ -322,7 +322,7 @@ namespace Persistence.Migrations
                         {
                             Id = 19,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8088),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(524),
                             IsDeleted = false,
                             Model = "M8"
                         },
@@ -330,7 +330,7 @@ namespace Persistence.Migrations
                         {
                             Id = 20,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8089),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(525),
                             IsDeleted = false,
                             Model = "i7"
                         },
@@ -338,7 +338,7 @@ namespace Persistence.Migrations
                         {
                             Id = 21,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8091),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(527),
                             IsDeleted = false,
                             Model = "2 Series"
                         },
@@ -346,7 +346,7 @@ namespace Persistence.Migrations
                         {
                             Id = 22,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8092),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(528),
                             IsDeleted = false,
                             Model = "1 Series"
                         },
@@ -354,7 +354,7 @@ namespace Persistence.Migrations
                         {
                             Id = 23,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8095),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(529),
                             IsDeleted = false,
                             Model = "M6"
                         },
@@ -362,7 +362,7 @@ namespace Persistence.Migrations
                         {
                             Id = 24,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8096),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(530),
                             IsDeleted = false,
                             Model = "320i"
                         },
@@ -370,7 +370,7 @@ namespace Persistence.Migrations
                         {
                             Id = 25,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8097),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(532),
                             IsDeleted = false,
                             Model = "420i"
                         },
@@ -378,7 +378,7 @@ namespace Persistence.Migrations
                         {
                             Id = 26,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8098),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(533),
                             IsDeleted = false,
                             Model = "520d"
                         },
@@ -386,7 +386,7 @@ namespace Persistence.Migrations
                         {
                             Id = 27,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8100),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(534),
                             IsDeleted = false,
                             Model = "730d"
                         },
@@ -394,7 +394,7 @@ namespace Persistence.Migrations
                         {
                             Id = 28,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8101),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(535),
                             IsDeleted = false,
                             Model = "740i"
                         },
@@ -402,7 +402,7 @@ namespace Persistence.Migrations
                         {
                             Id = 29,
                             Brand = "BMW",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8102),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(536),
                             IsDeleted = false,
                             Model = "X1"
                         },
@@ -410,7 +410,7 @@ namespace Persistence.Migrations
                         {
                             Id = 30,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8103),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(537),
                             IsDeleted = false,
                             Model = "C-Class"
                         },
@@ -418,7 +418,7 @@ namespace Persistence.Migrations
                         {
                             Id = 31,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8104),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(538),
                             IsDeleted = false,
                             Model = "E-Class"
                         },
@@ -426,7 +426,7 @@ namespace Persistence.Migrations
                         {
                             Id = 32,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8106),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(539),
                             IsDeleted = false,
                             Model = "S-Class"
                         },
@@ -434,7 +434,7 @@ namespace Persistence.Migrations
                         {
                             Id = 33,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8107),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(541),
                             IsDeleted = false,
                             Model = "A-Class"
                         },
@@ -442,7 +442,7 @@ namespace Persistence.Migrations
                         {
                             Id = 34,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8108),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(542),
                             IsDeleted = false,
                             Model = "CLA-Class"
                         },
@@ -450,7 +450,7 @@ namespace Persistence.Migrations
                         {
                             Id = 35,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8110),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(543),
                             IsDeleted = false,
                             Model = "GLA-Class"
                         },
@@ -458,7 +458,7 @@ namespace Persistence.Migrations
                         {
                             Id = 36,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8111),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(544),
                             IsDeleted = false,
                             Model = "GLC-Class"
                         },
@@ -466,7 +466,7 @@ namespace Persistence.Migrations
                         {
                             Id = 37,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8112),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(545),
                             IsDeleted = false,
                             Model = "GLE-Class"
                         },
@@ -474,7 +474,7 @@ namespace Persistence.Migrations
                         {
                             Id = 38,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8113),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(546),
                             IsDeleted = false,
                             Model = "GLS-Class"
                         },
@@ -482,7 +482,7 @@ namespace Persistence.Migrations
                         {
                             Id = 39,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8115),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(547),
                             IsDeleted = false,
                             Model = "SLS AMG"
                         },
@@ -490,7 +490,7 @@ namespace Persistence.Migrations
                         {
                             Id = 40,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8116),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(549),
                             IsDeleted = false,
                             Model = "AMG GT"
                         },
@@ -498,7 +498,7 @@ namespace Persistence.Migrations
                         {
                             Id = 41,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8117),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(550),
                             IsDeleted = false,
                             Model = "G-Class"
                         },
@@ -506,7 +506,7 @@ namespace Persistence.Migrations
                         {
                             Id = 42,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8118),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(551),
                             IsDeleted = false,
                             Model = "Maybach S-Class"
                         },
@@ -514,7 +514,7 @@ namespace Persistence.Migrations
                         {
                             Id = 43,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8119),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(552),
                             IsDeleted = false,
                             Model = "EQC"
                         },
@@ -522,7 +522,7 @@ namespace Persistence.Migrations
                         {
                             Id = 44,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8121),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(553),
                             IsDeleted = false,
                             Model = "EQS"
                         },
@@ -530,7 +530,7 @@ namespace Persistence.Migrations
                         {
                             Id = 45,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8123),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(555),
                             IsDeleted = false,
                             Model = "Coupé"
                         },
@@ -538,7 +538,7 @@ namespace Persistence.Migrations
                         {
                             Id = 46,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8124),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(556),
                             IsDeleted = false,
                             Model = "Roadster"
                         },
@@ -546,7 +546,7 @@ namespace Persistence.Migrations
                         {
                             Id = 47,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8125),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(558),
                             IsDeleted = false,
                             Model = "B-Class"
                         },
@@ -554,7 +554,7 @@ namespace Persistence.Migrations
                         {
                             Id = 48,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8126),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(559),
                             IsDeleted = false,
                             Model = "V-Class"
                         },
@@ -562,7 +562,7 @@ namespace Persistence.Migrations
                         {
                             Id = 49,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8127),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(560),
                             IsDeleted = false,
                             Model = "GLB-Class"
                         },
@@ -570,7 +570,7 @@ namespace Persistence.Migrations
                         {
                             Id = 50,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8129),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(561),
                             IsDeleted = false,
                             Model = "S-Class Coupe"
                         },
@@ -578,7 +578,7 @@ namespace Persistence.Migrations
                         {
                             Id = 51,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8130),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(562),
                             IsDeleted = false,
                             Model = "SL-Class"
                         },
@@ -586,7 +586,7 @@ namespace Persistence.Migrations
                         {
                             Id = 52,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8132),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(563),
                             IsDeleted = false,
                             Model = "M-Class"
                         },
@@ -594,7 +594,7 @@ namespace Persistence.Migrations
                         {
                             Id = 53,
                             Brand = "Mercedes-Benz",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8133),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(564),
                             IsDeleted = false,
                             Model = "X-Class"
                         },
@@ -602,7 +602,7 @@ namespace Persistence.Migrations
                         {
                             Id = 54,
                             Brand = "Audi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8134),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(565),
                             IsDeleted = false,
                             Model = "A4"
                         },
@@ -610,7 +610,7 @@ namespace Persistence.Migrations
                         {
                             Id = 55,
                             Brand = "Audi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8136),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(566),
                             IsDeleted = false,
                             Model = "A6"
                         },
@@ -618,7 +618,7 @@ namespace Persistence.Migrations
                         {
                             Id = 56,
                             Brand = "Audi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8137),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(568),
                             IsDeleted = false,
                             Model = "Q7"
                         },
@@ -626,7 +626,7 @@ namespace Persistence.Migrations
                         {
                             Id = 57,
                             Brand = "Audi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8138),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(569),
                             IsDeleted = false,
                             Model = "Q5"
                         },
@@ -634,7 +634,7 @@ namespace Persistence.Migrations
                         {
                             Id = 58,
                             Brand = "Audi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8139),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(570),
                             IsDeleted = false,
                             Model = "A8"
                         },
@@ -642,7 +642,7 @@ namespace Persistence.Migrations
                         {
                             Id = 59,
                             Brand = "Audi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8141),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(571),
                             IsDeleted = false,
                             Model = "Q3"
                         },
@@ -650,7 +650,7 @@ namespace Persistence.Migrations
                         {
                             Id = 60,
                             Brand = "Toyota",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8142),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(572),
                             IsDeleted = false,
                             Model = "Corolla"
                         },
@@ -658,7 +658,7 @@ namespace Persistence.Migrations
                         {
                             Id = 61,
                             Brand = "Toyota",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8164),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(573),
                             IsDeleted = false,
                             Model = "Camry"
                         },
@@ -666,7 +666,7 @@ namespace Persistence.Migrations
                         {
                             Id = 62,
                             Brand = "Toyota",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8165),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(574),
                             IsDeleted = false,
                             Model = "RAV4"
                         },
@@ -674,7 +674,7 @@ namespace Persistence.Migrations
                         {
                             Id = 63,
                             Brand = "Toyota",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8167),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(575),
                             IsDeleted = false,
                             Model = "Land Cruiser"
                         },
@@ -682,7 +682,7 @@ namespace Persistence.Migrations
                         {
                             Id = 64,
                             Brand = "Toyota",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8168),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(577),
                             IsDeleted = false,
                             Model = "Hilux"
                         },
@@ -690,7 +690,7 @@ namespace Persistence.Migrations
                         {
                             Id = 65,
                             Brand = "Kia",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8169),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(578),
                             IsDeleted = false,
                             Model = "Sorento"
                         },
@@ -698,7 +698,7 @@ namespace Persistence.Migrations
                         {
                             Id = 66,
                             Brand = "Kia",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8170),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(579),
                             IsDeleted = false,
                             Model = "Sportage"
                         },
@@ -706,7 +706,7 @@ namespace Persistence.Migrations
                         {
                             Id = 67,
                             Brand = "Kia",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8173),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(581),
                             IsDeleted = false,
                             Model = "K5"
                         },
@@ -714,7 +714,7 @@ namespace Persistence.Migrations
                         {
                             Id = 68,
                             Brand = "Kia",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8174),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(582),
                             IsDeleted = false,
                             Model = "Stinger"
                         },
@@ -722,7 +722,7 @@ namespace Persistence.Migrations
                         {
                             Id = 69,
                             Brand = "Hyundai",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8175),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(583),
                             IsDeleted = false,
                             Model = "Sonata"
                         },
@@ -730,7 +730,7 @@ namespace Persistence.Migrations
                         {
                             Id = 70,
                             Brand = "Hyundai",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8176),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(584),
                             IsDeleted = false,
                             Model = "Tucson"
                         },
@@ -738,7 +738,7 @@ namespace Persistence.Migrations
                         {
                             Id = 71,
                             Brand = "Hyundai",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8177),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(585),
                             IsDeleted = false,
                             Model = "Elantra"
                         },
@@ -746,7 +746,7 @@ namespace Persistence.Migrations
                         {
                             Id = 72,
                             Brand = "Hyundai",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8180),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(586),
                             IsDeleted = false,
                             Model = "Kona"
                         },
@@ -754,7 +754,7 @@ namespace Persistence.Migrations
                         {
                             Id = 73,
                             Brand = "Hyundai",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8181),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(587),
                             IsDeleted = false,
                             Model = "Palisade"
                         },
@@ -762,7 +762,7 @@ namespace Persistence.Migrations
                         {
                             Id = 74,
                             Brand = "Mitsubishi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8182),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(588),
                             IsDeleted = false,
                             Model = "Outlander"
                         },
@@ -770,7 +770,7 @@ namespace Persistence.Migrations
                         {
                             Id = 75,
                             Brand = "Mitsubishi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8184),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(589),
                             IsDeleted = false,
                             Model = "Lancer"
                         },
@@ -778,7 +778,7 @@ namespace Persistence.Migrations
                         {
                             Id = 76,
                             Brand = "Mitsubishi",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8185),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(591),
                             IsDeleted = false,
                             Model = "Eclipse"
                         },
@@ -786,7 +786,7 @@ namespace Persistence.Migrations
                         {
                             Id = 77,
                             Brand = "Lada",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8187),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(592),
                             IsDeleted = false,
                             Model = "Granta"
                         },
@@ -794,7 +794,7 @@ namespace Persistence.Migrations
                         {
                             Id = 78,
                             Brand = "Lada",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8188),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(594),
                             IsDeleted = false,
                             Model = "Vesta"
                         },
@@ -802,7 +802,7 @@ namespace Persistence.Migrations
                         {
                             Id = 79,
                             Brand = "Lada",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8189),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(595),
                             IsDeleted = false,
                             Model = "XRay"
                         },
@@ -810,7 +810,7 @@ namespace Persistence.Migrations
                         {
                             Id = 80,
                             Brand = "Volkswagen",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8191),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(596),
                             IsDeleted = false,
                             Model = "Golf"
                         },
@@ -818,7 +818,7 @@ namespace Persistence.Migrations
                         {
                             Id = 81,
                             Brand = "Volkswagen",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8192),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(597),
                             IsDeleted = false,
                             Model = "Passat"
                         },
@@ -826,7 +826,7 @@ namespace Persistence.Migrations
                         {
                             Id = 82,
                             Brand = "Volkswagen",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8193),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(598),
                             IsDeleted = false,
                             Model = "Tiguan"
                         },
@@ -834,7 +834,7 @@ namespace Persistence.Migrations
                         {
                             Id = 83,
                             Brand = "Volkswagen",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8194),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(599),
                             IsDeleted = false,
                             Model = "Jetta"
                         },
@@ -842,7 +842,7 @@ namespace Persistence.Migrations
                         {
                             Id = 84,
                             Brand = "Ford",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8196),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(601),
                             IsDeleted = false,
                             Model = "Mustang"
                         },
@@ -850,7 +850,7 @@ namespace Persistence.Migrations
                         {
                             Id = 85,
                             Brand = "Ford",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8197),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(645),
                             IsDeleted = false,
                             Model = "F-150"
                         },
@@ -858,7 +858,7 @@ namespace Persistence.Migrations
                         {
                             Id = 86,
                             Brand = "Land Rover",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8198),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(647),
                             IsDeleted = false,
                             Model = "Range Rover"
                         },
@@ -866,7 +866,7 @@ namespace Persistence.Migrations
                         {
                             Id = 87,
                             Brand = "Land Rover",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8199),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(648),
                             IsDeleted = false,
                             Model = "Discovery"
                         },
@@ -874,7 +874,7 @@ namespace Persistence.Migrations
                         {
                             Id = 88,
                             Brand = "Porsche",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8200),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(649),
                             IsDeleted = false,
                             Model = "911"
                         },
@@ -882,7 +882,7 @@ namespace Persistence.Migrations
                         {
                             Id = 89,
                             Brand = "Porsche",
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(8202),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(650),
                             IsDeleted = false,
                             Model = "Cayenne"
                         });
@@ -926,147 +926,147 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9867),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2269),
                             IsDeleted = false,
                             Name = "Ağ"
                         },
                         new
                         {
                             Id = 2,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9872),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2274),
                             IsDeleted = false,
                             Name = "Qara"
                         },
                         new
                         {
                             Id = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9873),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2275),
                             IsDeleted = false,
                             Name = "Qırmızı"
                         },
                         new
                         {
                             Id = 4,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9873),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2275),
                             IsDeleted = false,
                             Name = "Yaşıl"
                         },
                         new
                         {
                             Id = 5,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9874),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2276),
                             IsDeleted = false,
                             Name = "Mavi"
                         },
                         new
                         {
                             Id = 6,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9875),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2277),
                             IsDeleted = false,
                             Name = "Sarı"
                         },
                         new
                         {
                             Id = 7,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9876),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2278),
                             IsDeleted = false,
                             Name = "Narıncı"
                         },
                         new
                         {
                             Id = 8,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9876),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2278),
                             IsDeleted = false,
                             Name = "Bənövşəyi"
                         },
                         new
                         {
                             Id = 9,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9877),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2279),
                             IsDeleted = false,
                             Name = "Çəhrayı"
                         },
                         new
                         {
                             Id = 10,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9878),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2280),
                             IsDeleted = false,
                             Name = "Boz"
                         },
                         new
                         {
                             Id = 11,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9879),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2280),
                             IsDeleted = false,
                             Name = "Qəhvəyi"
                         },
                         new
                         {
                             Id = 12,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9879),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2281),
                             IsDeleted = false,
                             Name = "Göy"
                         },
                         new
                         {
                             Id = 13,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9880),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2282),
                             IsDeleted = false,
                             Name = "Tünd yaşıl"
                         },
                         new
                         {
                             Id = 14,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9881),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2283),
                             IsDeleted = false,
                             Name = "Açıq yaşıl"
                         },
                         new
                         {
                             Id = 15,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9881),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2283),
                             IsDeleted = false,
                             Name = "Tünd mavi"
                         },
                         new
                         {
                             Id = 16,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9882),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2284),
                             IsDeleted = false,
                             Name = "Açıq mavi"
                         },
                         new
                         {
                             Id = 17,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9883),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2285),
                             IsDeleted = false,
                             Name = "Tünd qəhvəyi"
                         },
                         new
                         {
                             Id = 18,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9883),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2285),
                             IsDeleted = false,
                             Name = "Açıq qəhvəyi"
                         },
                         new
                         {
                             Id = 19,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9884),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2286),
                             IsDeleted = false,
                             Name = "Bürünc"
                         },
                         new
                         {
                             Id = 20,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9885),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2287),
                             IsDeleted = false,
                             Name = "Gümüşü"
                         },
                         new
                         {
                             Id = 21,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 610, DateTimeKind.Local).AddTicks(9885),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(2287),
                             IsDeleted = false,
                             Name = "Qızılı"
                         });
@@ -1180,14 +1180,14 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 611, DateTimeKind.Local).AddTicks(6523),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(8570),
                             IsDeleted = false,
                             IsOtp = false,
                             Name = "Master Admin",
                             Password = "$2a$11$gZdTV78QAwiPRpd8n11MLe8p111KlStD/xo1/1qUXUBifJnwZuj8K",
                             Phone = "+994000",
                             RefreshToken = "qOLhGm3T0r6938al5PjO2nyYbnLajCGQP/XU6CJkcZ4=",
-                            RefreshTokenExpiryTime = new DateTime(2025, 2, 17, 22, 54, 48, 611, DateTimeKind.Local).AddTicks(6505),
+                            RefreshTokenExpiryTime = new DateTime(2025, 2, 18, 23, 8, 2, 628, DateTimeKind.Local).AddTicks(8551),
                             RoleId = 2,
                             Surname = "Master"
                         });
@@ -1302,7 +1302,7 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 611, DateTimeKind.Local).AddTicks(8285),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(163),
                             IsDeleted = false,
                             Name = "Master Employee",
                             Surname = "Master"
@@ -1347,28 +1347,28 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 611, DateTimeKind.Local).AddTicks(9861),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(1682),
                             IsDeleted = false,
                             Name = "Yağ"
                         },
                         new
                         {
                             Id = 2,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 611, DateTimeKind.Local).AddTicks(9863),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(1684),
                             IsDeleted = false,
                             Name = "Hava"
                         },
                         new
                         {
                             Id = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 611, DateTimeKind.Local).AddTicks(9864),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(1685),
                             IsDeleted = false,
                             Name = "Yanacaq"
                         },
                         new
                         {
                             Id = 4,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 611, DateTimeKind.Local).AddTicks(9865),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(1687),
                             IsDeleted = false,
                             Name = "Salon"
                         });
@@ -1412,42 +1412,42 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(1412),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(3186),
                             IsDeleted = false,
                             Name = "Benzin"
                         },
                         new
                         {
                             Id = 2,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(1414),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(3188),
                             IsDeleted = false,
                             Name = "Qaz"
                         },
                         new
                         {
                             Id = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(1416),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(3189),
                             IsDeleted = false,
                             Name = "Dizel"
                         },
                         new
                         {
                             Id = 4,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(1417),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(3217),
                             IsDeleted = false,
                             Name = "Elektro"
                         },
                         new
                         {
                             Id = 5,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(1418),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(3218),
                             IsDeleted = false,
                             Name = "Hybrid"
                         },
                         new
                         {
                             Id = 6,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(1419),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(3219),
                             IsDeleted = false,
                             Name = "Plug-in Hybrid"
                         });
@@ -1492,7 +1492,7 @@ namespace Persistence.Migrations
                             Id = 1,
                             EngineCapacity = 100m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2935),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4741),
                             IsDeleted = false
                         },
                         new
@@ -1500,7 +1500,7 @@ namespace Persistence.Migrations
                             Id = 2,
                             EngineCapacity = 200m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2938),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4745),
                             IsDeleted = false
                         },
                         new
@@ -1508,7 +1508,7 @@ namespace Persistence.Migrations
                             Id = 3,
                             EngineCapacity = 300m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2939),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4746),
                             IsDeleted = false
                         },
                         new
@@ -1516,7 +1516,7 @@ namespace Persistence.Migrations
                             Id = 4,
                             EngineCapacity = 400m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2940),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4747),
                             IsDeleted = false
                         },
                         new
@@ -1524,7 +1524,7 @@ namespace Persistence.Migrations
                             Id = 5,
                             EngineCapacity = 500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2941),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4748),
                             IsDeleted = false
                         },
                         new
@@ -1532,7 +1532,7 @@ namespace Persistence.Migrations
                             Id = 6,
                             EngineCapacity = 600m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2944),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4750),
                             IsDeleted = false
                         },
                         new
@@ -1540,7 +1540,7 @@ namespace Persistence.Migrations
                             Id = 7,
                             EngineCapacity = 700m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2945),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4751),
                             IsDeleted = false
                         },
                         new
@@ -1548,7 +1548,7 @@ namespace Persistence.Migrations
                             Id = 8,
                             EngineCapacity = 800m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2946),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4752),
                             IsDeleted = false
                         },
                         new
@@ -1556,7 +1556,7 @@ namespace Persistence.Migrations
                             Id = 9,
                             EngineCapacity = 900m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2947),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4753),
                             IsDeleted = false
                         },
                         new
@@ -1564,7 +1564,7 @@ namespace Persistence.Migrations
                             Id = 10,
                             EngineCapacity = 1000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2949),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4755),
                             IsDeleted = false
                         },
                         new
@@ -1572,7 +1572,7 @@ namespace Persistence.Migrations
                             Id = 11,
                             EngineCapacity = 1100m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2949),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4755),
                             IsDeleted = false
                         },
                         new
@@ -1580,7 +1580,7 @@ namespace Persistence.Migrations
                             Id = 12,
                             EngineCapacity = 1200m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2950),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4756),
                             IsDeleted = false
                         },
                         new
@@ -1588,7 +1588,7 @@ namespace Persistence.Migrations
                             Id = 13,
                             EngineCapacity = 1300m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2951),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4757),
                             IsDeleted = false
                         },
                         new
@@ -1596,7 +1596,7 @@ namespace Persistence.Migrations
                             Id = 14,
                             EngineCapacity = 1400m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2952),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4758),
                             IsDeleted = false
                         },
                         new
@@ -1604,7 +1604,7 @@ namespace Persistence.Migrations
                             Id = 15,
                             EngineCapacity = 1500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2953),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4759),
                             IsDeleted = false
                         },
                         new
@@ -1612,7 +1612,7 @@ namespace Persistence.Migrations
                             Id = 16,
                             EngineCapacity = 1600m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2954),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4760),
                             IsDeleted = false
                         },
                         new
@@ -1620,7 +1620,7 @@ namespace Persistence.Migrations
                             Id = 17,
                             EngineCapacity = 1700m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2954),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4760),
                             IsDeleted = false
                         },
                         new
@@ -1628,7 +1628,7 @@ namespace Persistence.Migrations
                             Id = 18,
                             EngineCapacity = 1800m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2956),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4762),
                             IsDeleted = false
                         },
                         new
@@ -1636,7 +1636,7 @@ namespace Persistence.Migrations
                             Id = 19,
                             EngineCapacity = 1900m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2957),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4763),
                             IsDeleted = false
                         },
                         new
@@ -1644,7 +1644,7 @@ namespace Persistence.Migrations
                             Id = 20,
                             EngineCapacity = 2000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2957),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4764),
                             IsDeleted = false
                         },
                         new
@@ -1652,7 +1652,7 @@ namespace Persistence.Migrations
                             Id = 21,
                             EngineCapacity = 2100m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2958),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4765),
                             IsDeleted = false
                         },
                         new
@@ -1660,7 +1660,7 @@ namespace Persistence.Migrations
                             Id = 22,
                             EngineCapacity = 2200m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2959),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4765),
                             IsDeleted = false
                         },
                         new
@@ -1668,7 +1668,7 @@ namespace Persistence.Migrations
                             Id = 23,
                             EngineCapacity = 2300m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2960),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4766),
                             IsDeleted = false
                         },
                         new
@@ -1676,7 +1676,7 @@ namespace Persistence.Migrations
                             Id = 24,
                             EngineCapacity = 2400m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2961),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4767),
                             IsDeleted = false
                         },
                         new
@@ -1684,7 +1684,7 @@ namespace Persistence.Migrations
                             Id = 25,
                             EngineCapacity = 2500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2962),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4768),
                             IsDeleted = false
                         },
                         new
@@ -1692,7 +1692,7 @@ namespace Persistence.Migrations
                             Id = 26,
                             EngineCapacity = 2600m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2962),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4769),
                             IsDeleted = false
                         },
                         new
@@ -1700,7 +1700,7 @@ namespace Persistence.Migrations
                             Id = 27,
                             EngineCapacity = 2700m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2963),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4770),
                             IsDeleted = false
                         },
                         new
@@ -1708,7 +1708,7 @@ namespace Persistence.Migrations
                             Id = 28,
                             EngineCapacity = 2800m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2964),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4770),
                             IsDeleted = false
                         },
                         new
@@ -1716,7 +1716,7 @@ namespace Persistence.Migrations
                             Id = 29,
                             EngineCapacity = 2900m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2965),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4771),
                             IsDeleted = false
                         },
                         new
@@ -1724,7 +1724,7 @@ namespace Persistence.Migrations
                             Id = 30,
                             EngineCapacity = 3000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2966),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4772),
                             IsDeleted = false
                         },
                         new
@@ -1732,7 +1732,7 @@ namespace Persistence.Migrations
                             Id = 31,
                             EngineCapacity = 3100m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2967),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4773),
                             IsDeleted = false
                         },
                         new
@@ -1740,7 +1740,7 @@ namespace Persistence.Migrations
                             Id = 32,
                             EngineCapacity = 3200m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2968),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4774),
                             IsDeleted = false
                         },
                         new
@@ -1748,7 +1748,7 @@ namespace Persistence.Migrations
                             Id = 33,
                             EngineCapacity = 3300m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2969),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4775),
                             IsDeleted = false
                         },
                         new
@@ -1756,7 +1756,7 @@ namespace Persistence.Migrations
                             Id = 34,
                             EngineCapacity = 3400m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2970),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4776),
                             IsDeleted = false
                         },
                         new
@@ -1764,7 +1764,7 @@ namespace Persistence.Migrations
                             Id = 35,
                             EngineCapacity = 3500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2971),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4777),
                             IsDeleted = false
                         },
                         new
@@ -1772,7 +1772,7 @@ namespace Persistence.Migrations
                             Id = 36,
                             EngineCapacity = 3600m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2972),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4778),
                             IsDeleted = false
                         },
                         new
@@ -1780,7 +1780,7 @@ namespace Persistence.Migrations
                             Id = 37,
                             EngineCapacity = 3700m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2973),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4779),
                             IsDeleted = false
                         },
                         new
@@ -1788,7 +1788,7 @@ namespace Persistence.Migrations
                             Id = 38,
                             EngineCapacity = 3800m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2974),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4779),
                             IsDeleted = false
                         },
                         new
@@ -1796,7 +1796,7 @@ namespace Persistence.Migrations
                             Id = 39,
                             EngineCapacity = 3900m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2975),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4780),
                             IsDeleted = false
                         },
                         new
@@ -1804,7 +1804,7 @@ namespace Persistence.Migrations
                             Id = 40,
                             EngineCapacity = 4000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2998),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4781),
                             IsDeleted = false
                         },
                         new
@@ -1812,7 +1812,7 @@ namespace Persistence.Migrations
                             Id = 41,
                             EngineCapacity = 4100m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(2999),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4782),
                             IsDeleted = false
                         },
                         new
@@ -1820,7 +1820,7 @@ namespace Persistence.Migrations
                             Id = 42,
                             EngineCapacity = 4200m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3000),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4783),
                             IsDeleted = false
                         },
                         new
@@ -1828,7 +1828,7 @@ namespace Persistence.Migrations
                             Id = 43,
                             EngineCapacity = 4300m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3001),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4784),
                             IsDeleted = false
                         },
                         new
@@ -1836,7 +1836,7 @@ namespace Persistence.Migrations
                             Id = 44,
                             EngineCapacity = 4400m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3002),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4785),
                             IsDeleted = false
                         },
                         new
@@ -1844,7 +1844,7 @@ namespace Persistence.Migrations
                             Id = 45,
                             EngineCapacity = 4500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3002),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4785),
                             IsDeleted = false
                         },
                         new
@@ -1852,7 +1852,7 @@ namespace Persistence.Migrations
                             Id = 46,
                             EngineCapacity = 4600m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3003),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4786),
                             IsDeleted = false
                         },
                         new
@@ -1860,7 +1860,7 @@ namespace Persistence.Migrations
                             Id = 47,
                             EngineCapacity = 4700m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3004),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4787),
                             IsDeleted = false
                         },
                         new
@@ -1868,7 +1868,7 @@ namespace Persistence.Migrations
                             Id = 48,
                             EngineCapacity = 4800m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3005),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4788),
                             IsDeleted = false
                         },
                         new
@@ -1876,7 +1876,7 @@ namespace Persistence.Migrations
                             Id = 49,
                             EngineCapacity = 4900m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3006),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4789),
                             IsDeleted = false
                         },
                         new
@@ -1884,7 +1884,7 @@ namespace Persistence.Migrations
                             Id = 50,
                             EngineCapacity = 5000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3007),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4790),
                             IsDeleted = false
                         },
                         new
@@ -1892,7 +1892,7 @@ namespace Persistence.Migrations
                             Id = 51,
                             EngineCapacity = 5100m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3007),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4791),
                             IsDeleted = false
                         },
                         new
@@ -1900,7 +1900,7 @@ namespace Persistence.Migrations
                             Id = 52,
                             EngineCapacity = 5200m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3008),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4791),
                             IsDeleted = false
                         },
                         new
@@ -1908,7 +1908,7 @@ namespace Persistence.Migrations
                             Id = 53,
                             EngineCapacity = 5300m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3009),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4792),
                             IsDeleted = false
                         },
                         new
@@ -1916,7 +1916,7 @@ namespace Persistence.Migrations
                             Id = 54,
                             EngineCapacity = 5400m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3010),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4793),
                             IsDeleted = false
                         },
                         new
@@ -1924,7 +1924,7 @@ namespace Persistence.Migrations
                             Id = 55,
                             EngineCapacity = 5500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3011),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4794),
                             IsDeleted = false
                         },
                         new
@@ -1932,7 +1932,7 @@ namespace Persistence.Migrations
                             Id = 56,
                             EngineCapacity = 5600m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3012),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4795),
                             IsDeleted = false
                         },
                         new
@@ -1940,7 +1940,7 @@ namespace Persistence.Migrations
                             Id = 57,
                             EngineCapacity = 5700m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3012),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4796),
                             IsDeleted = false
                         },
                         new
@@ -1948,7 +1948,7 @@ namespace Persistence.Migrations
                             Id = 58,
                             EngineCapacity = 5800m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3013),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4796),
                             IsDeleted = false
                         },
                         new
@@ -1956,7 +1956,7 @@ namespace Persistence.Migrations
                             Id = 59,
                             EngineCapacity = 5900m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3014),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4797),
                             IsDeleted = false
                         },
                         new
@@ -1964,7 +1964,7 @@ namespace Persistence.Migrations
                             Id = 60,
                             EngineCapacity = 6000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3015),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4798),
                             IsDeleted = false
                         },
                         new
@@ -1972,7 +1972,7 @@ namespace Persistence.Migrations
                             Id = 61,
                             EngineCapacity = 6100m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3016),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4799),
                             IsDeleted = false
                         },
                         new
@@ -1980,7 +1980,7 @@ namespace Persistence.Migrations
                             Id = 62,
                             EngineCapacity = 6200m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3016),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4800),
                             IsDeleted = false
                         },
                         new
@@ -1988,7 +1988,7 @@ namespace Persistence.Migrations
                             Id = 63,
                             EngineCapacity = 6300m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3017),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4801),
                             IsDeleted = false
                         },
                         new
@@ -1996,7 +1996,7 @@ namespace Persistence.Migrations
                             Id = 64,
                             EngineCapacity = 6400m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3018),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4801),
                             IsDeleted = false
                         },
                         new
@@ -2004,7 +2004,7 @@ namespace Persistence.Migrations
                             Id = 65,
                             EngineCapacity = 6500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3019),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4802),
                             IsDeleted = false
                         },
                         new
@@ -2012,7 +2012,7 @@ namespace Persistence.Migrations
                             Id = 66,
                             EngineCapacity = 6500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3021),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4824),
                             IsDeleted = false
                         },
                         new
@@ -2020,7 +2020,7 @@ namespace Persistence.Migrations
                             Id = 67,
                             EngineCapacity = 7000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3023),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4825),
                             IsDeleted = false
                         },
                         new
@@ -2028,7 +2028,7 @@ namespace Persistence.Migrations
                             Id = 68,
                             EngineCapacity = 7500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3023),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4826),
                             IsDeleted = false
                         },
                         new
@@ -2036,7 +2036,7 @@ namespace Persistence.Migrations
                             Id = 69,
                             EngineCapacity = 8000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3024),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4827),
                             IsDeleted = false
                         },
                         new
@@ -2044,7 +2044,7 @@ namespace Persistence.Migrations
                             Id = 70,
                             EngineCapacity = 8500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3025),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4828),
                             IsDeleted = false
                         },
                         new
@@ -2052,7 +2052,7 @@ namespace Persistence.Migrations
                             Id = 71,
                             EngineCapacity = 9000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3026),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4828),
                             IsDeleted = false
                         },
                         new
@@ -2060,7 +2060,7 @@ namespace Persistence.Migrations
                             Id = 72,
                             EngineCapacity = 9500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3027),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4829),
                             IsDeleted = false
                         },
                         new
@@ -2068,7 +2068,7 @@ namespace Persistence.Migrations
                             Id = 73,
                             EngineCapacity = 10000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3028),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4830),
                             IsDeleted = false
                         },
                         new
@@ -2076,7 +2076,7 @@ namespace Persistence.Migrations
                             Id = 74,
                             EngineCapacity = 10500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3029),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4831),
                             IsDeleted = false
                         },
                         new
@@ -2084,7 +2084,7 @@ namespace Persistence.Migrations
                             Id = 75,
                             EngineCapacity = 11000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3029),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4832),
                             IsDeleted = false
                         },
                         new
@@ -2092,7 +2092,7 @@ namespace Persistence.Migrations
                             Id = 76,
                             EngineCapacity = 11500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3030),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4833),
                             IsDeleted = false
                         },
                         new
@@ -2100,7 +2100,7 @@ namespace Persistence.Migrations
                             Id = 77,
                             EngineCapacity = 12000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3031),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4834),
                             IsDeleted = false
                         },
                         new
@@ -2108,7 +2108,7 @@ namespace Persistence.Migrations
                             Id = 78,
                             EngineCapacity = 12500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3032),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4835),
                             IsDeleted = false
                         },
                         new
@@ -2116,7 +2116,7 @@ namespace Persistence.Migrations
                             Id = 79,
                             EngineCapacity = 13000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3033),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4835),
                             IsDeleted = false
                         },
                         new
@@ -2124,7 +2124,7 @@ namespace Persistence.Migrations
                             Id = 80,
                             EngineCapacity = 13500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3034),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4836),
                             IsDeleted = false
                         },
                         new
@@ -2132,7 +2132,7 @@ namespace Persistence.Migrations
                             Id = 81,
                             EngineCapacity = 14000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3034),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4837),
                             IsDeleted = false
                         },
                         new
@@ -2140,7 +2140,7 @@ namespace Persistence.Migrations
                             Id = 82,
                             EngineCapacity = 14500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3035),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4838),
                             IsDeleted = false
                         },
                         new
@@ -2148,7 +2148,7 @@ namespace Persistence.Migrations
                             Id = 83,
                             EngineCapacity = 15000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3036),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4839),
                             IsDeleted = false
                         },
                         new
@@ -2156,7 +2156,7 @@ namespace Persistence.Migrations
                             Id = 84,
                             EngineCapacity = 15500m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3037),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4840),
                             IsDeleted = false
                         },
                         new
@@ -2164,7 +2164,7 @@ namespace Persistence.Migrations
                             Id = 85,
                             EngineCapacity = 16000m,
                             InsertedBy = 3,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 612, DateTimeKind.Local).AddTicks(3038),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 629, DateTimeKind.Local).AddTicks(4840),
                             IsDeleted = false
                         });
                 });
@@ -2178,7 +2178,6 @@ namespace Persistence.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("FilterCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("FilterOwn")
@@ -2234,11 +2233,10 @@ namespace Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<int>("Duration")
+                    b.Property<int?>("Duration")
                         .HasColumnType("int");
 
                     b.Property<int>("EmployeeId")
@@ -2253,17 +2251,16 @@ namespace Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("KilometersTravelled")
+                    b.Property<int?>("KilometersTravelled")
                         .HasColumnType("int");
 
                     b.Property<string>("OilCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("OilOwn")
                         .HasColumnType("bit");
 
-                    b.Property<decimal>("OilVolume")
+                    b.Property<decimal?>("OilVolume")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Price")
@@ -2273,7 +2270,7 @@ namespace Persistence.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SAEViscosityId")
+                    b.Property<int?>("SAEViscosityId")
                         .HasColumnType("int");
 
                     b.Property<int>("ServiceId")
@@ -2350,7 +2347,7 @@ namespace Persistence.Migrations
                             Id = 1,
                             BranchId = 1,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(8048),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(3097),
                             IsDeleted = false,
                             Phone = "+994703305788"
                         },
@@ -2359,7 +2356,7 @@ namespace Persistence.Migrations
                             Id = 2,
                             BranchId = 2,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(8050),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(3100),
                             IsDeleted = false,
                             Phone = "+994702343134"
                         },
@@ -2368,7 +2365,7 @@ namespace Persistence.Migrations
                             Id = 3,
                             BranchId = 2,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(8052),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(3101),
                             IsDeleted = false,
                             Phone = "+994706843434"
                         },
@@ -2377,7 +2374,7 @@ namespace Persistence.Migrations
                             Id = 4,
                             BranchId = 4,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(8053),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(3103),
                             IsDeleted = false,
                             Phone = "+994777332322"
                         },
@@ -2386,7 +2383,7 @@ namespace Persistence.Migrations
                             Id = 5,
                             BranchId = 4,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(8055),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(3104),
                             IsDeleted = false,
                             Phone = "+994706743434"
                         },
@@ -2395,7 +2392,7 @@ namespace Persistence.Migrations
                             Id = 6,
                             BranchId = 3,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(8056),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(3106),
                             IsDeleted = false,
                             Phone = "+994707552322"
                         },
@@ -2404,7 +2401,7 @@ namespace Persistence.Migrations
                             Id = 7,
                             BranchId = 3,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(8058),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(3107),
                             IsDeleted = false,
                             Phone = "+994702153434"
                         },
@@ -2413,7 +2410,7 @@ namespace Persistence.Migrations
                             Id = 8,
                             BranchId = 3,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(8059),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(3108),
                             IsDeleted = false,
                             Phone = "+994702344334"
                         },
@@ -2422,7 +2419,7 @@ namespace Persistence.Migrations
                             Id = 9,
                             BranchId = 3,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(8060),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(3110),
                             IsDeleted = false,
                             Phone = "+994702344334"
                         });
@@ -2464,7 +2461,7 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 615, DateTimeKind.Local).AddTicks(9428),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(4484),
                             IsDeleted = false,
                             Name = "Elf"
                         });
@@ -2506,14 +2503,14 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(633),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(5967),
                             IsDeleted = false,
                             RoleName = "Costumer"
                         },
                         new
                         {
                             Id = 2,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(635),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(6011),
                             IsDeleted = false,
                             RoleName = "Branch"
                         });
@@ -2556,7 +2553,7 @@ namespace Persistence.Migrations
                             Id = 1,
                             Grade = 0,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(1848),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(7158),
                             IsDeleted = false
                         },
                         new
@@ -2564,7 +2561,7 @@ namespace Persistence.Migrations
                             Id = 2,
                             Grade = 5,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(1850),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(7160),
                             IsDeleted = false
                         },
                         new
@@ -2572,7 +2569,7 @@ namespace Persistence.Migrations
                             Id = 3,
                             Grade = 10,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(1852),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(7162),
                             IsDeleted = false
                         },
                         new
@@ -2580,7 +2577,7 @@ namespace Persistence.Migrations
                             Id = 4,
                             Grade = 20,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(1853),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(7164),
                             IsDeleted = false
                         });
                 });
@@ -2624,7 +2621,7 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(3344),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(8701),
                             IsDeleted = false,
                             Name = "Sürətlər qutusu yağ dəyişmə"
                         },
@@ -2632,7 +2629,7 @@ namespace Persistence.Migrations
                         {
                             Id = 2,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(3347),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(8703),
                             IsDeleted = false,
                             Name = "Mühərrik yağ dəyişmə"
                         },
@@ -2640,7 +2637,7 @@ namespace Persistence.Migrations
                         {
                             Id = 3,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(3348),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(8705),
                             IsDeleted = false,
                             Name = "Antifiriz dəyişmə"
                         },
@@ -2648,7 +2645,7 @@ namespace Persistence.Migrations
                         {
                             Id = 4,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(3350),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(8707),
                             IsDeleted = false,
                             Name = "Əyləc mayesi dəyişmə"
                         },
@@ -2656,7 +2653,7 @@ namespace Persistence.Migrations
                         {
                             Id = 5,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(3351),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(8708),
                             IsDeleted = false,
                             Name = "Arxa körpü"
                         },
@@ -2664,7 +2661,7 @@ namespace Persistence.Migrations
                         {
                             Id = 6,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(3352),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(8710),
                             IsDeleted = false,
                             Name = "Ön körpü"
                         },
@@ -2672,7 +2669,7 @@ namespace Persistence.Migrations
                         {
                             Id = 7,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 616, DateTimeKind.Local).AddTicks(3353),
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 633, DateTimeKind.Local).AddTicks(8711),
                             IsDeleted = false,
                             Name = "Diferensial (Razdatka)"
                         });
@@ -2696,11 +2693,11 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("InsertedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsBrakeFluidChanged")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<int>("ServiceType")
+                        .HasColumnType("int");
 
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
@@ -2718,117 +2715,117 @@ namespace Persistence.Migrations
                             Id = 1,
                             Grade = 8m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7716),
-                            IsBrakeFluidChanged = false,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3579),
+                            IsDeleted = false,
+                            ServiceType = 1
                         },
                         new
                         {
                             Id = 2,
                             Grade = 12m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7719),
-                            IsBrakeFluidChanged = false,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3581),
+                            IsDeleted = false,
+                            ServiceType = 1
                         },
                         new
                         {
                             Id = 3,
                             Grade = 16m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7720),
-                            IsBrakeFluidChanged = false,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3583),
+                            IsDeleted = false,
+                            ServiceType = 1
                         },
                         new
                         {
                             Id = 4,
                             Grade = 20m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7722),
-                            IsBrakeFluidChanged = false,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3585),
+                            IsDeleted = false,
+                            ServiceType = 1
                         },
                         new
                         {
                             Id = 5,
                             Grade = 30m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7724),
-                            IsBrakeFluidChanged = false,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3587),
+                            IsDeleted = false,
+                            ServiceType = 1
                         },
                         new
                         {
                             Id = 6,
                             Grade = 40m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7725),
-                            IsBrakeFluidChanged = false,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3588),
+                            IsDeleted = false,
+                            ServiceType = 1
                         },
                         new
                         {
                             Id = 7,
                             Grade = 50m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7727),
-                            IsBrakeFluidChanged = false,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3590),
+                            IsDeleted = false,
+                            ServiceType = 1
                         },
                         new
                         {
                             Id = 8,
                             Grade = 60m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7728),
-                            IsBrakeFluidChanged = false,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3591),
+                            IsDeleted = false,
+                            ServiceType = 1
                         },
                         new
                         {
                             Id = 9,
                             Grade = 3m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7730),
-                            IsBrakeFluidChanged = true,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3593),
+                            IsDeleted = false,
+                            ServiceType = 2
                         },
                         new
                         {
                             Id = 10,
                             Grade = 4m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7731),
-                            IsBrakeFluidChanged = true,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3594),
+                            IsDeleted = false,
+                            ServiceType = 2
                         },
                         new
                         {
                             Id = 11,
                             Grade = 5.1m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7734),
-                            IsBrakeFluidChanged = true,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3596),
+                            IsDeleted = false,
+                            ServiceType = 2
                         },
                         new
                         {
                             Id = 12,
                             Grade = 6m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7735),
-                            IsBrakeFluidChanged = true,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3598),
+                            IsDeleted = false,
+                            ServiceType = 2
                         },
                         new
                         {
                             Id = 13,
                             Grade = 5m,
                             InsertedBy = 1,
-                            InsertedDate = new DateTime(2024, 12, 17, 22, 54, 48, 617, DateTimeKind.Local).AddTicks(7737),
-                            IsBrakeFluidChanged = true,
-                            IsDeleted = false
+                            InsertedDate = new DateTime(2024, 12, 18, 23, 8, 2, 635, DateTimeKind.Local).AddTicks(3599),
+                            IsDeleted = false,
+                            ServiceType = 2
                         });
                 });
 
@@ -2942,9 +2939,7 @@ namespace Persistence.Migrations
 
                     b.HasOne("Domain.Entities.SAEViscosity", "SAEViscosity")
                         .WithMany("OilChanges")
-                        .HasForeignKey("SAEViscosityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SAEViscosityId");
 
                     b.HasOne("Domain.Entities.Services", "Services")
                         .WithMany("OilChanges")
@@ -2954,9 +2949,7 @@ namespace Persistence.Migrations
 
                     b.HasOne("Domain.Entities.WinterViscosity", "WinterViscosity")
                         .WithMany("OilChanges")
-                        .HasForeignKey("WinterViscosityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("WinterViscosityId");
 
                     b.Navigation("Branchies");
 

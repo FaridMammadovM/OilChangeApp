@@ -46,7 +46,7 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> AddOilChanges(int customersCarsMatrixId)
+        public async Task<IActionResult> GetAllOilChanges([FromQuery] int customersCarsMatrixId)
         {
             try
             {

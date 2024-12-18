@@ -14,6 +14,21 @@ namespace Persistence.Configurations
 
             builder.Property(x => x.Price).HasPrecision(18, 2);
 
+            builder.Property(x => x.KilometersTravelled)
+               .IsRequired(false);
+
+            builder.Property(x => x.Duration)
+              .IsRequired(false);
+
+            builder.Property(x => x.OilVolume)
+              .IsRequired(false);
+
+            builder.Property(x => x.OilCode)
+              .IsRequired(false);
+
+            builder.Property(x => x.Description)
+              .IsRequired(false);
+
             builder.HasOne(x => x.CustomersCarsMatrix)
                 .WithMany(c => c.OilChanges)
                 .HasForeignKey(x => x.CustomersCarsMatrixId);
@@ -28,7 +43,8 @@ namespace Persistence.Configurations
 
             builder.HasOne(x => x.WinterViscosity)
                 .WithMany(o => o.OilChanges)
-                .HasForeignKey(x => x.WinterViscosityId);
+                .HasForeignKey(x => x.WinterViscosityId)
+                .IsRequired(false);
 
             builder.HasOne(x => x.SAEViscosity)
                 .WithMany(o => o.OilChanges)
@@ -41,6 +57,10 @@ namespace Persistence.Configurations
             builder.HasOne(x => x.Branchies)
               .WithMany(b => b.OilChanges)
               .HasForeignKey(x => x.BranchId);
+
+            builder.HasMany(x => x.OilChangeFilters)
+                .WithOne(o => o.OilChanges)
+                .HasForeignKey(o => o.OilChangesId);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Domain.Entities
         public int OilChangesId { get; set; }
         public int FiltersId { get; set; }
         public bool FilterOwn { get; set; } = false;
-        public string FilterCode { get; set; }
+        public string? FilterCode { get; set; }
         public OilChanges OilChanges { get; set; }
         public Filters Filter { get; set; }
     }

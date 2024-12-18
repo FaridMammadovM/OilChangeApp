@@ -11,6 +11,10 @@ namespace Persistence.Configurations
             builder.Property(x => x.IsDeleted).HasDefaultValue(false);
 
             builder.Property(x => x.Id).IsRequired();
+
+            builder.Property(x => x.FilterCode)
+             .IsRequired(false);
+
             builder.HasOne(x => x.OilChanges)
                 .WithMany(o => o.OilChangeFilters)
                 .HasForeignKey(x => x.OilChangesId).OnDelete(DeleteBehavior.Cascade);
