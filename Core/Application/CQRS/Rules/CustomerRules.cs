@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Application.Bases;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
+using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
 using Domain.Entities;
 
 namespace Application.CQRS.Rules
@@ -25,6 +26,13 @@ namespace Application.CQRS.Rules
         {
             if (roleId == 2)
                 throw new ValidationException("Sizin icazəniz yoxdur!");
+            return Task.CompletedTask;
+        }
+
+        public Task CustomerFindUpdatePhone(IList<Customers> customers, UpdateCustomerReqDto dto)
+        {
+            if (customers.Any(x => x.Phone == dto.Phone))
+                throw new ValidationException("Telefon nömrəsi mövcuddur!");
             return Task.CompletedTask;
         }
     }

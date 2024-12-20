@@ -18,7 +18,7 @@ namespace Application.CQRS.Queries.Customer.GetCustomerById
         }
         public async Task<GetCustomerByIdResDto> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
-            var customer = await _unitOfWork.GetReadRepository<Customers>().GetAsync(c => c.IsDeleted == false);
+            var customer = await _unitOfWork.GetReadRepository<Customers>().GetAsync(c => c.IsDeleted == false && c.Phone == request.Phone);
 
             if (customer == null)
             {

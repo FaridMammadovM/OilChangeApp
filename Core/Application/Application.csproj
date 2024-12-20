@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <Folder Include="CQRS\Commands\Car\DeleteCar\Dtos\" />
+    <Folder Include="CQRS\Commands\OilChange\DeleteOilChange\Dtos\" />
   </ItemGroup>
 
 </Project>

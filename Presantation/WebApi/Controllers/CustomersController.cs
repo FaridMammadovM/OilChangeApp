@@ -1,4 +1,7 @@
-﻿using Application.CQRS.Commands.Customer.AddCustomer;
+﻿using Application.CQRS.Commands.Car.DeleteCar;
+using Application.CQRS.Commands.Car.UpdateCar.Dtos;
+using Application.CQRS.Commands.Car.UpdateCar;
+using Application.CQRS.Commands.Customer.AddCustomer;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
 using Application.CQRS.Commands.Customer.ChangePassword;
 using Application.CQRS.Commands.Customer.ChangePassword.Dtos;
@@ -11,6 +14,11 @@ using Application.CQRS.Queries.Customer.Login.Dto;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Application.CQRS.Commands.OilChange.DeleteOilChange;
+using Application.CQRS.Commands.OilChange.UpdateOilChange.Dtos;
+using Application.CQRS.Commands.Customer.DeleteCustomer;
+using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
+using Application.CQRS.Commands.Customer.UpdateCustomer;
 
 namespace WebApi.Controllers
 {
@@ -168,6 +176,57 @@ namespace WebApi.Controllers
             catch (UnauthorizedAccessException)
             {
                 return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+
+        [HttpPost]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> UpdateCustomer([FromBody] UpdateCustomerReqDto request)
+        {
+            try
+            {
+                if (request == null)
+                {
+                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
+                }
+
+                UpdateCustomerCommand command = new UpdateCustomerCommand() { Request = request };
+                var result = await _mediator.Send(command);
+
+                if (result == null)
+                {
+                    return BadRequest(new { success = false, message = "Müştəri əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                }
+
+                return Ok(new { success = true, message = "Müştəri uğurla əlavə edildi." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+
+
+        [HttpDelete]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> DeleteCustomer([FromQuery] string phone)
+        {
+            try
+            {
+                var response = await _mediator.Send(new DeleteCustomerCommand() { Phone = phone });
+                if (response == null)
+                {
+                    return NotFound(new { success = false, message = "Silinəcək müştəri tapılmadı." });
+                }
+
+                return Ok(new { success = true, message = "Müştəri uğurla silindi.", data = response });
+
             }
             catch (Exception ex)
             {
