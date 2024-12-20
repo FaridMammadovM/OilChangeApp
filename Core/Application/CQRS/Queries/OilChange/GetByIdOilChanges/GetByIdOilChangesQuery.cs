@@ -5,6 +5,6 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
 {
     public class GetByIdOilChangesQuery : IRequest<GetByIdOilChangesResDto>
     {
-        public int Id { get; set; }
+        public int OilChangeId { get; set; }
     }
 }

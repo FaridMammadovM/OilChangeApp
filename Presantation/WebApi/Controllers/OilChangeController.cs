@@ -3,7 +3,9 @@ using Application.CQRS.Commands.OilChange.AddOilChange.Dto;
 using Application.CQRS.Commands.OilChange.DeleteOilChange;
 using Application.CQRS.Commands.OilChange.UpdateOilChange;
 using Application.CQRS.Commands.OilChange.UpdateOilChange.Dtos;
+using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.OilChange.GetAllOilChanges;
+using Application.CQRS.Queries.OilChange.GetByIdOilChanges;
 using Application.CQRS.Queries.OilChange.LastOilChanges;
 using Application.JWT;
 using MediatR;
@@ -120,7 +122,7 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> LastOilChanges([FromQuery] int customerId)
+        public async Task<IActionResult> LastOilChange([FromQuery] int customerId)
         {
             try
             {
@@ -139,5 +141,26 @@ namespace WebApi.Controllers
                 return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
             }
         }
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetOilChangeById(int oilChangeId)
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetByIdOilChangesQuery() { OilChangeId = oilChangeId });
+                if (response == null)
+                {
+                    return NotFound(new { success = false, message = "Xidmət tapılmadı." });
+                }
+
+                return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
     }
 }

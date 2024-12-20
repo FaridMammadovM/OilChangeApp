@@ -1,12 +1,12 @@
-﻿using Application.CQRS.Commands.Car.DeleteCar;
-using Application.CQRS.Commands.Car.UpdateCar.Dtos;
-using Application.CQRS.Commands.Car.UpdateCar;
-using Application.CQRS.Commands.Customer.AddCustomer;
+﻿using Application.CQRS.Commands.Customer.AddCustomer;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
 using Application.CQRS.Commands.Customer.ChangePassword;
 using Application.CQRS.Commands.Customer.ChangePassword.Dtos;
 using Application.CQRS.Commands.Customer.ChangePasswordWithAdmin;
 using Application.CQRS.Commands.Customer.ChangePasswordWithAdmin.Dtos;
+using Application.CQRS.Commands.Customer.DeleteCustomer;
+using Application.CQRS.Commands.Customer.UpdateCustomer;
+using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
 using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.Customer.Login;
@@ -14,11 +14,6 @@ using Application.CQRS.Queries.Customer.Login.Dto;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Application.CQRS.Commands.OilChange.DeleteOilChange;
-using Application.CQRS.Commands.OilChange.UpdateOilChange.Dtos;
-using Application.CQRS.Commands.Customer.DeleteCustomer;
-using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
-using Application.CQRS.Commands.Customer.UpdateCustomer;
 
 namespace WebApi.Controllers
 {
@@ -35,7 +30,7 @@ namespace WebApi.Controllers
 
 
         [HttpPost]
-        //[AtributteAuthenticator]
+        [AtributteAuthenticator]
         public async Task<IActionResult> AddCustomer([FromBody] AddCustomerReqDto request)
         {
             try
