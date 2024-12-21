@@ -11,6 +11,8 @@ using Application.CQRS.Queries.Customer.GetAllCustomer;
 using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.Customer.Login;
 using Application.CQRS.Queries.Customer.Login.Dto;
+using Application.CQRS.Queries.Customer.VerifyOtp;
+using Application.CQRS.Queries.Customer.VerifyOtp.Dtos;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -35,7 +37,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var command = new AddCustomerCommand { Request = request };
+                var command = new AddCustomerCommand { Request = request, IsOtp = false };
                 var result = await _mediator.Send(command);
 
                 if (result != null)
@@ -207,7 +209,6 @@ namespace WebApi.Controllers
         }
 
 
-
         [HttpDelete]
         [AtributteAuthenticator]
         public async Task<IActionResult> DeleteCustomer([FromQuery] string phone)
@@ -222,6 +223,58 @@ namespace WebApi.Controllers
 
                 return Ok(new { success = true, message = "Müştəri uğurla silindi.", data = response });
 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpPost]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> AddAdmin([FromBody] AddCustomerReqDto request)
+        {
+            try
+            {
+                var command = new AddCustomerCommand { Request = request, IsOtp = true };
+                var result = await _mediator.Send(command);
+
+                if (result != null)
+                {
+                    return Ok(new { success = true, message = "Admin uğurla əlavə edildi.", data = result });
+                }
+
+                return BadRequest(new { success = false, message = "Admin əlavə edilə bilmədi." });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpReqDto request)
+        {
+            try
+            {
+                var query = new VerifyOtpQuery { Request = request };
+                var result = await _mediator.Send(query);
+
+                if (result != null)
+                {
+                    return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
+                }
+
+
+                return NotFound(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
             }
             catch (Exception ex)
             {

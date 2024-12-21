@@ -3,7 +3,6 @@ using Application.CQRS.Commands.OilChange.AddOilChange.Dto;
 using Application.CQRS.Commands.OilChange.DeleteOilChange;
 using Application.CQRS.Commands.OilChange.UpdateOilChange;
 using Application.CQRS.Commands.OilChange.UpdateOilChange.Dtos;
-using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.OilChange.GetAllOilChanges;
 using Application.CQRS.Queries.OilChange.GetByIdOilChanges;
 using Application.CQRS.Queries.OilChange.LastOilChanges;

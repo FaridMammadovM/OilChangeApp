@@ -45,7 +45,7 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
             customers.RefreshToken = _jwtHelper.GenerateRefreshToken();
             customers.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
             customers.InsertedBy = userId;
-
+            customers.IsOtp = request.IsOtp;
             await _unitOfWork.GetWriteRepository<Customers>().AddAsync(customers);
             await _unitOfWork.SaveAsync();
             return Unit.Value;

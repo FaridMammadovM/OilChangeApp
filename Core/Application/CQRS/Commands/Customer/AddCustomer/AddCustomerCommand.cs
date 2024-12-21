@@ -6,5 +6,6 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
     public class AddCustomerCommand : IRequest<Unit>
     {
         public AddCustomerReqDto Request { get; set; }
+        public bool IsOtp { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             .Include(c => c.Products)
             .Include(c => c.Employees)
             .Include(o => o.OilChangeFilters).ThenInclude(f => f.Filter));
-     
+
             var dto = new GetByIdOilChangesResDto
             {
                 Id = oilChange.Id,

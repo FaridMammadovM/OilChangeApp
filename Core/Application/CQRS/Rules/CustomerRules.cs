@@ -35,5 +35,12 @@ namespace Application.CQRS.Rules
                 throw new ValidationException("Telefon nömrəsi mövcuddur!");
             return Task.CompletedTask;
         }
+
+        public Task VerifyOTP(int roleId)
+        {
+            if (roleId == 2)
+                throw new ValidationException("Sizin icazəniz yoxdur!");
+            return Task.CompletedTask;
+        }
     }
 }
