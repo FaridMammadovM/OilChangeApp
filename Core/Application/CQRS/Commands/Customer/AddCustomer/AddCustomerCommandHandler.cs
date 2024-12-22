@@ -35,10 +35,13 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
             int userId = OpenToken.FindId(_httpContextAccessor);
 
             IList<Customers> customersList = await _unitOfWork.GetReadRepository<Customers>()
-                .GetAllAsync(c => c.IsDeleted == false && c.RoleId == request.RoleId);
+                .GetAllAsync(c => c.IsDeleted == false);
 
-            await _customerRules.CustomerFindPhone(customersList, request.Request);
-            await _customerRules.FindRole(customersList, userId);
+            await _customerRules.CustomerFindPhone(customersList.Where(c => c.RoleId == 2), request.Request);
+            if (request.RoleId == 1)
+            {
+                await _customerRules.FindRole(customersList.Where(c => c.RoleId == 2), userId);
+            }
 
             Customers customers = _mapper.Map<Customers, AddCustomerReqDto>(request.Request);
             customers.Password = _jwtHelper.HashPassword(request.Request.Password);

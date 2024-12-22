@@ -8,14 +8,14 @@ namespace Application.CQRS.Rules
 {
     public class CustomerRules : BaseRules
     {
-        public Task CustomerFindPhone(IList<Customers> customers, AddCustomerReqDto dto)
+        public Task CustomerFindPhone(IEnumerable<Customers> customers, AddCustomerReqDto dto)
         {
             if (customers.Any(x => x.Phone == dto.Phone))
                 throw new ValidationException("Telefon nömrəsi mövcuddur!");
             return Task.CompletedTask;
         }
 
-        public Task FindRole(IList<Customers> customers, int id)
+        public Task FindRole(IEnumerable<Customers> customers, int id)
         {
             if (!customers.Any(x => x.Id == id && x.RoleId == 2))
                 throw new ValidationException("Sizin icazəniz yoxdur!");
@@ -29,7 +29,7 @@ namespace Application.CQRS.Rules
             return Task.CompletedTask;
         }
 
-        public Task CustomerFindUpdatePhone(IList<Customers> customers, UpdateCustomerReqDto dto)
+        public Task CustomerFindUpdatePhone(IEnumerable<Customers> customers, UpdateCustomerReqDto dto)
         {
             if (customers.Any(x => x.Phone == dto.Phone))
                 throw new ValidationException("Telefon nömrəsi mövcuddur!");

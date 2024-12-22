@@ -36,10 +36,13 @@ namespace Application.CQRS.Commands.Customer.UpdateCustomer
             var customer = await _unitOfWork.GetReadRepository<Customers>().GetAsync(c => c.IsDeleted == false && c.Id == request.Request.Id);
 
             IList<Customers> customersList = await _unitOfWork.GetReadRepository<Customers>()
-                .GetAllAsync(c => c.IsDeleted == false && c.Id != request.Request.Id && c.RoleId == request.RoleId);
+                .GetAllAsync(c => c.IsDeleted == false && c.Id != request.Request.Id);
 
-            await _customerRules.CustomerFindUpdatePhone(customersList, request.Request);
-            await _customerRules.FindRole(customersList, userId);
+            await _customerRules.CustomerFindUpdatePhone(customersList.Where(c => c.RoleId == 2), request.Request);
+            if (request.RoleId == 1)
+            {
+                await _customerRules.FindRole(customersList.Where(c => c.RoleId == 2), userId);
+            }
             customer = _mapper.Map<Customers, UpdateCustomerReqDto>(request.Request);
             customer.RefreshToken = _jwtHelper.GenerateRefreshToken();
             customer.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
