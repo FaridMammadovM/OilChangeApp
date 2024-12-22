@@ -36,7 +36,7 @@ namespace Application.CQRS.Rules
             return Task.CompletedTask;
         }
 
-        public Task VerifyOTP(int roleId)
+        public Task VerifyOtp(int roleId)
         {
             if (roleId == 2)
                 throw new ValidationException("Sizin icazəniz yoxdur!");

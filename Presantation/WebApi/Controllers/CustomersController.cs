@@ -37,7 +37,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var command = new AddCustomerCommand { Request = request, IsOtp = false };
+                var command = new AddCustomerCommand { Request = request, IsOtp = false, RoleId = 1 };
                 var result = await _mediator.Send(command);
 
                 if (result != null)
@@ -192,7 +192,7 @@ namespace WebApi.Controllers
                     return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
                 }
 
-                UpdateCustomerCommand command = new UpdateCustomerCommand() { Request = request };
+                UpdateCustomerCommand command = new UpdateCustomerCommand() { Request = request, RoleId = 1 };
                 var result = await _mediator.Send(command);
 
                 if (result == null)
@@ -236,7 +236,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var command = new AddCustomerCommand { Request = request, IsOtp = true };
+                var command = new AddCustomerCommand { Request = request, IsOtp = true, RoleId = 2 };
                 var result = await _mediator.Send(command);
 
                 if (result != null)
@@ -249,6 +249,33 @@ namespace WebApi.Controllers
             catch (UnauthorizedAccessException)
             {
                 return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpPost]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> UpdateAdmin([FromBody] UpdateCustomerReqDto request)
+        {
+            try
+            {
+                if (request == null)
+                {
+                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
+                }
+
+                UpdateCustomerCommand command = new UpdateCustomerCommand() { Request = request, RoleId = 2 };
+                var result = await _mediator.Send(command);
+
+                if (result == null)
+                {
+                    return BadRequest(new { success = false, message = "Admin əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                }
+
+                return Ok(new { success = true, message = "Admin uğurla əlavə edildi." });
             }
             catch (Exception ex)
             {

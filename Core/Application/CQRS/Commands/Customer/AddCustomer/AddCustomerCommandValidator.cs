@@ -45,11 +45,7 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
                 .NotEmpty()
                 .WithMessage("Telefon nömrəsi boş ola bilməz.")
                 .Matches(@"^\+994(50|51|55|60|70|77|10|99)\d{7}$")
-                .WithMessage("Telefon nömrəsi düzgün formatda deyil. Format: +994xxxxxxxxx");
-
-            RuleFor(x => x.Request.RoleId)
-                .Must(roleId => roleId == 1 || roleId == 2)
-                .WithMessage("RoleId yalnız 1 və ya 2 ola bilər.");
+                .WithMessage("Telefon nömrəsi düzgün formatda deyil. Format: +994xxxxxxxxx");       
 
         }
     }

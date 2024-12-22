@@ -7,5 +7,6 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
     {
         public AddCustomerReqDto Request { get; set; }
         public bool IsOtp { get; set; }
+        public int RoleId { get; set; }
     }
 }

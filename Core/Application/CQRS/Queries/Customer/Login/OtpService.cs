@@ -6,14 +6,6 @@ namespace Application.CQRS.Queries.Customer.Login
     {
         private readonly Random _random = new Random();
 
-        private readonly HttpClient _httpClient;
-
-        public OtpService(HttpClient httpClient)
-        {
-            _httpClient = httpClient;
-        }
-
-
         public int GenerateOtp()
         {
             return _random.Next(100000, 999999);
@@ -26,7 +18,7 @@ namespace Application.CQRS.Queries.Customer.Login
                 <request>
                     <head>
                         <operation>submit</operation>
-                        <login>your_login</login>
+                        <login>Master_Class</login>
                         <password>your_password</password>
                         <title>OTP</title>
                         <bulkmessage>OTP kodunuz: {otp}</bulkmessage>
@@ -41,6 +33,7 @@ namespace Application.CQRS.Queries.Customer.Login
 
             try
             {
+                HttpClient _httpClient = new HttpClient();
                 var response = await _httpClient.PostAsync("https://sms.atatexnologiya.az/bulksms/api", content);
 
                 if (!response.IsSuccessStatusCode)

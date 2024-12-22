@@ -35,7 +35,7 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
             int userId = OpenToken.FindId(_httpContextAccessor);
 
             IList<Customers> customersList = await _unitOfWork.GetReadRepository<Customers>()
-                .GetAllAsync(c => c.IsDeleted == false);
+                .GetAllAsync(c => c.IsDeleted == false && c.RoleId == request.RoleId);
 
             await _customerRules.CustomerFindPhone(customersList, request.Request);
             await _customerRules.FindRole(customersList, userId);
@@ -46,6 +46,7 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
             customers.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
             customers.InsertedBy = userId;
             customers.IsOtp = request.IsOtp;
+            customers.RoleId = request.RoleId;
             await _unitOfWork.GetWriteRepository<Customers>().AddAsync(customers);
             await _unitOfWork.SaveAsync();
             return Unit.Value;
