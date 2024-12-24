@@ -18,6 +18,9 @@ namespace Application.CQRS.Queries.Notification
         {
             var targetDate = DateTime.UtcNow.AddMonths(-request.Month).Date;
 
+            string message = "";
+            
+
             var oilChangesList = await _unitOfWork.GetReadRepository<OilChanges>().GetAllAsync(
                p => p.IsDeleted == false &&
                     p.ServiceId == 1 &&
@@ -29,6 +32,18 @@ namespace Application.CQRS.Queries.Notification
                        .ThenInclude(ccm => ccm.Customers)
            );
 
+            if (request.Month == 3)
+            {
+                message = $@" qeydiyyat nömrəli avtomobilinizin mühərrikinin yağ dəyişmə prosesindən 3 ay keçmişdir.
+                                 MasterClass tərəfindən yağın səviyyəsini yoxlamağınız tövsiyyə olunur.";
+            }
+            else
+            {
+                message = $@" qeydiyyat nömrəli avtomobilinizin mühərrikinin yağ dəyişmə prosesindən 6 ay keçmiş və yağın istismar müddəti bitmişdir. 
+                              Mühərrik yağının dəyişdirilməsi üçün MasterClass-a yaxınlaşa bilərsiz.";
+            }
+
+
             var notificationDtoList = oilChangesList.Select(o => new NotificationDto
             {
                 CustomerId = o.CustomersCarsMatrix.Customers.Id,
@@ -36,7 +51,8 @@ namespace Application.CQRS.Queries.Notification
                 CustomerSurname = o.CustomersCarsMatrix.Customers.Surname,
                 Phone = o.CustomersCarsMatrix.Customers.Phone,
                 CarModel = o.CustomersCarsMatrix.Cars.Model,
-                CarNumber = o.CustomersCarsMatrix.CarNumber
+                CarNumber = o.CustomersCarsMatrix.CarNumber,
+                Message = o.CustomersCarsMatrix.CarNumber + message
             }).ToList();
 
 

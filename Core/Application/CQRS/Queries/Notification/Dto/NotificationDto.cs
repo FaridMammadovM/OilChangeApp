@@ -8,5 +8,6 @@
         public string Phone { get; set; }
         public string CarModel { get; set; }
         public string CarNumber { get; set; }
+        public string Message { get; set; }
     }
 }

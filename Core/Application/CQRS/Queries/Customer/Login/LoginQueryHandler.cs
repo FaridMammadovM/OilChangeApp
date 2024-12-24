@@ -70,7 +70,7 @@ namespace Application.CQRS.Queries.Customer.Login
                 RequiresOtp = false,
                 AccessToken = accessToken,
                 RefreshToken = refreshToken,
-                RefreshTokenExpiryTime = DateTime.UtcNow.AddMinutes(_refreshTokenExpiration),
+                RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration),
             };
         }
     }
