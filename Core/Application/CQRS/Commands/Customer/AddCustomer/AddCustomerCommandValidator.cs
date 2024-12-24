@@ -44,8 +44,8 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
             RuleFor(x => x.Request.Phone)
                 .NotEmpty()
                 .WithMessage("Telefon nömrəsi boş ola bilməz.")
-                .Matches(@"^\+994(50|51|55|60|70|77|10|99)\d{7}$")
-                .WithMessage("Telefon nömrəsi düzgün formatda deyil. Format: +994xxxxxxxxx");       
+                .Matches(@"^994(50|51|55|60|70|77|10|99)\d{7}$")
+                .WithMessage("Telefon nömrəsi düzgün formatda deyil. Format: 994xxxxxxxxx");
 
         }
     }

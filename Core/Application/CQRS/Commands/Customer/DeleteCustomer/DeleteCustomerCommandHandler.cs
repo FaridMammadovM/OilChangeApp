@@ -24,7 +24,7 @@ namespace Application.CQRS.Commands.Customer.DeleteCustomer
 
             int userId = OpenToken.FindId(_httpContextAccessor);
 
-            customer.InsertedBy = userId;
+            customer.UpdatedBy = userId;
             customer.IsDeleted = true;
             await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(customer);
             await _unitOfWork.SaveAsync();

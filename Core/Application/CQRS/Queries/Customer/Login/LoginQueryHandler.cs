@@ -44,7 +44,9 @@ namespace Application.CQRS.Queries.Customer.Login
                 await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(customer);
                 await _unitOfWork.SaveAsync();
 
-                await new OtpService().SendOtp(customer.Phone, otpCode);
+                //await new OtpService().SendOtp(customer.Phone, otpCode);
+                AtaTeknolojiSmsService newAta = new AtaTeknolojiSmsService();
+                newAta.SmsGonder(customer.Phone, otpCode);
 
                 return new LoginResDto
                 {

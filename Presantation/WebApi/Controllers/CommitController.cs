@@ -1,11 +1,8 @@
-﻿using Application.CQRS.Commands.Car.AddCar.Dtos;
-using Application.CQRS.Commands.Car.AddCar;
-using Application.JWT;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using MediatR;
+﻿using Application.CQRS.Commands.Commit;
 using Application.CQRS.Commands.Commit.Dtos;
-using Application.CQRS.Commands.Commit;
+using Application.JWT;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {

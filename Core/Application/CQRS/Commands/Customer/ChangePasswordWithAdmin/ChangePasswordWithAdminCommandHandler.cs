@@ -34,6 +34,7 @@ namespace Application.CQRS.Commands.Customer.ChangePasswordWithAdmin
             Customers customer = await _unitOfWork.GetReadRepository<Customers>()
                 .GetAsync(c => c.IsDeleted == false && c.Id == request.Request.CustomerId);
             customer.Password = _jwtHelper.HashPassword(request.Request.Password);
+            customer.UpdatedBy = userId;
             await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(customer);
             await _unitOfWork.SaveAsync();
             return Unit.Value;

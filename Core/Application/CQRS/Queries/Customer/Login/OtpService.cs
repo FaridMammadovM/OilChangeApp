@@ -18,14 +18,15 @@ namespace Application.CQRS.Queries.Customer.Login
                 <request>
                     <head>
                         <operation>submit</operation>
-                        <login>Master_Class</login>
-                        <password>your_password</password>
-                        <title>OTP</title>
-                        <bulkmessage>OTP kodunuz: {otp}</bulkmessage>
+                        <login> Master_Class </login>
+                        <password> fR4@8MBw!K7 </password>
+                        <title> MasterClass </title>
+                        <bulkmessage> OTP kodunuz: {otp}</bulkmessage>
                         <isbulk>false</isbulk>
                     </head>
                     <body>
-                        <msisdn>{phone}</msisdn>
+                        <msisdn> 994506719999 </msisdn>
+                        <message> {otp} </message>
                     </body>
                 </request>";
 
@@ -42,6 +43,7 @@ namespace Application.CQRS.Queries.Customer.Login
                     Console.WriteLine($"OTP göndərilməsində xəta: {responseContent}");
                     throw new Exception("OTP göndərilə bilmədi.");
                 }
+                var responseContent1 = await response.Content.ReadAsStringAsync();
 
                 Console.WriteLine($"OTP {otp} {phone} nömrəsinə göndərildi.");
             }

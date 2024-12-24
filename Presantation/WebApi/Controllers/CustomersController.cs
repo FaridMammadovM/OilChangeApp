@@ -7,10 +7,12 @@ using Application.CQRS.Commands.Customer.ChangePasswordWithAdmin.Dtos;
 using Application.CQRS.Commands.Customer.DeleteCustomer;
 using Application.CQRS.Commands.Customer.UpdateCustomer;
 using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
+using Application.CQRS.Queries.Customer.CheckToken;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
 using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.Customer.Login;
 using Application.CQRS.Queries.Customer.Login.Dto;
+using Application.CQRS.Queries.Customer.Logout;
 using Application.CQRS.Queries.Customer.VerifyOtp;
 using Application.CQRS.Queries.Customer.VerifyOtp.Dtos;
 using Application.JWT;
@@ -297,11 +299,62 @@ namespace WebApi.Controllers
                 }
 
 
-                return NotFound(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
+                return Unauthorized(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
             }
             catch (UnauthorizedAccessException)
             {
                 return Unauthorized(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CheckToken([FromBody] string refreshToken)
+        {
+            try
+            {
+                var query = new CheckTokenQuery { RefreshToken = refreshToken };
+                var result = await _mediator.Send(query);
+
+                if (result != null)
+                {
+                    return Ok(new { success = true, message = "Uğurla tamamlandı.", data = result });
+                }
+
+
+                return NotFound(new { success = false, message = "Token tapılmadı." });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new { success = false, message = "Giriş məlumatları düzgün deyil." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout([FromBody] string refreshToken)
+        {
+            try
+            {
+                var command = new LogoutQuery { RefreshToken = refreshToken };
+                var result = await _mediator.Send(command);
+
+                if (result != null)
+                {
+                    return Ok(new { success = true, message = "Uğurla tamamlandı.", data = result });
+                }
+
+                return BadRequest(new { success = false, message = "Uğursuz oldu." });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
             }
             catch (Exception ex)
             {
