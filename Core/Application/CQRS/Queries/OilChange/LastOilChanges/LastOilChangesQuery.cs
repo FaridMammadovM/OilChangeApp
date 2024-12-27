@@ -5,6 +5,6 @@ namespace Application.CQRS.Queries.OilChange.LastOilChanges
 {
     public class LastOilChangesQuery : IRequest<IList<LastOilChangesResDto>>
     {
-        public int CustomerId { get; set; }
+        public string Phone { get; set; }
     }
 }

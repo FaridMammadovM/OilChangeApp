@@ -5,5 +5,6 @@
         // COMMIT CRUD   add +,    
         // icazelere baxmaq
         // loglama
+        //filter
     }
 }

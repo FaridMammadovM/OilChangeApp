@@ -19,35 +19,52 @@ namespace Application.CQRS.Queries.OilChange.LastOilChanges
         }
         public async Task<IList<LastOilChangesResDto>> Handle(LastOilChangesQuery request, CancellationToken cancellationToken)
         {
-            var customersCarsMatrix = await _unitOfWork.GetReadRepository<CustomersCarsMatrix>().GetAllAsync(
-        p => p.IsDeleted == false && p.CustomerId == request.CustomerId,
-        include: query => query.Include(c => c.OilChanges.Where(o => o.IsDeleted == false))
+            var customersCarsMatrix = await _unitOfWork.GetReadRepository<Customers>().GetAllAsync(
+        p => p.IsDeleted == false && p.Phone == request.Phone,
+        include: query => query.Include(c => c.CustomersCars.Where(o => o.IsDeleted == false))
+                                .ThenInclude(c => c.OilChanges.Where(o => o.IsDeleted == false))
                                 .ThenInclude(o => o.Services)
-                                .Include(c => c.Cars));
+                                .Include(c => c.CustomersCars).ThenInclude(c =>c.Cars));
 
 
             var oilChangeDtos = new List<LastOilChangesResDto>();
 
-            foreach (var customerCar in customersCarsMatrix)
-            {
-                foreach (var oilChange in customerCar.OilChanges)
-                {
-                    var dto = new LastOilChangesResDto
-                    {
-                        Id = oilChange.Id,
-                        CustomersCarsMatrixId = customerCar.Id,
-                        ServiceId = oilChange.ServiceId,
-                        ServiceName = oilChange.Services?.Name,
-                        ChangeDate = oilChange.ChangeDate.ToString("dd.MM.yyyy"),
-                        Model = customerCar.Cars?.Model,
-                        Brand = customerCar.Cars?.Brand
-                    };
+            oilChangeDtos = customersCarsMatrix
+        .SelectMany(customer => customer.CustomersCars.Where(cc => !cc.IsDeleted), (customer, customerCar) => new { customer, customerCar })
+        .SelectMany(x => x.customerCar.OilChanges.Where(o => !o.IsDeleted), (x, oilChange) => new LastOilChangesResDto
+        {
+            Id = oilChange.Id,
+            CustomersCarsMatrixId = x.customerCar.Id,
+            ServiceId = oilChange.ServiceId,
+            ServiceName = oilChange.Services?.Name,
+            ChangeDate = oilChange.ChangeDate.ToString("dd.MM.yyyy"),
+            Model = x.customerCar.Cars?.Model,
+            Brand = x.customerCar.Cars?.Brand
+        })
+        .OrderByDescending(dto => dto.ChangeDate)
+        .Take(5)
+        .ToList();
 
-                    oilChangeDtos.Add(dto);
-                }
-            }
+            //foreach (var customerCar in customersCarsMatrix)
+            //{
+            //    foreach (var oilChange in customerCar.CustomersCars.OilChanges)
+            //    {
+            //        var dto = new LastOilChangesResDto
+            //        {
+            //            Id = oilChange.Id,
+            //            CustomersCarsMatrixId = customerCar.Id,
+            //            ServiceId = oilChange.ServiceId,
+            //            ServiceName = oilChange.Services?.Name,
+            //            ChangeDate = oilChange.ChangeDate.ToString("dd.MM.yyyy"),
+            //            Model = customerCar.Cars?.Model,
+            //            Brand = customerCar.Cars?.Brand
+            //        };
 
-            return oilChangeDtos.OrderByDescending(dto => dto.ChangeDate).Take(5).ToList();
+            //        oilChangeDtos.Add(dto);
+            //    }
+            //}
+
+            return oilChangeDtos;
         }
     }
 }

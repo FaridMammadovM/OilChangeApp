@@ -121,11 +121,11 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> LastOilChange([FromQuery] int customerId)
+        public async Task<IActionResult> LastOilChange([FromQuery] string phone)
         {
             try
             {
-                LastOilChangesQuery query = new LastOilChangesQuery() { CustomerId = customerId };
+                LastOilChangesQuery query = new LastOilChangesQuery() { Phone = phone };
                 var response = await _mediator.Send(query);
 
                 if (response == null || !response.Any())

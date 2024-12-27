@@ -6,6 +6,5 @@ namespace Application.CQRS.Queries.Notification
     public class NotificationQuery : IRequest<IList<NotificationDto>>
     {
         public int Month { get; set; }
-        public string Message { get; set; }
     }
 }
