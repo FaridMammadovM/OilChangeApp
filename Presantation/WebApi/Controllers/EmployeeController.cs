@@ -26,11 +26,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetEmployeesQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "İşçi tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetEmployeesQuery());               
 
                 return Ok(new { success = true, data = response });
             }

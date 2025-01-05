@@ -66,11 +66,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 1 });
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Müştərilər tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 1 });              
 
                 return Ok(new { success = true, data = response });
             }
@@ -112,11 +108,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetCustomerByIdQuery() { Phone = phone });
-                if (response == null)
-                {
-                    return NotFound(new { success = false, message = "Müştəri tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetCustomerByIdQuery() { Phone = phone });              
 
                 return Ok(new { success = true, data = response });
             }
@@ -368,11 +360,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 2 });
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Müştərilər tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 2 });             
 
                 return Ok(new { success = true, data = response });
             }

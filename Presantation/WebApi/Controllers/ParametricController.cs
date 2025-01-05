@@ -27,11 +27,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetFuelTypesQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Mühərrik tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetFuelTypesQuery());              
 
                 return Ok(new { success = true, data = response });
             }
@@ -48,11 +44,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetColorsQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Rəng tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetColorsQuery());             
 
                 return Ok(new { success = true, data = response });
             }
@@ -68,11 +60,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetServicesQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Xidmətlər tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetServicesQuery());              
 
                 return Ok(new { success = true, data = response });
             }
@@ -89,11 +77,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetFiltersQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Filter tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetFiltersQuery());              
 
                 return Ok(new { success = true, data = response });
             }
@@ -109,11 +93,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetSAEViscositiesQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "SAE tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetSAEViscositiesQuery());              
 
                 return Ok(new { success = true, data = response });
             }
@@ -129,11 +109,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetWinterViscositiesQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "W tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetWinterViscositiesQuery());               
 
                 return Ok(new { success = true, data = response });
             }
@@ -149,11 +125,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetMotorsQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Motor həcmi tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetMotorsQuery());              
 
                 return Ok(new { success = true, data = response });
             }

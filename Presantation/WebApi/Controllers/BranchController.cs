@@ -22,11 +22,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetBranciesQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Filal tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetBranciesQuery());              
 
                 return Ok(new { success = true, data = response });
             }
@@ -42,11 +38,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetBranchByIdQuery() { Id = id });
-                if (response == null)
-                {
-                    return NotFound(new { success = false, message = "Filal tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetBranchByIdQuery() { Id = id });               
 
                 return Ok(new { success = true, data = response });
             }

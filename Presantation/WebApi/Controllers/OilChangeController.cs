@@ -57,12 +57,6 @@ namespace WebApi.Controllers
             {
                 GetAllOilChangesQuery query = new GetAllOilChangesQuery() { CustomersCarsMatrixId = customersCarsMatrixId };
                 var response = await _mediator.Send(query);
-
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Müştəriyə uyğun xidmet tapılmadı." });
-                }
-
                 return Ok(new { success = true, data = response });
             }
             catch (Exception ex)

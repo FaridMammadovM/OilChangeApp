@@ -31,11 +31,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetAllCarsQuery());
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Maşınlar tapılmadı." });
-                }
+                var response = await _mediator.Send(new GetAllCarsQuery());            
 
                 return Ok(new { success = true, data = response });
             }
@@ -56,11 +52,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GeByIdCarQuery() { CarId = carId });
-                if (response == null)
-                {
-                    return NotFound(new { success = false, message = "Maşın tapılmadı." });
-                }
+                var response = await _mediator.Send(new GeByIdCarQuery() { CarId = carId });               
 
                 return Ok(new { success = true, data = response });
             }
