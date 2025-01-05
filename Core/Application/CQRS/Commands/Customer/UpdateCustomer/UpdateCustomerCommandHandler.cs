@@ -1,5 +1,4 @@
 ﻿using Application.Beheviors;
-using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
 using Application.CQRS.Rules;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
@@ -43,7 +42,9 @@ namespace Application.CQRS.Commands.Customer.UpdateCustomer
             {
                 await _customerRules.FindRole(customersList.Where(c => c.RoleId == 2), userId);
             }
-            customer = _mapper.Map<Customers, UpdateCustomerReqDto>(request.Request);
+            customer.Name = request.Request.Name;
+            customer.Surname = request.Request.Surname;
+            customer.Phone = request.Request.Phone;
             customer.RefreshToken = _jwtHelper.GenerateRefreshToken();
             customer.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
             customer.UpdatedBy = userId;

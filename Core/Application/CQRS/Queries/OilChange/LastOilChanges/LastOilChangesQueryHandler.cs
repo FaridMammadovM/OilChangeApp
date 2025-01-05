@@ -24,7 +24,7 @@ namespace Application.CQRS.Queries.OilChange.LastOilChanges
         include: query => query.Include(c => c.CustomersCars.Where(o => o.IsDeleted == false))
                                 .ThenInclude(c => c.OilChanges.Where(o => o.IsDeleted == false))
                                 .ThenInclude(o => o.Services)
-                                .Include(c => c.CustomersCars).ThenInclude(c =>c.Cars));
+                                .Include(c => c.CustomersCars).ThenInclude(c => c.Cars));
 
 
             var oilChangeDtos = new List<LastOilChangesResDto>();

@@ -21,9 +21,9 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new NotificationQuery() 
-                { 
-                    Month = 3                    
+                var response = await _mediator.Send(new NotificationQuery()
+                {
+                    Month = 3
                 });
                 if (response == null || !response.Any())
                 {
@@ -44,9 +44,9 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new NotificationQuery() 
-                { 
-                    Month = 6                    
+                var response = await _mediator.Send(new NotificationQuery()
+                {
+                    Month = 6
                 });
                 if (response == null || !response.Any())
                 {

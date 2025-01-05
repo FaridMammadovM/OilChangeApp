@@ -9,8 +9,8 @@ namespace Application.CQRS.Queries.Customer.Login
 
         public string SmsGonder(string num, int otp)
         {
-            //string telNo = "554900094";
-            //string mesaj = "Hörmətli istifadəçi 4169********* 52.99 manat abunə haqqı çıxıldı. Bizi seçdiyiniz üçün təşəkkürlər";
+            //num = "994516240399";
+            //string mesaj = "Hörmətli istifadəçi 4169********* 34.99 manat abunə haqqı çıxıldı. Bizi seçdiyiniz üçün təşəkkürlər";
             //string mesaj = "Sizin OTP kodunuz: 5498";
             //string mesaj = "Tək olanda yığarsan";           
 
@@ -29,7 +29,8 @@ namespace Application.CQRS.Queries.Customer.Login
                                "</head>\n" +
                                "<body>\n" +
                                "<msisdn>" + num + @"</msisdn>\n" +
-                               "<message>" + otp + @"</message>\n" +
+                               "<message>" + "Sizin OTP kodunuz: " + otp + @"</message>\n" +
+                               //"<message>"  + mesaj + @"</message>\n" +
                                "</body>\n" +
                                "</request>";
 

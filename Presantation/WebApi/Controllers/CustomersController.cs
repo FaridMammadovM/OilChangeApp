@@ -66,7 +66,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetAllCustomerQuery());
+                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 1 });
                 if (response == null || !response.Any())
                 {
                     return NotFound(new { success = false, message = "Müştərilər tapılmadı." });
@@ -355,6 +355,26 @@ namespace WebApi.Controllers
             catch (UnauthorizedAccessException)
             {
                 return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetAdmins()
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 2 });
+                if (response == null || !response.Any())
+                {
+                    return NotFound(new { success = false, message = "Müştərilər tapılmadı." });
+                }
+
+                return Ok(new { success = true, data = response });
             }
             catch (Exception ex)
             {

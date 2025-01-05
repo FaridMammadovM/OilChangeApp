@@ -18,7 +18,7 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
         }
         public async Task<IList<GetAllCustomerResDto>> Handle(GetAllCustomerQuery request, CancellationToken cancellationToken)
         {
-            var customers = await _unitOfWork.GetReadRepository<Customers>().GetAllAsync(c => c.IsDeleted == false && c.RoleId == 1);
+            var customers = await _unitOfWork.GetReadRepository<Customers>().GetAllAsync(c => c.IsDeleted == false && c.RoleId == request.Number);
             return _mapper.Map<GetAllCustomerResDto, Customers>(customers);
         }
     }

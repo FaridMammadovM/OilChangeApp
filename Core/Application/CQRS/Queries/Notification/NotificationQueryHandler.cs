@@ -19,7 +19,7 @@ namespace Application.CQRS.Queries.Notification
             var targetDate = DateTime.UtcNow.AddMonths(-request.Month).Date;
 
             string message = "";
-            
+
 
             var oilChangesList = await _unitOfWork.GetReadRepository<OilChanges>().GetAllAsync(
                p => p.IsDeleted == false &&

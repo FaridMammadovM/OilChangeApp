@@ -35,9 +35,16 @@ namespace Application.CQRS.Queries.CostumersCarsMatrix.GetCostumersCarsMatrixId
             var result = customerCarsMatrix.Select(matrix => new GetCostumersCarsMatrixResDto
             {
                 Id = matrix.Id,
+                CustomerId = matrix.CustomerId,
                 CarNumber = matrix.CarNumber,
+                CarId = matrix.CarId,
                 Model = matrix.Cars?.Model,
-                Brand = matrix.Cars?.Brand
+                Brand = matrix.Cars?.Brand,
+                MotorId = matrix.MotorId,
+                Year = matrix.Year,
+                ColorsId = matrix.ColorsId,
+                FuelTypeId = matrix.FuelTypeId,
+                Description = matrix.Description
             }).ToList();
 
             return result;

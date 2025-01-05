@@ -9,15 +9,3 @@ namespace Domain.Entities
     }
 }
 
-
-//2000 birkart
-
-//----------------
-
-//1150 taksit
-//750 xerc
-
-
-//------------
-//2000 balans
-//200 kart

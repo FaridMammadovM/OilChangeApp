@@ -23,7 +23,7 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AtributteAuthenticator]
-        public async Task<IActionResult> AddCostumersCarsMatrix([FromBody] AddCostumersCarsMatrixReqDto request)
+        public async Task<IActionResult> AddCustomersCarsMatrix([FromBody] AddCostumersCarsMatrixReqDto request)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> GetCostumersCarsWithPhone(string phone)
+        public async Task<IActionResult> GetCustomersCarsWithPhone(string phone)
         {
             try
             {

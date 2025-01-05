@@ -11,6 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()  // Tüm kaynaklara izin verir
+              .AllowAnyHeader()  // Tüm başlıklara izin verir
+              .AllowAnyMethod(); // Tüm HTTP yöntemlerine izin verir (GET, POST, PUT, DELETE, vb.)
+    });
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -58,6 +67,8 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 //}
+
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 app.ConfigureExceptionHandlingMiddleware();

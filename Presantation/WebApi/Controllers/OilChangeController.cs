@@ -148,10 +148,6 @@ namespace WebApi.Controllers
             try
             {
                 var response = await _mediator.Send(new GetByIdOilChangesQuery() { OilChangeId = oilChangeId });
-                if (response == null)
-                {
-                    return NotFound(new { success = false, message = "Xidmət tapılmadı." });
-                }
 
                 return Ok(new { success = true, data = response });
             }

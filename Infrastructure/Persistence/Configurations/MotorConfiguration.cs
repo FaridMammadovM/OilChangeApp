@@ -27,7 +27,7 @@ namespace Persistence.Configurations
                 });
             }
 
-            for (int capacity = 6500; capacity <= 16000; capacity += 500)
+            for (int capacity = 7000; capacity <= 16000; capacity += 500)
             {
                 motor.Add(new Motor
                 {
