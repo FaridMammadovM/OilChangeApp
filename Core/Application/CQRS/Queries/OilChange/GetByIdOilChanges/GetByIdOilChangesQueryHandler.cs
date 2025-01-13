@@ -33,27 +33,37 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             {
                 return null;
             }
+            
             var dto = new GetByIdOilChangesResDto
             {
                 Id = oilChange.Id,
                 CustomersCarsMatrixId = oilChange.CustomersCarsMatrixId,
                 ServiceId = oilChange.ServiceId,
                 ServiceName = oilChange.Services?.Name,
+                ProductId = oilChange.ProductId,
                 ProductName = oilChange.Products?.Name,
                 ChangeDate = oilChange.ChangeDate.ToString("dd.MM.yyyy"),
                 KilometersTravelled = oilChange.KilometersTravelled,
                 Duration = oilChange.Duration,
                 OilVolume = oilChange.OilVolume,
+                SAEViscosityId = oilChange.SAEViscosityId,
                 SAEViscosity = oilChange.SAEViscosity.Grade,
+                WinterViscosityId = oilChange.WinterViscosityId,
                 WinterViscosity = oilChange.WinterViscosity.Grade,
                 Price = oilChange.Price,
+                EmployeeId = oilChange.EmployeeId,
                 EmployeeName = oilChange.Employees != null ? $"{oilChange.Employees.Name} {oilChange.Employees.Surname}" : null,
+                BranchId = oilChange.BranchId,
                 BranchName = oilChange.Branchies?.Name,
                 Description = oilChange.Description,
+                OilOwn = oilChange.OilOwn,
+                OilCode = oilChange.OilCode,
                 Filters = oilChange.OilChangeFilters?.Select(f => new GetByIdOilChangeFilterDto
                 {
                     Id = f.Filter.Id,
-                    Name = f.Filter.Name
+                    Name = f.Filter.Name,
+                    FilterOwn = f.FilterOwn,
+                    FilterCode = f.FilterCode
                 }).ToList()
 
             };

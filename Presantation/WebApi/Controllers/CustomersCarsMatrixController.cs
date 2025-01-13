@@ -55,12 +55,7 @@ namespace WebApi.Controllers
             try
             {
                 GetCostumersCarsMatrixIdQuery query = new GetCostumersCarsMatrixIdQuery() { Phone = phone };
-                var response = await _mediator.Send(query);
-
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Müştəriyə uyğun maşın tapılmadı." });
-                }
+                var response = await _mediator.Send(query);            
 
                 return Ok(new { success = true, data = response });
             }

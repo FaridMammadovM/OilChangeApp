@@ -7,7 +7,6 @@
         // loglama
         //filter
         //car brand
-        //car model
-        //
+        //car model        
     }
 }

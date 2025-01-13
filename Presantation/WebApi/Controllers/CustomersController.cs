@@ -13,6 +13,8 @@ using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.Customer.Login;
 using Application.CQRS.Queries.Customer.Login.Dto;
 using Application.CQRS.Queries.Customer.Logout;
+using Application.CQRS.Queries.Customer.ResendOtp;
+using Application.CQRS.Queries.Customer.ResendOtp.Dtos;
 using Application.CQRS.Queries.Customer.VerifyOtp;
 using Application.CQRS.Queries.Customer.VerifyOtp.Dtos;
 using Application.JWT;
@@ -66,7 +68,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 1 });              
+                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 1 });
 
                 return Ok(new { success = true, data = response });
             }
@@ -108,7 +110,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetCustomerByIdQuery() { Phone = phone });              
+                var response = await _mediator.Send(new GetCustomerByIdQuery() { Phone = phone });
 
                 return Ok(new { success = true, data = response });
             }
@@ -304,6 +306,27 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> ResendOtp([FromBody] ResendOtpDto request)
+        {
+            try
+            {
+                var query = new ResendOtpQuery { Request = request };
+                var result = await _mediator.Send(query);
+
+                return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
+
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpPost]
         public async Task<IActionResult> CheckToken([FromBody] string refreshToken)
         {
             try
@@ -360,7 +383,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 2 });             
+                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 2 });
 
                 return Ok(new { success = true, data = response });
             }
