@@ -60,7 +60,8 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
                 OilCode = oilChange.OilCode,
                 Filters = oilChange.OilChangeFilters?.Select(f => new GetByIdOilChangeFilterDto
                 {
-                    Id = f.Filter.Id,
+                    Id = f.Id,
+                    FilterId = f.FiltersId,
                     Name = f.Filter.Name,
                     FilterOwn = f.FilterOwn,
                     FilterCode = f.FilterCode

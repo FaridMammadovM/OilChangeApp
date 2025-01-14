@@ -3,6 +3,7 @@
     public sealed class GetByIdOilChangeFilterDto
     {
         public int Id { get; set; }
+        public int FilterId { get; set; }
         public string Name { get; set; }
         public bool FilterOwn { get; set; } = false;
         public string? FilterCode { get; set; }
