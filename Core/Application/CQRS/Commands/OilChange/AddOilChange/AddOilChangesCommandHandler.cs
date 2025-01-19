@@ -39,7 +39,7 @@ namespace Application.CQRS.Commands.OilChange.AddOilChange
             for (int i = 0; i < request.Request.Filters.Count; i++)
             {
                 OilChangeFiltersMatrix oilchange = new OilChangeFiltersMatrix();
-                oilchange.FiltersId = request.Request.Filters[i].FiltersId;
+                oilchange.FiltersId = request.Request.Filters[i].FilterId;
                 oilchange.FilterOwn = request.Request.Filters[i].FilterOwn;
                 oilchange.FilterCode = request.Request.Filters[i].FilterCode;
                 oilchange.OilChangesId = oilChanges.Id;

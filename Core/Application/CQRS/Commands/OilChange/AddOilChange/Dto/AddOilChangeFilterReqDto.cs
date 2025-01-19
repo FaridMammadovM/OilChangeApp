@@ -2,7 +2,7 @@
 {
     public sealed class AddOilChangeFilterReqDto
     {
-        public int FiltersId { get; set; }
+        public int FilterId { get; set; }
         public bool FilterOwn { get; set; } = false;
         public string? FilterCode { get; set; }
     }

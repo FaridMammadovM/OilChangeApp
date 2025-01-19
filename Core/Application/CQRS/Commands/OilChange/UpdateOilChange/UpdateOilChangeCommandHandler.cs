@@ -40,7 +40,7 @@ namespace Application.CQRS.Commands.OilChange.UpdateOilChange
 
                 if (existingFilter != null)
                 {
-                    existingFilter.FiltersId = filterDto.FiltersId;
+                    existingFilter.FiltersId = filterDto.FilterId;
                     existingFilter.FilterOwn = filterDto.FilterOwn;
                     existingFilter.FilterCode = filterDto.FilterCode;
                     existingFilter.UpdatedBy = userId;
@@ -51,7 +51,7 @@ namespace Application.CQRS.Commands.OilChange.UpdateOilChange
                 {
                     OilChangeFiltersMatrix newFilter = new OilChangeFiltersMatrix
                     {
-                        FiltersId = filterDto.FiltersId,
+                        FiltersId = filterDto.FilterId,
                         FilterOwn = filterDto.FilterOwn,
                         FilterCode = filterDto.FilterCode,
                         OilChangesId = oilChange.Id,
