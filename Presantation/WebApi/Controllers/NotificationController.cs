@@ -25,10 +25,7 @@ namespace WebApi.Controllers
                 {
                     Month = 3
                 });
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Məlumat tapılmadı." });
-                }
+              
 
                 return Ok(new { success = true, data = response });
             }
@@ -47,11 +44,7 @@ namespace WebApi.Controllers
                 var response = await _mediator.Send(new NotificationQuery()
                 {
                     Month = 6
-                });
-                if (response == null || !response.Any())
-                {
-                    return NotFound(new { success = false, message = "Məlumat tapılmadı." });
-                }
+                });            
 
                 return Ok(new { success = true, data = response });
             }

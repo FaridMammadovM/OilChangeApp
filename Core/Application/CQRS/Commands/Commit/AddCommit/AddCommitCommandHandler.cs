@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 
-namespace Application.CQRS.Commands.Commit
+namespace Application.CQRS.Commands.Commit.AddCommit
 {
     public sealed class AddCommitCommandHandler : IRequestHandler<AddCommitCommand, Unit>
     {
@@ -21,14 +21,15 @@ namespace Application.CQRS.Commands.Commit
         {
             int userId = OpenToken.FindId(_httpContextAccessor);
 
-            Commits customers = new Commits
+            Commits commit = new Commits
             {
                 CustumerId = userId,
                 CommitMessage = request.Request.CommitMessage,
-                InsertedBy = userId
+                InsertedBy = userId,
+                IsRequest = false
             };
 
-            await _unitOfWork.GetWriteRepository<Commits>().AddAsync(customers);
+            await _unitOfWork.GetWriteRepository<Commits>().AddAsync(commit);
             await _unitOfWork.SaveAsync();
             return Unit.Value;
         }

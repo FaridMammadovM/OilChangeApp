@@ -1,4 +1,4 @@
-﻿namespace Application.CQRS.Commands.Commit.Dtos
+﻿namespace Application.CQRS.Commands.Commit.AddCommit.Dtos
 {
     public sealed class AddCommitReqDto
     {

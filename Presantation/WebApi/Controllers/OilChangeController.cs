@@ -4,7 +4,10 @@ using Application.CQRS.Commands.OilChange.DeleteOilChange;
 using Application.CQRS.Commands.OilChange.UpdateOilChange;
 using Application.CQRS.Commands.OilChange.UpdateOilChange.Dtos;
 using Application.CQRS.Queries.OilChange.GetAllOilChanges;
+using Application.CQRS.Queries.OilChange.GetAllOilChanges.Dtos;
 using Application.CQRS.Queries.OilChange.GetByIdOilChanges;
+using Application.CQRS.Queries.OilChange.GetOilChanges;
+using Application.CQRS.Queries.OilChange.GetOilChanges.Dtos;
 using Application.CQRS.Queries.OilChange.LastOilChanges;
 using Application.JWT;
 using MediatR;
@@ -51,11 +54,11 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> GetAllOilChanges([FromQuery] int customersCarsMatrixId)
+        public async Task<IActionResult> GetAllOilChanges([FromQuery] GetAllOilChangesReqDto request)
         {
             try
             {
-                GetAllOilChangesQuery query = new GetAllOilChangesQuery() { CustomersCarsMatrixId = customersCarsMatrixId };
+                GetAllOilChangesQuery query = new GetAllOilChangesQuery() { Request = request };
                 var response = await _mediator.Send(query);
                 return Ok(new { success = true, data = response });
             }
@@ -151,5 +154,21 @@ namespace WebApi.Controllers
             }
         }
 
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetOilChanges([FromQuery] GetOilChangesReqDto request)
+        {
+            try
+            {
+                GetOilChangesQuery query = new GetOilChangesQuery() { Request = request };
+                var response = await _mediator.Send(query);
+                return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
     }
 }

@@ -19,10 +19,20 @@ namespace Application.CQRS.Queries.OilChange.GetAllOilChanges
         }
         public async Task<IList<GetAllOilChangesResDto>> Handle(GetAllOilChangesQuery request, CancellationToken cancellationToken)
         {
-            var oilChangesList = await _unitOfWork.GetReadRepository<OilChanges>().GetAllAsync(
-            p => p.IsDeleted == false && p.CustomersCarsMatrixId == request.CustomersCarsMatrixId,
+            IList<OilChanges> oilChangesList = await _unitOfWork.GetReadRepository<OilChanges>()
+              .GetAllAsync(p => p.IsDeleted == false && p.CustomersCarsMatrixId == request.Request.CustomersCarsMatrixId,
             include: query => query.Include(c => c.Services)
             );
+
+            //var oilChangesList = await _unitOfWork.GetReadRepository<OilChanges>().GetAllAsync(
+            //p => p.IsDeleted == false && p.CustomersCarsMatrixId == request.Request.CustomersCarsMatrixId,
+            //include: query => query.Include(c => c.Services)
+            //);
+
+            if (request.Request.ServiceId != null && oilChangesList != null)
+            {
+                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.ServiceId == request.Request.ServiceId).ToList();
+            }
 
             var oilChangesResDtoList = _mapper.Map<GetAllOilChangesResDto, OilChanges>(oilChangesList);
 

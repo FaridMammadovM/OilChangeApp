@@ -34,13 +34,11 @@ namespace Application.CQRS.Queries.Notification
 
             if (request.Month == 3)
             {
-                message = $@" qeydiyyat nömrəli avtomobilinizin mühərrikinin yağ dəyişmə prosesindən 3 ay keçmişdir.
-                                 MasterClass tərəfindən yağın səviyyəsini yoxlamağınız tövsiyyə olunur.";
+                message = $@" qeydiyyat nömrəli avtomobilinizin mühərrikinin yağ dəyişmə prosesindən 3 ay keçmişdir. MasterClass tərəfindən yağın səviyyəsini yoxlamağınız tövsiyyə olunur.";
             }
             else
             {
-                message = $@" qeydiyyat nömrəli avtomobilinizin mühərrikinin yağ dəyişmə prosesindən 6 ay keçmiş və yağın istismar müddəti bitmişdir. 
-                              Mühərrik yağının dəyişdirilməsi üçün MasterClass-a yaxınlaşa bilərsiz.";
+                message = $@" qeydiyyat nömrəli avtomobilinizin mühərrikinin yağ dəyişmə prosesindən 6 ay keçmiş və yağın istismar müddəti bitmişdir. Mühərrik yağının dəyişdirilməsi üçün MasterClass-a yaxınlaşa bilərsiz.";
             }
 
 

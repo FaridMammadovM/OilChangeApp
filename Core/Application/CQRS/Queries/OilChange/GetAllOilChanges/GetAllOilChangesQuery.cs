@@ -5,7 +5,7 @@ namespace Application.CQRS.Queries.OilChange.GetAllOilChanges
 {
     public class GetAllOilChangesQuery : IRequest<IList<GetAllOilChangesResDto>>
     {
-        public int CustomersCarsMatrixId { get; set; }
+        public GetAllOilChangesReqDto Request { get; set; }   
 
     }
 }

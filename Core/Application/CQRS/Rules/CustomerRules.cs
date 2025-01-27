@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿//using System.ComponentModel.DataAnnotations;
 using Application.Bases;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
 using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
+using Application.CQRS.Exceptions;
 using Domain.Entities;
+using MediatR;
 
 namespace Application.CQRS.Rules
 {
@@ -40,6 +42,13 @@ namespace Application.CQRS.Rules
         {
             if (roleId == 2)
                 throw new ValidationException("Sizin icazəniz yoxdur!");
+            return Task.CompletedTask;
+        }
+
+        public Task PasswordVerify(Customers customers, string oldPassword)
+        {
+            if (!BCrypt.Net.BCrypt.Verify(oldPassword, customers.Password))
+                throw new ValidationException("Şifrə yanlışdır!");
             return Task.CompletedTask;
         }
     }

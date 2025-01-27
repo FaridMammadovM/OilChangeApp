@@ -1,4 +1,5 @@
 ﻿using Application.Beheviors;
+using Application.CQRS.Rules;
 using Application.Interfaces.UnitOfWork;
 using Application.JWT;
 using Domain.Entities;
@@ -13,13 +14,16 @@ namespace Application.CQRS.Commands.Customer.ChangePassword
         private readonly IUnitOfWork _unitOfWork;
         private readonly JwtHelper _jwtHelper;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly CustomerRules _customerRules;
 
-        public ChangePasswordCommandHandler(IUnitOfWork unitOfWork,
+
+        public ChangePasswordCommandHandler(IUnitOfWork unitOfWork, CustomerRules customerRules,
             IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork = unitOfWork;
             _httpContextAccessor = httpContextAccessor;
             _jwtHelper = new JwtHelper(configuration);
+            _customerRules = customerRules;
         }
         public async Task<Unit> Handle(ChangePasswordCommand request, CancellationToken cancellationToken)
         {
@@ -27,6 +31,7 @@ namespace Application.CQRS.Commands.Customer.ChangePassword
 
             Customers customer = await _unitOfWork.GetReadRepository<Customers>()
                 .GetAsync(c => c.IsDeleted == false && c.Id == 1);
+            _customerRules.PasswordVerify(customer, request.Request.OldPassword);
             customer.Password = _jwtHelper.HashPassword(request.Request.Password);
             customer.UpdatedBy = userId;
             await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(customer);

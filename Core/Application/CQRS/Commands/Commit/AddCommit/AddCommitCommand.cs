@@ -1,7 +1,7 @@
-﻿using Application.CQRS.Commands.Commit.Dtos;
+﻿using Application.CQRS.Commands.Commit.AddCommit.Dtos;
 using MediatR;
 
-namespace Application.CQRS.Commands.Commit
+namespace Application.CQRS.Commands.Commit.AddCommit
 {
     public class AddCommitCommand : IRequest<Unit>
     {

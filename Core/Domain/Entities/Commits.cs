@@ -7,6 +7,7 @@ namespace Domain.Entities
         public string CommitMessage { get; set; }
         public int CustumerId { get; set; }
         public Customers Customers { get; set; }
+        public bool IsRequest { get; set; } = false;
 
     }
 }
