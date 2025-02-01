@@ -38,10 +38,10 @@ namespace WebApi.Controllers
 
                 if (result == null)
                 {
-                    return BadRequest(new { success = false, message = "Commit əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                    return BadRequest(new { success = false, message = "Müraciətiniz əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
                 }
 
-                return Ok(new { success = true, message = "Commit uğurla əlavə edildi." });
+                return Ok(new { success = true, message = "Müraciətiniz qeyda alındı" });
             }
             catch (Exception ex)
             {

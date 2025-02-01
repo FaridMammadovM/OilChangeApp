@@ -92,7 +92,7 @@ namespace WebApi.Controllers
                 }
 
 
-                return NotFound(new { success = false, message = "İstifadəçi tapılmadı." });
+                return NotFound(new { success = false, message = "İstifadəçi və ya şifrə yanlışdır" });
             }
             catch (UnauthorizedAccessException)
             {

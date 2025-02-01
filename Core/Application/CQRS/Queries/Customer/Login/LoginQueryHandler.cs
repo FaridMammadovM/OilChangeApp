@@ -39,7 +39,7 @@ namespace Application.CQRS.Queries.Customer.Login
 
                 customer.OtpCode = otpCode;
                 customer.OtpExpirationTime = DateTime.UtcNow.AddMinutes(3);
-
+                customer.NotificationToken = request.Request.NotificationToken;
 
                 await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(customer);
                 await _unitOfWork.SaveAsync();

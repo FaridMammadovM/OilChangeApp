@@ -12,6 +12,7 @@ namespace Domain.Entities
         public string? RefreshToken { get; set; }
         public bool IsOtp { get; set; } = false;
         public int? OtpCode { get; set; }
+        public string? NotificationToken { get; set; }
         public DateTime? OtpExpirationTime { get; set; }
         public DateTime? RefreshTokenExpiryTime { get; set; }
         public ICollection<Commits> Commits { get; set; }
