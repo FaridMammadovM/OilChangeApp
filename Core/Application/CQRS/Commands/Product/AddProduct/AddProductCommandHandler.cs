@@ -27,6 +27,7 @@ namespace Application.CQRS.Commands.Product.AddProduct
             await _rules.CheckName(modelList, request.Request.Name);
             Products product = new Products();
             product.Name = request.Request.Name;
+            product.CategoryId = request.CategoryId;
             product.InsertedBy = userId;
             await _unitOfWork.GetWriteRepository<Products>().AddAsync(product);
             await _unitOfWork.SaveAsync();

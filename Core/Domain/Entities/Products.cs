@@ -5,6 +5,7 @@ namespace Domain.Entities
     public sealed class Products : EntityBase
     {
         public string Name { get; set; }
+        public int CategoryId { get; set; }
         public ICollection<OilChanges> OilChanges { get; set; }
     }
 }

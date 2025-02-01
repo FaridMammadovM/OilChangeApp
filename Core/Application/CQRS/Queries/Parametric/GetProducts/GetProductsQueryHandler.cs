@@ -18,7 +18,7 @@ namespace Application.CQRS.Queries.Parametric.GetProducts
         }
         public async Task<IList<GetProductsResDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            var products = await _unitOfWork.GetReadRepository<Products>().GetAllAsync(car => car.IsDeleted == false);
+            var products = await _unitOfWork.GetReadRepository<Products>().GetAllAsync(c => c.IsDeleted == false && c.CategoryId == request.CategoryId);
             return _mapper.Map<GetProductsResDto, Products>(products);
         }
     }

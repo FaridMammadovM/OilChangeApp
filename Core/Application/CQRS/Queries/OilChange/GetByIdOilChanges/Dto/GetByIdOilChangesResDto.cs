@@ -6,7 +6,7 @@
         public int CustomersCarsMatrixId { get; set; }
         public int ServiceId { get; set; }
         public string ServiceName { get; set; }
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
         public string ProductName { get; set; }
         public string ChangeDate { get; set; }
         public int? KilometersTravelled { get; set; }

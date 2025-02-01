@@ -109,7 +109,23 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetWinterViscositiesQuery());               
+                var response = await _mediator.Send(new GetWinterViscositiesQuery() { ServiceType = 1});               
+
+                return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetDOTs()
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetWinterViscositiesQuery() { ServiceType = 2 });
 
                 return Ok(new { success = true, data = response });
             }

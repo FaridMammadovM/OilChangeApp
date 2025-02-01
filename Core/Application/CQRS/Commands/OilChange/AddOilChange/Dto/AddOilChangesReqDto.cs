@@ -4,13 +4,10 @@
     {
         public int CustomersCarsMatrixId { get; set; }
         public int ServiceId { get; set; }
-        public int ProductId { get; set; }
-
-        //serviceid = 1
+        public int? ProductId { get; set; }
         public int? SAEViscosityId { get; set; }
-
-        //serviceid =2
-        public int WinterViscosityId { get; set; }
+        public int? WinterViscosityId { get; set; }
+        public string? Indicator { get; set; }
         public DateTime ChangeDate { get; set; }
 
         //yuruyus
@@ -28,6 +25,5 @@
         public string? OilCode { get; set; }
         public string? Description { get; set; }
         public List<AddOilChangeFilterReqDto> Filters { get; set; }
-
     }
 }

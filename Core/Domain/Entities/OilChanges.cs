@@ -6,9 +6,10 @@ namespace Domain.Entities
     {
         public int CustomersCarsMatrixId { get; set; }
         public int ServiceId { get; set; }
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
         public int? SAEViscosityId { get; set; }
-        public int WinterViscosityId { get; set; }
+        public int? WinterViscosityId { get; set; }
+        public string? Indicator { get; set; }
         public DateTime ChangeDate { get; set; }
         public int? KilometersTravelled { get; set; }
         public decimal? OilVolume { get; set; }
