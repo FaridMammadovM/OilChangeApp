@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace Application.CQRS.Queries.Commit.GetAllCommit.Dtos
+﻿namespace Application.CQRS.Queries.Commit.GetAllCommit.Dtos
 {
     public class GetAllCommitResDto
     {

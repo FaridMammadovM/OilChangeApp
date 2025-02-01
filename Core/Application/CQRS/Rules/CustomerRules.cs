@@ -4,7 +4,6 @@ using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
 using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
 using Application.CQRS.Exceptions;
 using Domain.Entities;
-using MediatR;
 
 namespace Application.CQRS.Rules
 {

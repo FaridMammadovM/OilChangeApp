@@ -26,7 +26,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetEmployeesQuery());               
+                var response = await _mediator.Send(new GetEmployeesQuery());
 
                 return Ok(new { success = true, data = response });
             }

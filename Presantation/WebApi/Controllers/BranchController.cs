@@ -22,7 +22,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetBranciesQuery());              
+                var response = await _mediator.Send(new GetBranciesQuery());
 
                 return Ok(new { success = true, data = response });
             }
@@ -38,7 +38,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetBranchByIdQuery() { Id = id });               
+                var response = await _mediator.Send(new GetBranchByIdQuery() { Id = id });
 
                 return Ok(new { success = true, data = response });
             }

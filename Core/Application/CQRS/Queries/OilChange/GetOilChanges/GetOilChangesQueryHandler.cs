@@ -1,5 +1,4 @@
-﻿using Application.CQRS.Queries.OilChange.GetAllOilChanges.Dtos;
-using Application.CQRS.Queries.OilChange.GetOilChanges.Dtos;
+﻿using Application.CQRS.Queries.OilChange.GetOilChanges.Dtos;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
@@ -22,14 +21,14 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
         {
 
             IList<OilChanges> oilChangesList = await _unitOfWork.GetReadRepository<OilChanges>()
-              .GetAllAsync(p => p.IsDeleted == false, 
+              .GetAllAsync(p => p.IsDeleted == false,
             include: query => query
             .Include(c => c.Services)
             .Include(c => c.CustomersCarsMatrix)
             .ThenInclude(c => c.Customers)
             );
 
-      
+
             if (request.Request.ServiceId != null && oilChangesList != null)
             {
                 oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.ServiceId == request.Request.ServiceId).ToList();
@@ -69,7 +68,7 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
                 oilChangesResDtoList[i].CarNumber = oilChangesList[i].CustomersCarsMatrix.CarNumber;
             }
 
-            return oilChangesResDtoList.OrderByDescending(c=> c.Id).ToList();
+            return oilChangesResDtoList.OrderByDescending(c => c.Id).ToList();
         }
     }
 }

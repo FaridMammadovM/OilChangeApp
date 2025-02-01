@@ -14,7 +14,7 @@
         public int? KilometersTravelled { get; set; }
 
         //yag hecmi
-        public decimal? OilVolume { get; set; }
+        public decimal? Volume { get; set; }
 
         //istifade ede bileceyi km
         public int? Duration { get; set; }
@@ -24,6 +24,6 @@
         public bool OilOwn { get; set; } = false;
         public string? OilCode { get; set; }
         public string? Description { get; set; }
-        public List<AddOilChangeFilterReqDto> Filters { get; set; }
+        public List<AddOilChangeFilterReqDto?>? Filters { get; set; }
     }
 }

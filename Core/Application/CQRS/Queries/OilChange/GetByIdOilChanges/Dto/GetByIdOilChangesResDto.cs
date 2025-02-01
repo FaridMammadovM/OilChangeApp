@@ -11,11 +11,8 @@
         public string ChangeDate { get; set; }
         public int? KilometersTravelled { get; set; }
         public int? Duration { get; set; }
-        public decimal? OilVolume { get; set; }
-        public int? SAEViscosityId { get; set; }
-        public int? SAEViscosity { get; set; }
-        public int? WinterViscosityId { get; set; }
-        public decimal? WinterViscosity { get; set; }
+        public decimal? Volume { get; set; }
+        public string GeneralName { get; set; }
         public decimal Price { get; set; }
         public int EmployeeId { get; set; }
         public string EmployeeName { get; set; }

@@ -31,7 +31,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetAllCarsQuery());            
+                var response = await _mediator.Send(new GetAllCarsQuery());
 
                 return Ok(new { success = true, data = response });
             }
@@ -52,7 +52,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GeByIdCarQuery() { CarId = carId });               
+                var response = await _mediator.Send(new GeByIdCarQuery() { CarId = carId });
 
                 return Ok(new { success = true, data = response });
             }

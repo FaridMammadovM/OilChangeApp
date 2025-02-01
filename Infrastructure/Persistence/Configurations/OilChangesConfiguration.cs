@@ -20,7 +20,7 @@ namespace Persistence.Configurations
             builder.Property(x => x.Duration)
               .IsRequired(false);
 
-            builder.Property(x => x.OilVolume)
+            builder.Property(x => x.Volume)
               .IsRequired(false);
 
             builder.Property(x => x.OilCode)

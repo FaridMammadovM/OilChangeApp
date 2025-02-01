@@ -1,5 +1,4 @@
-﻿using Application.CQRS.Commands.Commit.AddCommit.Dtos;
-using Application.CQRS.Commands.Commit.ResponseAdmin.Dtos;
+﻿using Application.CQRS.Commands.Commit.ResponseAdmin.Dtos;
 using MediatR;
 
 namespace Application.CQRS.Commands.Commit.ResponseAdmin

@@ -26,7 +26,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetProductsQuery() { CategoryId = 1});
+                var response = await _mediator.Send(new GetProductsQuery() { CategoryId = 1 });
                 if (response == null || !response.Any())
                 {
                     return Ok(new { success = false, message = "Məhsul tapılmadı." });
@@ -51,7 +51,7 @@ namespace WebApi.Controllers
                     return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
                 }
 
-                AddProductCommand command = new AddProductCommand() { Request = request, CategoryId =1 };
+                AddProductCommand command = new AddProductCommand() { Request = request, CategoryId = 1 };
                 var result = await _mediator.Send(command);
 
                 if (result == null)

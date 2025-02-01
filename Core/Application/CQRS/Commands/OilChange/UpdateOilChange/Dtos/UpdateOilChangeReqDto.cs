@@ -10,7 +10,7 @@
         public int WinterViscosityId { get; set; }
         public DateTime ChangeDate { get; set; }
         public int? KilometersTravelled { get; set; }
-        public decimal? OilVolume { get; set; }
+        public decimal? Volume { get; set; }
         public int? Duration { get; set; }
         public int EmployeeId { get; set; }
         public int BranchId { get; set; }

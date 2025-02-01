@@ -27,7 +27,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetFuelTypesQuery());              
+                var response = await _mediator.Send(new GetFuelTypesQuery());
 
                 return Ok(new { success = true, data = response });
             }
@@ -44,7 +44,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetColorsQuery());             
+                var response = await _mediator.Send(new GetColorsQuery());
 
                 return Ok(new { success = true, data = response });
             }
@@ -60,7 +60,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetServicesQuery());              
+                var response = await _mediator.Send(new GetServicesQuery());
 
                 return Ok(new { success = true, data = response });
             }
@@ -77,7 +77,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetFiltersQuery());              
+                var response = await _mediator.Send(new GetFiltersQuery());
 
                 return Ok(new { success = true, data = response });
             }
@@ -93,7 +93,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetSAEViscositiesQuery());              
+                var response = await _mediator.Send(new GetSAEViscositiesQuery());
 
                 return Ok(new { success = true, data = response });
             }
@@ -109,7 +109,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetWinterViscositiesQuery() { ServiceType = 1});               
+                var response = await _mediator.Send(new GetWinterViscositiesQuery() { ServiceType = 1 });
 
                 return Ok(new { success = true, data = response });
             }
@@ -141,7 +141,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetMotorsQuery());              
+                var response = await _mediator.Send(new GetMotorsQuery());
 
                 return Ok(new { success = true, data = response });
             }

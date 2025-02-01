@@ -25,7 +25,7 @@ namespace WebApi.Controllers
                 {
                     Month = 3
                 });
-              
+
 
                 return Ok(new { success = true, data = response });
             }
@@ -44,7 +44,7 @@ namespace WebApi.Controllers
                 var response = await _mediator.Send(new NotificationQuery()
                 {
                     Month = 6
-                });            
+                });
 
                 return Ok(new { success = true, data = response });
             }

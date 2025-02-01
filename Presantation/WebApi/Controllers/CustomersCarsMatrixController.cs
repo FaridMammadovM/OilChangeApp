@@ -55,7 +55,7 @@ namespace WebApi.Controllers
             try
             {
                 GetCostumersCarsMatrixIdQuery query = new GetCostumersCarsMatrixIdQuery() { Phone = phone };
-                var response = await _mediator.Send(query);            
+                var response = await _mediator.Send(query);
 
                 return Ok(new { success = true, data = response });
             }

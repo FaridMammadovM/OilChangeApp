@@ -33,7 +33,7 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             {
                 return null;
             }
-            
+
             var dto = new GetByIdOilChangesResDto
             {
                 Id = oilChange.Id,
@@ -45,11 +45,7 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
                 ChangeDate = oilChange.ChangeDate.ToString("dd.MM.yyyy"),
                 KilometersTravelled = oilChange.KilometersTravelled,
                 Duration = oilChange.Duration,
-                OilVolume = oilChange.OilVolume,
-                SAEViscosityId = oilChange.SAEViscosityId,
-                SAEViscosity = oilChange.SAEViscosity.Grade,
-                WinterViscosityId = oilChange.WinterViscosityId,
-                WinterViscosity = oilChange.WinterViscosity.Grade,
+                Volume = oilChange.Volume,
                 Price = oilChange.Price,
                 EmployeeId = oilChange.EmployeeId,
                 EmployeeName = oilChange.Employees != null ? $"{oilChange.Employees.Name} {oilChange.Employees.Surname}" : null,
@@ -68,6 +64,28 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
                 }).ToList()
 
             };
+
+            if (dto.ServiceId == 1)
+            {
+                dto.GeneralName = oilChange.Indicator;
+            }
+            else if (dto.ServiceId == 2)
+            {
+                dto.GeneralName = "SAE " + oilChange.SAEViscosity.Grade + " W " + (int)oilChange.WinterViscosity.Grade;
+            }
+            else if (dto.ServiceId == 3)
+            {
+
+            }
+            else if (dto.ServiceId == 4)
+            {
+                dto.GeneralName = "DOT " + oilChange.WinterViscosity.Grade;
+            }
+            else if (dto.ServiceId == 5 || dto.ServiceId == 6 || dto.ServiceId == 7)
+            {
+                dto.GeneralName = oilChange.Indicator;
+            }
+
             return dto;
         }
     }
