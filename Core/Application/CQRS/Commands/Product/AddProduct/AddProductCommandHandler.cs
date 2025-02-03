@@ -23,7 +23,7 @@ namespace Application.CQRS.Commands.Product.AddProduct
         {
             int userId = OpenToken.FindId(_httpContextAccessor);
 
-            IList<Products> modelList = await _unitOfWork.GetReadRepository<Products>().GetAllAsync(w => w.IsDeleted == false);
+            IList<Products> modelList = await _unitOfWork.GetReadRepository<Products>().GetAllAsync(w => w.IsDeleted == false && w.CategoryId == request.CategoryId);
             await _rules.CheckName(modelList, request.Request.Name);
             Products product = new Products();
             product.Name = request.Request.Name;

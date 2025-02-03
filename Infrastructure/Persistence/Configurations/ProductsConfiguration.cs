@@ -36,7 +36,10 @@ namespace Persistence.Configurations
                 new Products { Id = 21, Name = "North Sea", IsDeleted = false, InsertedDate = DateTime.Now   , CategoryId = 1, InsertedBy = 1},
                 new Products { Id = 22, Name = "AGAT", IsDeleted = false, InsertedDate = DateTime.Now        , CategoryId = 1, InsertedBy = 1},
                 new Products { Id = 23, Name = "Boost Oil", IsDeleted = false, InsertedDate = DateTime.Now   , CategoryId = 1, InsertedBy = 1},
-                new Products { Id = 24, Name = "Liqui Moly", IsDeleted = false, InsertedDate = DateTime.Now  , CategoryId = 1, InsertedBy = 1}
+                new Products { Id = 24, Name = "Liqui Moly", IsDeleted = false, InsertedDate = DateTime.Now  , CategoryId = 1, InsertedBy = 1},
+                new Products { Id = 25, Name = "Liqui Moly", IsDeleted = false, InsertedDate = DateTime.Now  , CategoryId = 2, InsertedBy = 1},
+                new Products { Id = 26, Name = "Opet", IsDeleted = false, InsertedDate = DateTime.Now        , CategoryId = 3, InsertedBy = 1},
+
 
             };
 
