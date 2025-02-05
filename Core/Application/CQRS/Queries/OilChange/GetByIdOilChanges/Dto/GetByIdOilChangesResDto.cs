@@ -7,6 +7,11 @@
         public int ServiceId { get; set; }
         public string ServiceName { get; set; }
         public int? ProductId { get; set; }
+        public int? SAEViscosityId { get; set; }
+        public int? SAEViscosityName { get; set; }
+        public int? WinterViscosityId { get; set; }
+        public decimal? WinterViscosityName { get; set; }
+        public string? Indicator { get; set; }
         public string ProductName { get; set; }
         public string ChangeDate { get; set; }
         public int? KilometersTravelled { get; set; }

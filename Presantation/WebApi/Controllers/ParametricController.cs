@@ -1,4 +1,5 @@
 ﻿using Application.CQRS.Queries.Parametric.GetColors;
+using Application.CQRS.Queries.Parametric.GetDOTs;
 using Application.CQRS.Queries.Parametric.GetFilters;
 using Application.CQRS.Queries.Parametric.GetFuelTypes;
 using Application.CQRS.Queries.Parametric.GetMotors;
@@ -125,7 +126,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetWinterViscositiesQuery() { ServiceType = 2 });
+                var response = await _mediator.Send(new GetDOTsQuery());
 
                 return Ok(new { success = true, data = response });
             }
