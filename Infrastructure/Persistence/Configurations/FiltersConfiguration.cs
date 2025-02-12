@@ -18,7 +18,8 @@ namespace Persistence.Configurations
                 new Filters { Id = 1, Name = "Yağ", IsDeleted = false, InsertedDate = DateTime.Now },
                 new Filters { Id = 2, Name = "Hava", IsDeleted = false, InsertedDate = DateTime.Now },
                 new Filters { Id = 3, Name = "Yanacaq", IsDeleted = false, InsertedDate = DateTime.Now },
-                new Filters { Id = 4, Name = "Salon", IsDeleted = false, InsertedDate = DateTime.Now }
+                new Filters { Id = 4, Name = "Salon", IsDeleted = false, InsertedDate = DateTime.Now },
+                new Filters { Id = 5, Name = "Filter", IsDeleted = false, InsertedDate = DateTime.Now }
             };
 
             builder.HasData(filters);

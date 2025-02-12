@@ -25,8 +25,11 @@ namespace Application.CQRS.Rules
 
         public Task ChangePasswordWithAdmin(int roleId)
         {
-            if (roleId == 2)
+            if (roleId != 2)
+            {
                 throw new ValidationException("Sizin icazəniz yoxdur!");
+            }
+                
             return Task.CompletedTask;
         }
 
@@ -46,8 +49,12 @@ namespace Application.CQRS.Rules
 
         public Task PasswordVerify(Customers customers, string oldPassword)
         {
-            if (!BCrypt.Net.BCrypt.Verify(oldPassword, customers.Password))
+            bool check = BCrypt.Net.BCrypt.Verify(oldPassword, customers.Password);
+            if (!check)
+            {
                 throw new ValidationException("Şifrə yanlışdır!");
+            }
+                
             return Task.CompletedTask;
         }
     }

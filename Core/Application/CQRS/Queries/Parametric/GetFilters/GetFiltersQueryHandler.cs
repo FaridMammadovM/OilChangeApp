@@ -18,7 +18,7 @@ namespace Application.CQRS.Queries.Parametric.GetFilters
         }
         public async Task<IList<GetFiltersResDto>> Handle(GetFiltersQuery request, CancellationToken cancellationToken)
         {
-            var filters = await _unitOfWork.GetReadRepository<Filters>().GetAllAsync(car => car.IsDeleted == false);
+            var filters = await _unitOfWork.GetReadRepository<Filters>().GetAllAsync(c => c.IsDeleted == false);
             return _mapper.Map<GetFiltersResDto, Filters>(filters);
         }
     }

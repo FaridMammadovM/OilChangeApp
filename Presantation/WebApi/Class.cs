@@ -4,7 +4,7 @@
     {
         // icazelere baxmaq
         // loglama
-        // 500 error sifre deyisde 
-        // notification -- getnotification user -- 
+        // MSJLAR 500 QAYITMASIN
+        // notification -- getnotification user --  new table   
     }
 }

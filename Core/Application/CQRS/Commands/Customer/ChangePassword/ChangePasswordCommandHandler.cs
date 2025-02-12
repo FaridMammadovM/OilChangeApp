@@ -30,7 +30,7 @@ namespace Application.CQRS.Commands.Customer.ChangePassword
             int userId = OpenToken.FindId(_httpContextAccessor);
 
             Customers customer = await _unitOfWork.GetReadRepository<Customers>()
-                .GetAsync(c => c.IsDeleted == false && c.Id == 1);
+                .GetAsync(c => c.IsDeleted == false && c.Id == userId);
             _customerRules.PasswordVerify(customer, request.Request.OldPassword);
             customer.Password = _jwtHelper.HashPassword(request.Request.Password);
             customer.UpdatedBy = userId;
