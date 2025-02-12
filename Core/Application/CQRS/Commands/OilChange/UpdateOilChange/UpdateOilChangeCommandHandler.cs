@@ -34,31 +34,34 @@ namespace Application.CQRS.Commands.OilChange.UpdateOilChange
             await _unitOfWork.GetWriteRepository<OilChanges>().UpdateAsync(oilChange);
             await _unitOfWork.SaveAsync();
 
-            foreach (var filterDto in request.Request.Filters)
+            if (request.Request.Filters != null)
             {
-                var existingFilter = await _unitOfWork.GetReadRepository<OilChangeFiltersMatrix>().GetAsync(c => c.Id == filterDto.Id);
-
-                if (existingFilter != null)
+                foreach (var filterDto in request.Request.Filters)
                 {
-                    existingFilter.FiltersId = filterDto.FilterId;
-                    existingFilter.FilterOwn = filterDto.FilterOwn;
-                    existingFilter.FilterCode = filterDto.FilterCode;
-                    existingFilter.UpdatedBy = userId;
+                    var existingFilter = await _unitOfWork.GetReadRepository<OilChangeFiltersMatrix>().GetAsync(c => c.Id == filterDto.Id);
 
-                    await _unitOfWork.GetWriteRepository<OilChangeFiltersMatrix>().UpdateAsync(existingFilter);
-                }
-                else
-                {
-                    OilChangeFiltersMatrix newFilter = new OilChangeFiltersMatrix
+                    if (existingFilter != null)
                     {
-                        FiltersId = filterDto.FilterId,
-                        FilterOwn = filterDto.FilterOwn,
-                        FilterCode = filterDto.FilterCode,
-                        OilChangesId = oilChange.Id,
-                        InsertedBy = userId
-                    };
+                        existingFilter.FiltersId = filterDto.FilterId;
+                        existingFilter.FilterOwn = filterDto.FilterOwn;
+                        existingFilter.FilterCode = filterDto.FilterCode;
+                        existingFilter.UpdatedBy = userId;
 
-                    await _unitOfWork.GetWriteRepository<OilChangeFiltersMatrix>().AddAsync(newFilter);
+                        await _unitOfWork.GetWriteRepository<OilChangeFiltersMatrix>().UpdateAsync(existingFilter);
+                    }
+                    else
+                    {
+                        OilChangeFiltersMatrix newFilter = new OilChangeFiltersMatrix
+                        {
+                            FiltersId = filterDto.FilterId,
+                            FilterOwn = filterDto.FilterOwn,
+                            FilterCode = filterDto.FilterCode,
+                            OilChangesId = oilChange.Id,
+                            InsertedBy = userId
+                        };
+
+                        await _unitOfWork.GetWriteRepository<OilChangeFiltersMatrix>().AddAsync(newFilter);
+                    }
                 }
             }
 
