@@ -1,4 +1,4 @@
-﻿using Application.CQRS.Queries.Notification;
+﻿using Application.CQRS.Queries.Notification.Job;
 using Application.JWT;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

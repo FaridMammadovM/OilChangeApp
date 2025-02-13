@@ -2,7 +2,7 @@
 
 namespace Application.CQRS.Commands.OilChange.UpdateOilChange
 {
-    internal class UpdateOilChangeCommandValidator : AbstractValidator<UpdateOilChangeCommand>
+    public class UpdateOilChangeCommandValidator : AbstractValidator<UpdateOilChangeCommand>
     {
         public UpdateOilChangeCommandValidator()
         {

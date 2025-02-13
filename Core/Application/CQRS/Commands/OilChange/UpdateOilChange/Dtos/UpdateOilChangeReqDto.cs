@@ -1,6 +1,4 @@
-﻿using Application.CQRS.Commands.OilChange.AddOilChange.Dto;
-
-namespace Application.CQRS.Commands.OilChange.UpdateOilChange.Dtos
+﻿namespace Application.CQRS.Commands.OilChange.UpdateOilChange.Dtos
 {
     public sealed class UpdateOilChangeReqDto
     {
@@ -21,7 +19,7 @@ namespace Application.CQRS.Commands.OilChange.UpdateOilChange.Dtos
         public bool OilOwn { get; set; } = false;
         public string? OilCode { get; set; }
         public string? Description { get; set; }
-        public List<UpdateOilChangeFilterReqDto>? Filters { get; set; }       
-      
+        public List<UpdateOilChangeFilterReqDto>? Filters { get; set; }
+
     }
 }

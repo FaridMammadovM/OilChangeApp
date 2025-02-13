@@ -1,10 +1,10 @@
-﻿using Application.CQRS.Queries.Notification.Dto;
+﻿using Application.CQRS.Queries.Notification.Job.Dto;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.CQRS.Queries.Notification
+namespace Application.CQRS.Queries.Notification.Job
 {
     public sealed class NotificationQueryHandler : IRequestHandler<NotificationQuery, IList<NotificationDto>>
     {
@@ -45,15 +45,25 @@ namespace Application.CQRS.Queries.Notification
             var notificationDtoList = oilChangesList.Select(o => new NotificationDto
             {
                 CustomerId = o.CustomersCarsMatrix.Customers.Id,
-                CustomerName = o.CustomersCarsMatrix.Customers.Name,
-                CustomerSurname = o.CustomersCarsMatrix.Customers.Surname,
-                Phone = o.CustomersCarsMatrix.Customers.Phone,
-                CarModel = o.CustomersCarsMatrix.Cars.Model,
-                CarNumber = o.CustomersCarsMatrix.CarNumber,
-                Message = o.CustomersCarsMatrix.CarNumber + message
+                Message = o.CustomersCarsMatrix.CarNumber + message,
+                Token = o.CustomersCarsMatrix.Customers.NotificationToken
             }).ToList();
 
+            foreach (var notificationDto in notificationDtoList)
+            {
+                NotificationHistory notificationHistory = new NotificationHistory()
+                {
+                    Token = notificationDto.Token,
+                    Message = notificationDto.Message,
+                    CustomerId = notificationDto.CustomerId,
+                    Title = notificationDto.Message,
+                    InsertedBy = 1,
+                    InsertedDate = DateTime.Now                    
+                };
 
+                await _unitOfWork.GetWriteRepository<NotificationHistory>().AddAsync(notificationHistory);
+                await _unitOfWork.SaveAsync();
+            }
 
             return notificationDtoList;
         }

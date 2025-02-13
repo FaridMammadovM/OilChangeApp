@@ -29,7 +29,7 @@ namespace Application.CQRS.Rules
             {
                 throw new ValidationException("Sizin icazəniz yoxdur!");
             }
-                
+
             return Task.CompletedTask;
         }
 
@@ -54,7 +54,7 @@ namespace Application.CQRS.Rules
             {
                 throw new ValidationException("Şifrə yanlışdır!");
             }
-                
+
             return Task.CompletedTask;
         }
     }
