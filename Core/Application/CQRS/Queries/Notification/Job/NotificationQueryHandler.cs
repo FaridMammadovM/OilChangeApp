@@ -46,7 +46,8 @@ namespace Application.CQRS.Queries.Notification.Job
             {
                 CustomerId = o.CustomersCarsMatrix.Customers.Id,
                 Message = o.CustomersCarsMatrix.CarNumber + message,
-                Token = o.CustomersCarsMatrix.Customers.NotificationToken
+                Token = o.CustomersCarsMatrix.Customers.NotificationToken,
+                Title = o.CustomersCarsMatrix.CarNumber + message,
             }).ToList();
 
             foreach (var notificationDto in notificationDtoList)
@@ -58,7 +59,8 @@ namespace Application.CQRS.Queries.Notification.Job
                     CustomerId = notificationDto.CustomerId,
                     Title = notificationDto.Message,
                     InsertedBy = 1,
-                    InsertedDate = DateTime.Now                    
+                    InsertedDate = DateTime.Now,
+                    NotificationDate = DateTime.Now
                 };
 
                 await _unitOfWork.GetWriteRepository<NotificationHistory>().AddAsync(notificationHistory);
