@@ -4,10 +4,19 @@ using Infrastructure;
 using Microsoft.OpenApi.Models;
 using OilMapper;
 using Persistence;
+using Serilog;
+using WebApi.Loging;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration) // Konfiqurasiya faylından oxumaq üçün
+    .Enrich.FromLogContext()
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
 
@@ -69,6 +78,7 @@ app.UseSwaggerUI();
 //}
 
 app.UseCors("AllowAll");
+app.UseMiddleware<LoggingMiddleware>(); // Loglama middleware-i
 
 app.UseHttpsRedirection();
 app.ConfigureExceptionHandlingMiddleware();

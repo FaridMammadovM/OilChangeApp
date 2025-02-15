@@ -41,7 +41,7 @@ namespace Application.CQRS.Queries.OilChange.LastOilChanges
             Model = x.customerCar.Cars?.Model,
             Brand = x.customerCar.Cars?.Brand
         })
-        .OrderByDescending(dto => dto.ChangeDate)
+        .OrderByDescending(dto => dto.Id)
         .Take(5)
         .ToList();
 
