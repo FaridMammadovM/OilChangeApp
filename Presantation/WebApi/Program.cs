@@ -1,11 +1,14 @@
 ﻿using Application;
 using Application.Exceptions;
+using Hangfire;
+using Hangfire.MemoryStorage;
 using Infrastructure;
 using Microsoft.OpenApi.Models;
 using OilMapper;
 using Persistence;
 using Serilog;
 using WebApi.Loging;
+using WebApi.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,17 +61,50 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 var env = builder.Environment;
+
+
 builder.Configuration
     .SetBasePath(env.ContentRootPath)
-    .AddJsonFile("appsettings.json", optional: false)
-    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: false);
+    .AddJsonFile("appsettings.json", optional: false) // Əsas konfiqurasiya faylı mütləq olmalıdır
+    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true) // **Burada "true" olmalıdır**
+    .AddEnvironmentVariables(); // Ətraf mühit dəyişənlərini də oxuyur (əlavə et)
 
 builder.Services.AddPersistance(builder.Configuration);
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
 
+
+builder.Services.AddHangfire(config =>
+{
+    config.UseMemoryStorage(); // SQL Server olmadan işləyir
+});
+builder.Services.AddHangfireServer();
+
+builder.Services.AddSingleton<IHangfireService, HangfireService>();
+
 var app = builder.Build();
+
+app.Lifetime.ApplicationStarted.Register(() =>
+{
+    using var scope = app.Services.CreateScope();
+    var hangfireService = scope.ServiceProvider.GetRequiredService<IHangfireService>();
+
+    var recurringJobManager = scope.ServiceProvider.GetRequiredService<IRecurringJobManager>();
+
+    recurringJobManager.AddOrUpdate(
+        "three-month-notification-job",
+        () => hangfireService.ThreeMonth(),
+        "0 17 * * *"
+    );
+
+    recurringJobManager.AddOrUpdate(
+        "six-month-notification-job",
+        () => hangfireService.SixMonth(),
+        "0 18 * * *"
+    );
+});
+
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
@@ -83,8 +119,11 @@ app.UseMiddleware<LoggingMiddleware>(); // Loglama middleware-i
 app.UseHttpsRedirection();
 app.ConfigureExceptionHandlingMiddleware();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseHangfireDashboard("/hangfire"); // **Hangfire dashboard əlavə edildi**
+app.MapHangfireDashboard();
 app.MapControllers();
 
 app.Run();

@@ -1,4 +1,6 @@
-﻿using Application.CQRS.Queries.Notification.Job.Dto;
+﻿using System.Text;
+using System.Text.Json;
+using Application.CQRS.Queries.Notification.Job.Dto;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
@@ -9,10 +11,12 @@ namespace Application.CQRS.Queries.Notification.Job
     public sealed class NotificationQueryHandler : IRequestHandler<NotificationQuery, IList<NotificationDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly HttpClient _httpClient;
 
         public NotificationQueryHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+            _httpClient = new HttpClient();
         }
         public async Task<IList<NotificationDto>> Handle(NotificationQuery request, CancellationToken cancellationToken)
         {
@@ -65,9 +69,35 @@ namespace Application.CQRS.Queries.Notification.Job
 
                 await _unitOfWork.GetWriteRepository<NotificationHistory>().AddAsync(notificationHistory);
                 await _unitOfWork.SaveAsync();
+
+                if (!string.IsNullOrEmpty(notificationDto.Token))
+                {
+                    await SendExpoNotification(notificationDto.Token, notificationDto.Title, notificationDto.Message);
+                }
             }
 
             return notificationDtoList;
+        }
+
+        private async Task SendExpoNotification(string token, string title, string body)
+        {
+            var payload = new
+            {
+                to = $"ExponentPushToken[{token}]",
+                title = title,
+                body = body
+            };
+
+            var jsonPayload = JsonSerializer.Serialize(payload);
+            var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync("https://exp.host/--/api/v2/push/send", content);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Expo push notification failed: {errorMessage}");
+            }
         }
     }
 }

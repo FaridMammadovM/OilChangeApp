@@ -61,6 +61,10 @@ namespace Application.CQRS.Queries.Customer.Login
             refreshToken = _jwtHelper.GenerateRefreshToken();
             customer.RefreshToken = refreshToken;
             customer.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
+            if (customer.NotificationToken != null)
+            {
+                customer.NotificationToken = request.Request.NotificationToken;
+            }
             await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(customer);
             await _unitOfWork.SaveAsync();
 
