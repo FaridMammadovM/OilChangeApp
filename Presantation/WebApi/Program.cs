@@ -122,7 +122,10 @@ app.ConfigureExceptionHandlingMiddleware();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseHangfireDashboard("/hangfire"); // **Hangfire dashboard əlavə edildi**
+app.UseHangfireDashboard("/hangfire", new DashboardOptions
+{
+    Authorization = new[] { new AllowAllAuthorizationFilter() }
+});
 app.MapHangfireDashboard();
 app.MapControllers();
 
