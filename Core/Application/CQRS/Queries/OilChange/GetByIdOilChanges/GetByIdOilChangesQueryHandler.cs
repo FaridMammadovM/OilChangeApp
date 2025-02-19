@@ -76,15 +76,15 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             }
             else if (dto.ServiceId == 2)
             {
-                dto.GeneralName = "SAE " + oilChange.SAEViscosity.Grade + " W " + (int)oilChange.WinterViscosity.Grade;
+                dto.GeneralName = "SAE: " + oilChange.SAEViscosity.Grade + "W" + (int)oilChange.WinterViscosity.Grade;
             }
             else if (dto.ServiceId == 3)
             {
-
+                dto.GeneralName = oilChange.Indicator;
             }
             else if (dto.ServiceId == 4)
             {
-                dto.GeneralName = "DOT " + oilChange.WinterViscosity.Grade;
+                dto.GeneralName = "DOT: " + oilChange.WinterViscosity.Grade;
             }
             else if (dto.ServiceId == 5 || dto.ServiceId == 6 || dto.ServiceId == 7)
             {

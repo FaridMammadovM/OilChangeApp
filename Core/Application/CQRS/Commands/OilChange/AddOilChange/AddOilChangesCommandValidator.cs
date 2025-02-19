@@ -32,11 +32,7 @@ namespace Application.CQRS.Commands.OilChange.AddOilChange
             {
                 RuleFor(x => x.Request.SAEViscosityId)
                     .Must(t => t == null)
-                    .WithMessage("Əgər ServiceId 4-dürsə, SAEViscosityId null olmalıdır.");
-
-                RuleFor(x => x.Request.Volume)
-                   .Must(t => t == null)
-                   .WithMessage("Əgər ServiceId 4-dürsə, Volume null olmalıdır.");
+                    .WithMessage("Əgər ServiceId 4-dürsə, SAEViscosityId null olmalıdır.");               
 
                 RuleFor(x => x.Request.Duration)
                    .Must(id => id == null)
@@ -58,11 +54,11 @@ namespace Application.CQRS.Commands.OilChange.AddOilChange
             });
 
 
-            When(x => x.Request.ServiceId == 2 || x.Request.ServiceId == 3 || x.Request.ServiceId == 4, () =>
+            When(x => x.Request.ServiceId == 2 || x.Request.ServiceId == 4, () =>
             {
                 RuleFor(x => x.Request.Indicator)
                     .Must(id => id == null)
-                    .WithMessage("Əgər ServiceId 2, 3 və 4-sə, Indicator null olmalıdır.");
+                    .WithMessage("Əgər ServiceId 2 və 4-sə, Indicator null olmalıdır.");
             });
 
         }
