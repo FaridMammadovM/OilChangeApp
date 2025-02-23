@@ -3,6 +3,7 @@ using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.CQRS.Queries.Commit.GetAllCommit
 {
@@ -18,13 +19,23 @@ namespace Application.CQRS.Queries.Commit.GetAllCommit
         }
         public async Task<IList<GetAllCommitResDto>> Handle(GetAllCommitQuery request, CancellationToken cancellationToken)
         {
-            var commitList = await _unitOfWork.GetReadRepository<Commits>().GetAllAsync(c => c.IsDeleted == false);
-            var groupedCommits = commitList
-       .GroupBy(c => c.CustomerId)
-       .Select(group => group.OrderByDescending(c => c.InsertedDate).First())
-       .ToList();
+            var commitList = await _unitOfWork.GetReadRepository<Commits>().GetAllAsync(c => c.IsDeleted == false,
+                   include: query => query
+            .Include(c => c.Customers)        
+            );
 
-            return _mapper.Map<GetAllCommitResDto, Commits>(groupedCommits);
+            var mappedList = commitList.Select(c => new GetAllCommitResDto
+            {
+                CommitMessage = c.CommitMessage,
+                CustomerId = c.CustomerId,
+                Name = c.Customers?.Name,
+                Surname = c.Customers?.Surname,
+                Phone = c.Customers?.Phone,
+                IsRequest = c.IsRequest,
+                InsertedDate = c.InsertedDate
+            }).OrderByDescending(c => c.InsertedDate).ToList();
+
+            return mappedList;
         }
     }
 }

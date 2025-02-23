@@ -20,7 +20,7 @@ namespace Application.CQRS.Queries.Customer.GetAdmins
         public async Task<IList<GetAdminsResDto>> Handle(GetAdminsQuery request, CancellationToken cancellationToken)
         {
             var customers = await _unitOfWork.GetReadRepository<Customers>()
-                .GetAllAsync(c => c.IsDeleted == false && c.RoleId == 2,
+                .GetAllAsync(c => c.IsDeleted == false && c.Id != 1 && c.RoleId == 2,
             include: query => query
             .Include(c => c.CustomersCars));
 

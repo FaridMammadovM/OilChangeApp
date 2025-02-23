@@ -21,13 +21,13 @@ namespace Persistence.Configurations
             var branches = new[]
     {
                 new Customers { Id = 1, Name = "Admin", Surname = "Admins", RoleId = 2, IsOtp = true,
-                    Password = "$2a$11$gZdTV78QAwiPRpd8n11MLe8p111KlStD/xo1/1qUXUBifJnwZuj8K",
+                    Password = "$2a$11$gZdTV78QAwiPRpd8n11MLe8p111KlStD/xo1/1qUXUBifJnwZuj8K", //Master123.
                     Phone = "", RefreshToken = "qOLhGm3T0r6938al5PjO2nyYbnLajCGQP/XU6CJkcZ4=",
                     Username = "Admins",
                     RefreshTokenExpiryTime = DateTime.Now.AddMonths(2),
                     IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
                  new Customers { Id = 2, Name = "Master Admin", Surname = "Master", RoleId = 2, IsOtp = true,
-                    Password = "$2a$11$WtAIsna.lr/I3gy4ELiY2usk/7ap3cwoV9upE8S.GgNLUCiT3t9HK",
+                    Password = "$2a$11$WtAIsna.lr/I3gy4ELiY2usk/7ap3cwoV9upE8S.GgNLUCiT3t9HK", // Class_1Master@.
                     Phone = "", RefreshToken = "qOLhGm3T0r6938al5PjO2nyYbnLajCGQP/XU6CJkcZ4=",
                     Username = "MasterClass",
                     RefreshTokenExpiryTime = DateTime.Now.AddMonths(2),

@@ -11,6 +11,8 @@ using Application.CQRS.Commands.Customer.UpdateAdmin;
 using Application.CQRS.Commands.Customer.UpdateAdmin.Dtos;
 using Application.CQRS.Commands.Customer.UpdateCustomer;
 using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
+using Application.CQRS.Queries.Customer.AdminLogin;
+using Application.CQRS.Queries.Customer.AdminLogin.Dtos;
 using Application.CQRS.Queries.Customer.CheckToken;
 using Application.CQRS.Queries.Customer.GetAdmins;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
@@ -393,6 +395,32 @@ namespace WebApi.Controllers
                 var response = await _mediator.Send(new GetAdminsQuery());
 
                 return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdminLogin([FromBody] AdminLoginReqDto request)
+        {
+            try
+            {
+                var query = new AdminLoginQuery { Request = request };
+                var result = await _mediator.Send(query);
+
+                if (result != null)
+                {
+                    return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
+                }
+
+
+                return NotFound(new { success = false, message = "Username və ya şifrə yanlışdır" });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new { success = false, message = "Giriş məlumatları düzgün deyil." });
             }
             catch (Exception ex)
             {
