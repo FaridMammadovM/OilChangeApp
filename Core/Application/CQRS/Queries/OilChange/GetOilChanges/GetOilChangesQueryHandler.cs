@@ -24,6 +24,7 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
               .GetAllAsync(p => p.IsDeleted == false,
             include: query => query
             .Include(c => c.Services)
+            .Include(c => c.Branchies)
             .Include(c => c.CustomersCarsMatrix)
             .ThenInclude(c => c.Customers)
             );

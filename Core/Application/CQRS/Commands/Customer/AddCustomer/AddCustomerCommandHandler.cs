@@ -36,8 +36,15 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
 
             IList<Customers> customersList = await _unitOfWork.GetReadRepository<Customers>()
                 .GetAllAsync(c => c.IsDeleted == false);
+            if (request.RoleId == 1)
+            {
+                await _customerRules.CustomerFindPhone(customersList.Where(c => c.RoleId == 1), request.Request);
+            }
+            else
+            {
+                await _customerRules.CustomerFindPhone(customersList.Where(c => c.RoleId == 2), request.Request);
 
-            await _customerRules.CustomerFindPhone(customersList.Where(c => c.RoleId == 2), request.Request);
+            }
             if (request.RoleId == 1)
             {
                 await _customerRules.FindRole(customersList.Where(c => c.RoleId == 2), userId);
