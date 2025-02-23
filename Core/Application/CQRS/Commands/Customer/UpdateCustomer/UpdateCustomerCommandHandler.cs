@@ -37,11 +37,8 @@ namespace Application.CQRS.Commands.Customer.UpdateCustomer
             IList<Customers> customersList = await _unitOfWork.GetReadRepository<Customers>()
                 .GetAllAsync(c => c.IsDeleted == false && c.Id != request.Request.Id);
 
-            await _customerRules.CustomerFindUpdatePhone(customersList.Where(c => c.RoleId == 2), request.Request);
-            if (request.RoleId == 1)
-            {
-                await _customerRules.FindRole(customersList.Where(c => c.RoleId == 2), userId);
-            }
+            await _customerRules.CustomerFindUpdatePhone(customersList.Where(c => c.RoleId == 1), request.Request);
+
             customer.Name = request.Request.Name;
             customer.Surname = request.Request.Surname;
             customer.Phone = request.Request.Phone;

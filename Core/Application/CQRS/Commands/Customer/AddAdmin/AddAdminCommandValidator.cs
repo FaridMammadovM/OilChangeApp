@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace Application.CQRS.Commands.Customer.AddCustomer
+namespace Application.CQRS.Commands.Customer.AddAdmin
 {
-    public class AddCustomerCommandValidator : AbstractValidator<AddCustomerCommand>
+    public class AddAdminCommandValidator : AbstractValidator<AddAdminCommand>
     {
-        public AddCustomerCommandValidator()
+        public AddAdminCommandValidator()
         {
             RuleFor(x => x.Request)
                .NotNull()
@@ -15,6 +15,12 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
                 .WithMessage("Ad boş ola bilməz.")
                 .MaximumLength(50)
                 .WithMessage("Ad maksimum 50 simvol olmalıdır.");
+
+            RuleFor(x => x.Request.Username)
+              .NotEmpty()
+              .WithMessage("Username boş ola bilməz.")
+              .MaximumLength(50)
+              .WithMessage("Username maksimum 50 simvol olmalıdır.");
 
             RuleFor(x => x.Request.Surname)
                 .NotEmpty()
@@ -36,16 +42,9 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
                 .Matches(@"[\W_]")
                 .WithMessage("Şifrə ən az bir xüsusi simvol içərməlidir.");
 
-
             RuleFor(x => x.Request.RepeatPassword)
                 .Equal(x => x.Request.Password)
                 .WithMessage("Şifrələr uyğun deyil.");
-
-            RuleFor(x => x.Request.Phone)
-                .NotEmpty()
-                .WithMessage("Telefon nömrəsi boş ola bilməz.")
-                .Matches(@"^994(50|51|55|60|70|77|10|99)\d{7}$")
-                .WithMessage("Telefon nömrəsi düzgün formatda deyil. Format: 994xxxxxxxxx");
 
         }
     }

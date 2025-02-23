@@ -3,6 +3,5 @@
     public class GetAllCustomerReqDto
     {
         public string? CarNumber { get; set; }
-        public int Number { get; set; }
     }
 }

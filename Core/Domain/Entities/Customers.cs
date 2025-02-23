@@ -7,12 +7,13 @@ namespace Domain.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Password { get; set; }
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
         public int RoleId { get; set; }
         public string? RefreshToken { get; set; }
         public bool IsOtp { get; set; } = false;
         public int? OtpCode { get; set; }
         public string? NotificationToken { get; set; }
+        public string? Username { get; set; }
         public DateTime? OtpExpirationTime { get; set; }
         public DateTime? RefreshTokenExpiryTime { get; set; }
         public ICollection<Commits> Commits { get; set; }

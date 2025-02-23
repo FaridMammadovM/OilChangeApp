@@ -1,13 +1,18 @@
-﻿using Application.CQRS.Commands.Customer.AddCustomer;
+﻿using Application.CQRS.Commands.Customer.AddAdmin;
+using Application.CQRS.Commands.Customer.AddAdmin.Dtos;
+using Application.CQRS.Commands.Customer.AddCustomer;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
 using Application.CQRS.Commands.Customer.ChangePassword;
 using Application.CQRS.Commands.Customer.ChangePassword.Dtos;
 using Application.CQRS.Commands.Customer.ChangePasswordWithAdmin;
 using Application.CQRS.Commands.Customer.ChangePasswordWithAdmin.Dtos;
 using Application.CQRS.Commands.Customer.DeleteCustomer;
+using Application.CQRS.Commands.Customer.UpdateAdmin;
+using Application.CQRS.Commands.Customer.UpdateAdmin.Dtos;
 using Application.CQRS.Commands.Customer.UpdateCustomer;
 using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
 using Application.CQRS.Queries.Customer.CheckToken;
+using Application.CQRS.Queries.Customer.GetAdmins;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
 using Application.CQRS.Queries.Customer.GetAllCustomer.Dtos;
 using Application.CQRS.Queries.Customer.GetCustomerById;
@@ -42,7 +47,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var command = new AddCustomerCommand { Request = request, IsOtp = false, RoleId = 1 };
+                var command = new AddCustomerCommand { Request = request };
                 var result = await _mediator.Send(command);
 
                 if (result != null)
@@ -69,7 +74,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                GetAllCustomerReqDto request = new GetAllCustomerReqDto() { CarNumber = carNumber, Number = 1 };
+                GetAllCustomerReqDto request = new GetAllCustomerReqDto() { CarNumber = carNumber };
                 var response = await _mediator.Send(new GetAllCustomerQuery() { Request = request });
 
                 return Ok(new { success = true, data = response });
@@ -190,7 +195,7 @@ namespace WebApi.Controllers
                     return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
                 }
 
-                UpdateCustomerCommand command = new UpdateCustomerCommand() { Request = request, RoleId = 1 };
+                UpdateCustomerCommand command = new UpdateCustomerCommand() { Request = request };
                 var result = await _mediator.Send(command);
 
                 if (result == null)
@@ -230,11 +235,11 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AtributteAuthenticator]
-        public async Task<IActionResult> AddAdmin([FromBody] AddCustomerReqDto request)
+        public async Task<IActionResult> AddAdmin([FromBody] AddAdminReqDto request)
         {
             try
             {
-                var command = new AddCustomerCommand { Request = request, IsOtp = true, RoleId = 2 };
+                var command = new AddAdminCommand { Request = request };
                 var result = await _mediator.Send(command);
 
                 if (result != null)
@@ -256,7 +261,7 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [AtributteAuthenticator]
-        public async Task<IActionResult> UpdateAdmin([FromBody] UpdateCustomerReqDto request)
+        public async Task<IActionResult> UpdateAdmin([FromBody] UpdateAdminReqDto request)
         {
             try
             {
@@ -265,7 +270,7 @@ namespace WebApi.Controllers
                     return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
                 }
 
-                UpdateCustomerCommand command = new UpdateCustomerCommand() { Request = request, RoleId = 2 };
+                UpdateAdminCommand command = new UpdateAdminCommand() { Request = request };
                 var result = await _mediator.Send(command);
 
                 if (result == null)
@@ -384,10 +389,8 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetAdmins()
         {
             try
-            {
-                GetAllCustomerReqDto request = new GetAllCustomerReqDto() { Number = 2 };
-
-                var response = await _mediator.Send(new GetAllCustomerQuery() { Request = request });
+            {      
+                var response = await _mediator.Send(new GetAdminsQuery());
 
                 return Ok(new { success = true, data = response });
             }
