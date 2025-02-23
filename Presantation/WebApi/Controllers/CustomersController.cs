@@ -387,7 +387,7 @@ namespace WebApi.Controllers
             {
                 GetAllCustomerReqDto request = new GetAllCustomerReqDto() { Number = 2 };
 
-                var response = await _mediator.Send(new GetAllCustomerQuery() { Request = request});
+                var response = await _mediator.Send(new GetAllCustomerQuery() { Request = request });
 
                 return Ok(new { success = true, data = response });
             }

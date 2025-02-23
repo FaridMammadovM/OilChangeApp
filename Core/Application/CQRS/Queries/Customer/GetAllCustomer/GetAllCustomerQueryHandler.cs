@@ -23,7 +23,7 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
                 .GetAllAsync(c => c.IsDeleted == false && c.RoleId == request.Request.Number,
             include: query => query
             .Include(c => c.CustomersCars));
-             if (request.Request.CarNumber != null)
+            if (request.Request.CarNumber != null)
             {
                 customers = customers
                     .Where(p => p.CustomersCars.Any(r => r.CarNumber == request.Request.CarNumber))

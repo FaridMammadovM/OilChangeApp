@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace Application.CQRS.Queries.Customer.GetAllCustomer.Dtos
+﻿namespace Application.CQRS.Queries.Customer.GetAllCustomer.Dtos
 {
     public sealed class GetAllCustomerResDto
     {

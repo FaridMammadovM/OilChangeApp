@@ -12,7 +12,6 @@ namespace Persistence.Configurations
             builder.Property(x => x.Name).HasMaxLength(100);
             builder.Property(x => x.IsDeleted).HasDefaultValue(false);
 
-
             var services = new[]
             {
                 new Services { Id = 1, Name = "Sürətlər qutusu", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
@@ -22,7 +21,6 @@ namespace Persistence.Configurations
                 new Services { Id = 5, Name = "Arxa körpü", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
                 new Services { Id = 6, Name = "Ön körpü", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
                 new Services { Id = 7, Name = "Diferensial (Razdatka)", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 }
-
             };
 
             builder.HasData(services);
