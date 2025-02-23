@@ -27,7 +27,7 @@ namespace Application.CQRS.Queries.Notification.Job
 
             var oilChangesList = await _unitOfWork.GetReadRepository<OilChanges>().GetAllAsync(
                p => p.IsDeleted == false &&
-                    p.ServiceId == 1 &&
+                    p.ServiceId == 2 &&
                     p.ChangeDate.Date == targetDate,
                include: query => query
                    .Include(o => o.CustomersCarsMatrix)
@@ -83,7 +83,7 @@ namespace Application.CQRS.Queries.Notification.Job
         {
             var payload = new
             {
-                to = $"ExponentPushToken[{token}]",
+                to = $"{token}",
                 title = title,
                 body = body
             };
