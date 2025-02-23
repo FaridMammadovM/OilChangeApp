@@ -51,7 +51,7 @@ namespace Application.CQRS.Queries.Notification.Job
                 CustomerId = o.CustomersCarsMatrix.Customers.Id,
                 Message = o.CustomersCarsMatrix.CarNumber + message,
                 Token = o.CustomersCarsMatrix.Customers.NotificationToken,
-                Title = o.CustomersCarsMatrix.CarNumber + message,
+                Title = "Master Class bildiriş: " + o.CustomersCarsMatrix.CarNumber,
             }).ToList();
 
             foreach (var notificationDto in notificationDtoList)
