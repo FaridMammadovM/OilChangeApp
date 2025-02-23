@@ -23,7 +23,7 @@ namespace Application.CQRS.Commands.Commit.AddCommit
 
             Commits commit = new Commits
             {
-                CustumerId = userId,
+                CustomerId = userId,
                 CommitMessage = request.Request.CommitMessage,
                 InsertedBy = userId,
                 IsRequest = false

@@ -17,7 +17,7 @@ namespace Persistence.Configurations
             //    .HasForeignKey(x => x.UserId);
             builder.HasOne(x => x.Customers)
                 .WithMany(c => c.Commits)
-                .HasForeignKey(x => x.CustumerId);
+                .HasForeignKey(x => x.CustomerId);
         }
     }
 }

@@ -51,12 +51,12 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
 
             if (request.Request.Name != null && oilChangesList != null)
             {
-                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.Customers.Name == request.Request.Name).ToList();
+                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.Customers.Name.ToUpper() == request.Request.Name.ToUpper()).ToList();
             }
 
             if (request.Request.Surname != null && oilChangesList != null)
             {
-                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.Customers.Surname == request.Request.Surname).ToList();
+                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.Customers.Surname.ToUpper() == request.Request.Surname.ToUpper()).ToList();
             }
 
             var oilChangesResDtoList = _mapper.Map<GetOilChangesResDto, OilChanges>(oilChangesList);
@@ -66,6 +66,7 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
                 oilChangesResDtoList[i].ServiceName = oilChangesList[i].Services.Name;
                 oilChangesResDtoList[i].ChangeDate = oilChangesList[i].ChangeDate.ToString("dd.MM.yyyy");
                 oilChangesResDtoList[i].CarNumber = oilChangesList[i].CustomersCarsMatrix.CarNumber;
+                oilChangesResDtoList[i].BranchName = oilChangesList[i].Branchies.Name;
             }
 
             return oilChangesResDtoList.OrderByDescending(c => c.Id).ToList();

@@ -88,7 +88,7 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             }
             else if (dto.ServiceId == 5 || dto.ServiceId == 6 || dto.ServiceId == 7)
             {
-                dto.GeneralName = oilChange.Indicator;
+                dto.GeneralName = "SAE: " + oilChange.Indicator;
             }
 
             return dto;

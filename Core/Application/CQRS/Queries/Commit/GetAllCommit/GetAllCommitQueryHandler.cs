@@ -20,7 +20,7 @@ namespace Application.CQRS.Queries.Commit.GetAllCommit
         {
             var commitList = await _unitOfWork.GetReadRepository<Commits>().GetAllAsync(c => c.IsDeleted == false);
             var groupedCommits = commitList
-       .GroupBy(c => c.CustumerId)
+       .GroupBy(c => c.CustomerId)
        .Select(group => group.OrderByDescending(c => c.InsertedDate).First())
        .ToList();
 

@@ -17,7 +17,7 @@ namespace Persistence.Configurations
             {
                 new Services { Id = 1, Name = "Sürətlər qutusu", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
                 new Services { Id = 2, Name = "Mühərrik", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
-                new Services { Id = 3, Name = "Antifiriz", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+                new Services { Id = 3, Name = "Antifriz", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
                 new Services { Id = 4, Name = "Əyləc mayesi", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
                 new Services { Id = 5, Name = "Arxa körpü", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
                 new Services { Id = 6, Name = "Ön körpü", IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },

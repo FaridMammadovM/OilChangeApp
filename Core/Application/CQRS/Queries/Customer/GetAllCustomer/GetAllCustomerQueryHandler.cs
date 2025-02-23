@@ -3,6 +3,7 @@ using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.CQRS.Queries.Customer.GetAllCustomer
 {
@@ -18,8 +19,19 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
         }
         public async Task<IList<GetAllCustomerResDto>> Handle(GetAllCustomerQuery request, CancellationToken cancellationToken)
         {
-            var customers = await _unitOfWork.GetReadRepository<Customers>().GetAllAsync(c => c.IsDeleted == false && c.RoleId == request.Number);
+            var customers = await _unitOfWork.GetReadRepository<Customers>()
+                .GetAllAsync(c => c.IsDeleted == false && c.RoleId == request.Request.Number,
+            include: query => query
+            .Include(c => c.CustomersCars));
+             if (request.Request.CarNumber != null)
+            {
+                customers = customers
+                    .Where(p => p.CustomersCars.Any(r => r.CarNumber == request.Request.CarNumber))
+                    .ToList();
+            }
+
             return _mapper.Map<GetAllCustomerResDto, Customers>(customers);
+
         }
     }
 }

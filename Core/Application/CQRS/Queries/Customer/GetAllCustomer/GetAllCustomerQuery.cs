@@ -5,6 +5,6 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
 {
     public class GetAllCustomerQuery : IRequest<IList<GetAllCustomerResDto>>
     {
-        public int Number { get; set; }
+        public GetAllCustomerReqDto Request { get; set; }
     }
 }

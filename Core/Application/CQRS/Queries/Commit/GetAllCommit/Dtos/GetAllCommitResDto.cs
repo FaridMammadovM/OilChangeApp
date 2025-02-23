@@ -3,7 +3,7 @@
     public class GetAllCommitResDto
     {
         public string CommitMessage { get; set; }
-        public int CustumerId { get; set; }
+        public int CustomerId { get; set; }
         public bool IsRequest { get; set; }
         public DateTime InsertedDate { get; set; }
 

@@ -23,7 +23,7 @@ namespace Application.CQRS.Commands.Commit.ResponseAdmin
 
             Commits commit = new Commits
             {
-                CustumerId = request.Request.CustomerId,
+                CustomerId = request.Request.CustomerId,
                 CommitMessage = request.Request.CommitMessage,
                 InsertedBy = userId,
                 IsRequest = true

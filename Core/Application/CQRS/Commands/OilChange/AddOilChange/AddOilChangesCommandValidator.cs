@@ -32,7 +32,7 @@ namespace Application.CQRS.Commands.OilChange.AddOilChange
             {
                 RuleFor(x => x.Request.SAEViscosityId)
                     .Must(t => t == null)
-                    .WithMessage("Əgər ServiceId 4-dürsə, SAEViscosityId null olmalıdır.");               
+                    .WithMessage("Əgər ServiceId 4-dürsə, SAEViscosityId null olmalıdır.");
 
                 RuleFor(x => x.Request.Duration)
                    .Must(id => id == null)

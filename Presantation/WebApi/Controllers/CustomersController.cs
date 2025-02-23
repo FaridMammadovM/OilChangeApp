@@ -9,6 +9,7 @@ using Application.CQRS.Commands.Customer.UpdateCustomer;
 using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
 using Application.CQRS.Queries.Customer.CheckToken;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
+using Application.CQRS.Queries.Customer.GetAllCustomer.Dtos;
 using Application.CQRS.Queries.Customer.GetCustomerById;
 using Application.CQRS.Queries.Customer.Login;
 using Application.CQRS.Queries.Customer.Login.Dto;
@@ -64,11 +65,12 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> GetCustomers()
+        public async Task<IActionResult> GetCustomers([FromQuery] string? carNumber)
         {
             try
             {
-                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 1 });
+                GetAllCustomerReqDto request = new GetAllCustomerReqDto() { CarNumber = carNumber, Number = 1 };
+                var response = await _mediator.Send(new GetAllCustomerQuery() { Request = request });
 
                 return Ok(new { success = true, data = response });
             }
@@ -383,7 +385,9 @@ namespace WebApi.Controllers
         {
             try
             {
-                var response = await _mediator.Send(new GetAllCustomerQuery() { Number = 2 });
+                GetAllCustomerReqDto request = new GetAllCustomerReqDto() { Number = 2 };
+
+                var response = await _mediator.Send(new GetAllCustomerQuery() { Request = request});
 
                 return Ok(new { success = true, data = response });
             }

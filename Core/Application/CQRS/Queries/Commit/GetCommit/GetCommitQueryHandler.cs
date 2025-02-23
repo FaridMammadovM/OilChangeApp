@@ -18,7 +18,7 @@ namespace Application.CQRS.Queries.Commit.GetCommit
         }
         public async Task<IList<GetCommitQueryResDto>> Handle(GetCommitQuery request, CancellationToken cancellationToken)
         {
-            var cars = await _unitOfWork.GetReadRepository<Commits>().GetAllAsync(c => c.IsDeleted == false && c.CustumerId == request.Request.CustomerId);
+            var cars = await _unitOfWork.GetReadRepository<Commits>().GetAllAsync(c => c.IsDeleted == false && c.CustomerId == request.Request.CustomerId);
             return _mapper.Map<GetCommitQueryResDto, Commits>(cars);
         }
     }

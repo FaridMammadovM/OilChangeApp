@@ -7,6 +7,9 @@
         public int ServiceId { get; set; }
         public string ServiceName { get; set; }
         public string ChangeDate { get; set; }
-        public string CarNumber { get; set; }
+        public string CarNumber { get; set; }  
+        public int? ProductId { get; set; }
+        public int? BranchId { get; set; }
+        public string BranchName { get; set; }
     }
 }
