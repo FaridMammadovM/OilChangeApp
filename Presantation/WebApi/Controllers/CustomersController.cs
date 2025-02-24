@@ -14,6 +14,7 @@ using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
 using Application.CQRS.Queries.Customer.AdminLogin;
 using Application.CQRS.Queries.Customer.AdminLogin.Dtos;
 using Application.CQRS.Queries.Customer.CheckToken;
+using Application.CQRS.Queries.Customer.GetAdminById;
 using Application.CQRS.Queries.Customer.GetAdmins;
 using Application.CQRS.Queries.Customer.GetAllCustomer;
 using Application.CQRS.Queries.Customer.GetAllCustomer.Dtos;
@@ -72,11 +73,10 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> GetCustomers([FromQuery] string? carNumber)
+        public async Task<IActionResult> GetCustomers([FromQuery] GetAllCustomerReqDto request)
         {
             try
             {
-                GetAllCustomerReqDto request = new GetAllCustomerReqDto() { CarNumber = carNumber };
                 var response = await _mediator.Send(new GetAllCustomerQuery() { Request = request });
 
                 return Ok(new { success = true, data = response });
@@ -427,5 +427,23 @@ namespace WebApi.Controllers
                 return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
             }
         }
+
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetAdminByUsername(string username)
+        {
+            try
+            {
+                var response = await _mediator.Send(new GetAdminByIdQuery() { Username = username });
+
+                return Ok(new { success = true, data = response });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+            }
+        }
+
+
     }
 }

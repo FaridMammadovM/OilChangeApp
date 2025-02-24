@@ -19,16 +19,30 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
         }
         public async Task<IList<GetAllCustomerResDto>> Handle(GetAllCustomerQuery request, CancellationToken cancellationToken)
         {
-            var customers = await _unitOfWork.GetReadRepository<Customers>()
+            IList<Customers> customers = await _unitOfWork.GetReadRepository<Customers>()
                 .GetAllAsync(c => c.IsDeleted == false && c.RoleId == 1,
             include: query => query
             .Include(c => c.CustomersCars));
+
             if (request.Request.CarNumber != null)
             {
                 customers = customers
                     .Where(p => p.CustomersCars.Any(r => r.CarNumber == request.Request.CarNumber))
                     .ToList();
             }
+            if (request.Request.Name != null)
+            {
+                customers = (IList<Customers>)customers.Where(p => p.Name.ToUpper() == request.Request.Name.ToUpper());
+            }
+            if (request.Request.Surname != null)
+            {
+                customers = (IList<Customers>)customers.Where(p => p.Surname.ToUpper() == request.Request.Surname.ToUpper());
+            }
+            if (request.Request.Phone != null)
+            {
+                customers = (IList<Customers>)customers.Where(p => p.Phone == request.Request.Phone);
+            }
+
 
             return _mapper.Map<GetAllCustomerResDto, Customers>(customers);
 

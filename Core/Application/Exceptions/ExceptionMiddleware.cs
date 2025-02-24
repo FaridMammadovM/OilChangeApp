@@ -23,24 +23,25 @@ namespace Application.Exceptions
             httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = statusCode;
 
-            if (exception.GetType() == typeof(ValidationException))
+            if (exception is Application.CQRS.Exceptions.ValidationException validationEx)
+            {
                 return httpContext.Response.WriteAsync(new ExceptionModel
                 {
-                    Errors = ((ValidationException)exception).Errors.Select(x => x.ErrorMessage),
+                    Errors = validationEx.Errors,
                     StatusCode = StatusCodes.Status400BadRequest
                 }.ToString());
+            }
 
             List<string> errors = new()
-            {
-                $"Hata Mesajı : {exception.Message}"
-            };
+    {
+        $"Hata Mesajı : {exception.Message}"
+    };
 
             return httpContext.Response.WriteAsync(new ExceptionModel
             {
                 Errors = errors,
                 StatusCode = statusCode
             }.ToString());
-
         }
 
         private static int GetStatusCode(Exception exception) =>
@@ -48,7 +49,7 @@ namespace Application.Exceptions
             {
                 BadRequestException => StatusCodes.Status400BadRequest,
                 NotFoundException => StatusCodes.Status400BadRequest,
-                ValidationException => StatusCodes.Status422UnprocessableEntity,
+                ValidationException => StatusCodes.Status400BadRequest,
                 _ => StatusCodes.Status500InternalServerError
             };
     }
