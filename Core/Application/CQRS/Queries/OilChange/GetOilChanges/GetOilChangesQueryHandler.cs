@@ -37,7 +37,10 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
 
             if (request.Request.CarNumber != null && oilChangesList != null)
             {
-                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.CarNumber == request.Request.CarNumber).ToList();
+                oilChangesList = (IList<OilChanges>)oilChangesList
+    .Where(p => p.CustomersCarsMatrix.CarNumber.ToUpper().Contains(request.Request.CarNumber.ToUpper()))
+    .ToList();
+
             }
 
             if (request.Request.ProductId != null && oilChangesList != null)
@@ -52,12 +55,12 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
 
             if (request.Request.Name != null && oilChangesList != null)
             {
-                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.Customers.Name.ToUpper() == request.Request.Name.ToUpper()).ToList();
+                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.Customers.Name.ToUpper().Contains(request.Request.Name.ToUpper())).ToList();
             }
 
             if (request.Request.Surname != null && oilChangesList != null)
             {
-                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.Customers.Surname.ToUpper() == request.Request.Surname.ToUpper()).ToList();
+                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.Customers.Surname.ToUpper().Contains(request.Request.Surname.ToUpper())).ToList();
             }
 
             var oilChangesResDtoList = _mapper.Map<GetOilChangesResDto, OilChanges>(oilChangesList);
@@ -68,6 +71,8 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
                 oilChangesResDtoList[i].ChangeDate = oilChangesList[i].ChangeDate.ToString("dd.MM.yyyy");
                 oilChangesResDtoList[i].CarNumber = oilChangesList[i].CustomersCarsMatrix.CarNumber;
                 oilChangesResDtoList[i].BranchName = oilChangesList[i].Branchies.Name;
+                oilChangesResDtoList[i].Name = oilChangesList[i].CustomersCarsMatrix.Customers.Name;
+                oilChangesResDtoList[i].Surname = oilChangesList[i].CustomersCarsMatrix.Customers.Surname;
             }
 
             return oilChangesResDtoList.OrderByDescending(c => c.Id).ToList();

@@ -65,10 +65,10 @@ namespace WebApi.Controllers
 
             if (result == null)
             {
-                return BadRequest(new { success = false, message = "Maşın əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                return BadRequest(new { success = false, message = "Maşın dəyişdirilə bilmədi. Məlumatlar düzgün deyil." });
             }
 
-            return Ok(new { success = true, message = "Maşın uğurla əlavə edildi." });
+            return Ok(new { success = true, message = "Maşın uğurla dəyişdirildi." });
         }
 
         [HttpDelete]

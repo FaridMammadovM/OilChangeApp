@@ -11,5 +11,7 @@
         public int? ProductId { get; set; }
         public int? BranchId { get; set; }
         public string BranchName { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
     }
 }

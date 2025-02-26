@@ -68,7 +68,7 @@ namespace WebApi.Controllers
                 return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
 
-            return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
+            return Ok(new { success = true, message = "Məhsul uğurla dəyişdirildi." });
         }
 
 
@@ -129,10 +129,10 @@ namespace WebApi.Controllers
 
             if (result == null)
             {
-                return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                return BadRequest(new { success = false, message = "Məhsul dəyişdirilə bilmədi. Məlumatlar düzgün deyil." });
             }
 
-            return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
+            return Ok(new { success = true, message = "Məhsul uğurla dəyişdirildi." });
         }
 
         [HttpDelete]
@@ -195,10 +195,10 @@ namespace WebApi.Controllers
 
             if (result == null)
             {
-                return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                return BadRequest(new { success = false, message = "Məhsul dəyişdirilə bilmədi. Məlumatlar düzgün deyil." });
             }
 
-            return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
+            return Ok(new { success = true, message = "Məhsul uğurla dəyişdirildi." });
         }
 
         [HttpDelete]

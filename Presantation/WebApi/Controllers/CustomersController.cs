@@ -139,10 +139,10 @@ namespace WebApi.Controllers
 
             if (result == null)
             {
-                return BadRequest(new { success = false, message = "Müştəri əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                return BadRequest(new { success = false, message = "Müştəri dəyişdirilə bilmədi. Məlumatlar düzgün deyil." });
             }
 
-            return Ok(new { success = true, message = "Müştəri uğurla əlavə edildi." });
+            return Ok(new { success = true, message = "Müştəri uğurla dəyişdirildi." });
         }
 
 
@@ -188,10 +188,10 @@ namespace WebApi.Controllers
 
             if (result == null)
             {
-                return BadRequest(new { success = false, message = "Admin əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                return BadRequest(new { success = false, message = "Admin dəyişdirilə bilmədi. Məlumatlar düzgün deyil." });
             }
 
-            return Ok(new { success = true, message = "Admin uğurla əlavə edildi." });
+            return Ok(new { success = true, message = "Admin uğurla dəyişdirildi." });
         }
 
         [HttpPost]

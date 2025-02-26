@@ -62,10 +62,10 @@ namespace WebApi.Controllers
 
             if (result == null)
             {
-                return BadRequest(new { success = false, message = "İşçi əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
+                return BadRequest(new { success = false, message = "İşçi dəyişdirilə bilmədi. Məlumatlar düzgün deyil." });
             }
 
-            return Ok(new { success = true, message = "İşçi uğurla əlavə edildi." });
+            return Ok(new { success = true, message = "İşçi uğurla dəyişdirildi." });
         }
 
 

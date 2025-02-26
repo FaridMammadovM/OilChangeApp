@@ -27,19 +27,19 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
             if (request.Request.Name != null && customers != null)
             {
                 customers = customers
-                    .Where(p => p.Name.ToUpper() == request.Request.Name.ToUpper())
+                    .Where(p => p.Name.ToUpper().Contains(request.Request.Name.ToUpper()))
                     .ToList();
             }
             if (request.Request.Surname != null && customers != null)
             {
                 customers = customers
-                    .Where(p => p.Surname.ToUpper() == request.Request.Surname.ToUpper())
+                    .Where(p => p.Surname.ToUpper().Contains(request.Request.Surname.ToUpper()))
                     .ToList();
             }
             if (request.Request.Phone != null && customers != null)
             {
                 customers = customers
-                    .Where(p => p.Phone == request.Request.Phone)
+                    .Where(p => p.Phone.Contains(request.Request.Phone))
                     .ToList();
             }
 
