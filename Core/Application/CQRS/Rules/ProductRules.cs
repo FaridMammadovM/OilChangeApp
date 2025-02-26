@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Application.Bases;
+﻿using Application.Bases;
+using Application.CQRS.Exceptions;
 using Domain.Entities;
 
 
@@ -10,7 +10,7 @@ namespace Application.CQRS.Rules
         public Task CheckName(IList<Products> models, string name)
         {
             if (models.Any(x => x.Name == name))
-                throw new ValidationException("Məhsul mövcuddur!");
+                throw new ProductException();
             return Task.CompletedTask;
         }
 

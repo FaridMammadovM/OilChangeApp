@@ -117,6 +117,7 @@ app.UseCors("AllowAll");
 app.UseMiddleware<LoggingMiddleware>(); // Loglama middleware-i
 
 app.UseHttpsRedirection();
+
 app.ConfigureExceptionHandlingMiddleware();
 
 app.UseAuthentication();

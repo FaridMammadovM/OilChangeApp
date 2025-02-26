@@ -24,24 +24,25 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
             include: query => query
             .Include(c => c.CustomersCars));
 
-            if (request.Request.CarNumber != null)
+            if (request.Request.Name != null && customers != null)
             {
                 customers = customers
-                    .Where(p => p.CustomersCars.Any(r => r.CarNumber == request.Request.CarNumber))
+                    .Where(p => p.Name.ToUpper() == request.Request.Name.ToUpper())
                     .ToList();
             }
-            if (request.Request.Name != null)
+            if (request.Request.Surname != null && customers != null)
             {
-                customers = (IList<Customers>)customers.Where(p => p.Name.ToUpper() == request.Request.Name.ToUpper());
+                customers = customers
+                    .Where(p => p.Surname.ToUpper() == request.Request.Surname.ToUpper())
+                    .ToList();
             }
-            if (request.Request.Surname != null)
+            if (request.Request.Phone != null && customers != null)
             {
-                customers = (IList<Customers>)customers.Where(p => p.Surname.ToUpper() == request.Request.Surname.ToUpper());
+                customers = customers
+                    .Where(p => p.Phone == request.Request.Phone)
+                    .ToList();
             }
-            if (request.Request.Phone != null)
-            {
-                customers = (IList<Customers>)customers.Where(p => p.Phone == request.Request.Phone);
-            }
+
 
 
             return _mapper.Map<GetAllCustomerResDto, Customers>(customers);

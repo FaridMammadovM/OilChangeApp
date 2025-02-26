@@ -48,26 +48,15 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> AddCustomer([FromBody] AddCustomerReqDto request)
         {
-            try
-            {
-                var command = new AddCustomerCommand { Request = request };
-                var result = await _mediator.Send(command);
+            var command = new AddCustomerCommand { Request = request };
+            var result = await _mediator.Send(command);
 
-                if (result != null)
-                {
-                    return Ok(new { success = true, message = "Müştəri uğurla əlavə edildi.", data = result });
-                }
+            if (result != null)
+            {
+                return Ok(new { success = true, message = "Müştəri uğurla əlavə edildi.", data = result });
+            }
 
-                return BadRequest(new { success = false, message = "Müştəri əlavə edilə bilmədi." });
-            }
-            catch (UnauthorizedAccessException)
-            {
-                return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return BadRequest(new { success = false, message = "Müştəri əlavə edilə bilmədi." });
         }
 
 
@@ -75,85 +64,46 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> GetCustomers([FromQuery] GetAllCustomerReqDto request)
         {
-            try
-            {
-                var response = await _mediator.Send(new GetAllCustomerQuery() { Request = request });
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetAllCustomerQuery() { Request = request });
+            return Ok(new { success = true, data = response });
         }
 
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginReqDto request)
         {
-            try
-            {
-                var query = new LoginQuery { Request = request };
-                var result = await _mediator.Send(query);
+            var query = new LoginQuery { Request = request };
+            var result = await _mediator.Send(query);
 
-                if (result != null)
-                {
-                    return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
-                }
-
-
-                return NotFound(new { success = false, message = "Nömrə və ya şifrə yanlışdır" });
-            }
-            catch (UnauthorizedAccessException)
+            if (result != null)
             {
-                return Unauthorized(new { success = false, message = "Giriş məlumatları düzgün deyil." });
+                return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+
+            return NotFound(new { success = false, message = "Nömrə və ya şifrə yanlışdır" });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetCustomerById(string phone)
         {
-            try
-            {
-                var response = await _mediator.Send(new GetCustomerByIdQuery() { Phone = phone });
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetCustomerByIdQuery() { Phone = phone });
+            return Ok(new { success = true, data = response });
         }
 
         [HttpPost]
         [AtributteAuthenticator]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordReqDto request)
         {
-            try
-            {
-                var command = new ChangePasswordCommand { Request = request };
-                var result = await _mediator.Send(command);
+            var command = new ChangePasswordCommand { Request = request };
+            var result = await _mediator.Send(command);
 
-                if (result != null)
-                {
-                    return Ok(new { success = true, message = "Password uğurla əlavə edildi.", data = result });
-                }
-                else
-                {
-                    return BadRequest(new { success = false, message = "Password əlavə edilə bilmədi." });
-                }
-            }
-            catch (UnauthorizedAccessException)
+            if (result != null)
             {
-                return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
+                return Ok(new { success = true, message = "Password uğurla əlavə edildi.", data = result });
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Password əlavə edilə bilmədi." });
             }
         }
 
@@ -161,27 +111,16 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> ChangePasswordWithAdmin([FromBody] ChangePasswordWithAdminReqDto request)
         {
-            try
-            {
-                var command = new ChangePasswordWithAdminCommand { Request = request };
-                var result = await _mediator.Send(command);
+            var command = new ChangePasswordWithAdminCommand { Request = request };
+            var result = await _mediator.Send(command);
 
-                if (result != null)
-                {
-                    return Ok(new { success = true, message = "Password uğurla əlavə edildi.", data = result });
-                }
-                else
-                {
-                    return BadRequest(new { success = false, message = "Password əlavə edilə bilmədi." });
-                }
-            }
-            catch (UnauthorizedAccessException)
+            if (result != null)
             {
-                return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
+                return Ok(new { success = true, message = "Password uğurla əlavə edildi.", data = result });
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Password əlavə edilə bilmədi." });
             }
         }
 
@@ -190,27 +129,20 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> UpdateCustomer([FromBody] UpdateCustomerReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                UpdateCustomerCommand command = new UpdateCustomerCommand() { Request = request };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Müştəri əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Müştəri uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            UpdateCustomerCommand command = new UpdateCustomerCommand() { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Müştəri əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Müştəri uğurla əlavə edildi." });
         }
 
 
@@ -218,232 +150,126 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> DeleteCustomer([FromQuery] string phone)
         {
-            try
+            var response = await _mediator.Send(new DeleteCustomerCommand() { Phone = phone });
+            if (response == null)
             {
-                var response = await _mediator.Send(new DeleteCustomerCommand() { Phone = phone });
-                if (response == null)
-                {
-                    return NotFound(new { success = false, message = "Silinəcək müştəri tapılmadı." });
-                }
-
-                return Ok(new { success = true, message = "Müştəri uğurla silindi.", data = response });
-
+                return NotFound(new { success = false, message = "Silinəcək müştəri tapılmadı." });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+
+            return Ok(new { success = true, message = "Müştəri uğurla silindi.", data = response });
         }
 
         [HttpPost]
         [AtributteAuthenticator]
         public async Task<IActionResult> AddAdmin([FromBody] AddAdminReqDto request)
         {
-            try
-            {
-                var command = new AddAdminCommand { Request = request };
-                var result = await _mediator.Send(command);
+            var command = new AddAdminCommand { Request = request };
+            var result = await _mediator.Send(command);
 
-                if (result != null)
-                {
-                    return Ok(new { success = true, message = "Admin uğurla əlavə edildi.", data = result });
-                }
+            if (result != null)
+            {
+                return Ok(new { success = true, message = "Admin uğurla əlavə edildi.", data = result });
+            }
 
-                return BadRequest(new { success = false, message = "Admin əlavə edilə bilmədi." });
-            }
-            catch (UnauthorizedAccessException)
-            {
-                return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return BadRequest(new { success = false, message = "Admin əlavə edilə bilmədi." });
         }
 
         [HttpPost]
         [AtributteAuthenticator]
         public async Task<IActionResult> UpdateAdmin([FromBody] UpdateAdminReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                UpdateAdminCommand command = new UpdateAdminCommand() { Request = request };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Admin əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Admin uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            UpdateAdminCommand command = new UpdateAdminCommand() { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Admin əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Admin uğurla əlavə edildi." });
         }
 
         [HttpPost]
         public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpReqDto request)
         {
-            try
-            {
-                var query = new VerifyOtpQuery { Request = request };
-                var result = await _mediator.Send(query);
+            var query = new VerifyOtpQuery { Request = request };
+            var result = await _mediator.Send(query);
 
-                if (result != null)
-                {
-                    return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
-                }
-
-
-                return Unauthorized(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
-            }
-            catch (UnauthorizedAccessException)
+            if (result != null)
             {
-                return Unauthorized(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
+                return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return Unauthorized(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
         }
 
         [HttpPost]
         public async Task<IActionResult> ResendOtp([FromBody] ResendOtpDto request)
         {
-            try
-            {
-                var query = new ResendOtpQuery { Request = request };
-                var result = await _mediator.Send(query);
+            var query = new ResendOtpQuery { Request = request };
+            var result = await _mediator.Send(query);
 
-                return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
-
-            }
-            catch (UnauthorizedAccessException)
-            {
-                return Unauthorized(new { success = false, message = "OTP düzgün deyil və ya müddəti bitib." });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
         }
 
         [HttpPost]
         public async Task<IActionResult> CheckToken([FromBody] string refreshToken)
         {
-            try
-            {
-                var query = new CheckTokenQuery { RefreshToken = refreshToken };
-                var result = await _mediator.Send(query);
+            var query = new CheckTokenQuery { RefreshToken = refreshToken };
+            var result = await _mediator.Send(query);
 
-                if (result != null)
-                {
-                    return Ok(new { success = true, message = "Uğurla tamamlandı.", data = result });
-                }
-
-
-                return NotFound(new { success = false, message = "Token tapılmadı." });
-            }
-            catch (UnauthorizedAccessException)
+            if (result != null)
             {
-                return Unauthorized(new { success = false, message = "Giriş məlumatları düzgün deyil." });
+                return Ok(new { success = true, message = "Uğurla tamamlandı.", data = result });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return NotFound(new { success = false, message = "Token tapılmadı." });
         }
 
         [HttpPost]
         public async Task<IActionResult> Logout([FromBody] string refreshToken)
         {
-            try
-            {
-                var command = new LogoutQuery { RefreshToken = refreshToken };
-                var result = await _mediator.Send(command);
+            var command = new LogoutQuery { RefreshToken = refreshToken };
+            var result = await _mediator.Send(command);
 
-                if (result != null)
-                {
-                    return Ok(new { success = true, message = "Uğurla tamamlandı.", data = result });
-                }
+            if (result != null)
+            {
+                return Ok(new { success = true, message = "Uğurla tamamlandı.", data = result });
+            }
 
-                return BadRequest(new { success = false, message = "Uğursuz oldu." });
-            }
-            catch (UnauthorizedAccessException)
-            {
-                return Unauthorized(new { success = false, message = "Giriş icazəsi yoxdur." });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return BadRequest(new { success = false, message = "Uğursuz oldu." });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetAdmins()
         {
-            try
-            {      
-                var response = await _mediator.Send(new GetAdminsQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetAdminsQuery());
+            return Ok(new { success = true, data = response });
         }
 
         [HttpPost]
         public async Task<IActionResult> AdminLogin([FromBody] AdminLoginReqDto request)
         {
-            try
-            {
-                var query = new AdminLoginQuery { Request = request };
-                var result = await _mediator.Send(query);
+            var query = new AdminLoginQuery { Request = request };
+            var result = await _mediator.Send(query);
 
-                if (result != null)
-                {
-                    return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
-                }
-
-
-                return NotFound(new { success = false, message = "Username və ya şifrə yanlışdır" });
-            }
-            catch (UnauthorizedAccessException)
+            if (result != null)
             {
-                return Unauthorized(new { success = false, message = "Giriş məlumatları düzgün deyil." });
+                return Ok(new { success = true, message = "Giriş uğurla tamamlandı.", data = result });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return NotFound(new { success = false, message = "Username və ya şifrə yanlışdır" });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetAdminByUsername(string username)
         {
-            try
-            {
-                var response = await _mediator.Send(new GetAdminByIdQuery() { Username = username });
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetAdminByIdQuery() { Username = username });
+            return Ok(new { success = true, data = response });
         }
-
-
     }
 }

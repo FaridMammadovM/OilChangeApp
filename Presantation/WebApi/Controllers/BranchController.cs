@@ -20,32 +20,18 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> GetBranch()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetBranciesQuery());
+            var response = await _mediator.Send(new GetBranciesQuery());
 
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return Ok(new { success = true, data = response });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetBranchById(int id)
         {
-            try
-            {
-                var response = await _mediator.Send(new GetBranchByIdQuery() { Id = id });
+            var response = await _mediator.Send(new GetBranchByIdQuery() { Id = id });
 
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return Ok(new { success = true, data = response });
         }
     }
 }

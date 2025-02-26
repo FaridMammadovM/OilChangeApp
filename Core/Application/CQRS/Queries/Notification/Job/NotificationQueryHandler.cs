@@ -70,7 +70,7 @@ namespace Application.CQRS.Queries.Notification.Job
                 await _unitOfWork.GetWriteRepository<NotificationHistory>().AddAsync(notificationHistory);
                 await _unitOfWork.SaveAsync();
 
-                if (!string.IsNullOrEmpty(notificationDto.Token))
+               if (!string.IsNullOrEmpty(notificationDto.Token))
                 {
                     await SendExpoNotification(notificationDto.Token, notificationDto.Title, notificationDto.Message);
                 }

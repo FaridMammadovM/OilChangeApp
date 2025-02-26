@@ -26,16 +26,8 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> GetFuelTypes()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetFuelTypesQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetFuelTypesQuery());
+            return Ok(new { success = true, data = response });
         }
 
 
@@ -43,32 +35,16 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> GetColors()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetColorsQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetColorsQuery());
+            return Ok(new { success = true, data = response });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetServices()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetServicesQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetServicesQuery());
+            return Ok(new { success = true, data = response });
         }
 
 
@@ -76,80 +52,40 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> GetFilters()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetFiltersQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetFiltersQuery());
+            return Ok(new { success = true, data = response });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetSAEViscosities()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetSAEViscositiesQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetSAEViscositiesQuery());
+            return Ok(new { success = true, data = response });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetWinterViscosities()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetWinterViscositiesQuery() { ServiceType = 1 });
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetWinterViscositiesQuery() { ServiceType = 1 });
+            return Ok(new { success = true, data = response });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetDOTs()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetDOTsQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetDOTsQuery());
+            return Ok(new { success = true, data = response });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetMotors()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetMotorsQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetMotorsQuery());
+            return Ok(new { success = true, data = response });
         }
 
     }

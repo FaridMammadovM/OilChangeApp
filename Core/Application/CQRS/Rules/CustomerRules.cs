@@ -5,6 +5,7 @@ using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
 using Application.CQRS.Commands.Customer.UpdateAdmin.Dtos;
 using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
 using Application.CQRS.Exceptions;
+using Application.CQRS.Exceptions.Customer;
 using Domain.Entities;
 
 namespace Application.CQRS.Rules
@@ -14,21 +15,22 @@ namespace Application.CQRS.Rules
         public Task CustomerFindPhone(IEnumerable<Customers> customers, AddCustomerReqDto dto)
         {
             if (customers.Any(x => x.Phone == dto.Phone))
-                throw new ValidationException("Telefon nömrəsi mövcuddur!");
+                throw new CustomerFindPhoneException();
             return Task.CompletedTask;
         }
 
         public Task CustomerFindUsername(IEnumerable<Customers> customers, AddAdminReqDto dto)
         {
             if (customers.Any(x => x.Username == dto.Username))
-                throw new ValidationException("Username mövcuddur!");
+                throw new UsernameException();
             return Task.CompletedTask;
         }
 
         public Task FindRole(IEnumerable<Customers> customers, int id)
         {
             if (!customers.Any(x => x.Id == id && x.RoleId == 2))
-                throw new ValidationException("Sizin icazəniz yoxdur!");
+                throw new PermissionException();
+
             return Task.CompletedTask;
         }
 
@@ -36,7 +38,7 @@ namespace Application.CQRS.Rules
         {
             if (roleId != 2)
             {
-                throw new ValidationException("Sizin icazəniz yoxdur!");
+                throw new PermissionException();
             }
 
             return Task.CompletedTask;
@@ -45,20 +47,22 @@ namespace Application.CQRS.Rules
         public Task CustomerFindUpdatePhone(IEnumerable<Customers> customers, UpdateCustomerReqDto dto)
         {
             if (customers.Any(x => x.Phone == dto.Phone))
-                throw new ValidationException("Telefon nömrəsi mövcuddur!");
+                throw new CustomerFindPhoneException();
             return Task.CompletedTask;
         }
 
         public Task CustomerFindUpdateUsername(IEnumerable<Customers> customers, UpdateAdminReqDto dto)
         {
             if (customers.Any(x => x.Username == dto.Username))
-                throw new ValidationException("Username mövcuddur!");
-            return Task.CompletedTask;
+                               throw new UsernameException();
+
+                return Task.CompletedTask;
         }
         public Task VerifyOtp(int roleId)
         {
             if (roleId == 2)
-                throw new ValidationException("Sizin icazəniz yoxdur!");
+                throw new PermissionException();
+
             return Task.CompletedTask;
         }
 
@@ -67,7 +71,7 @@ namespace Application.CQRS.Rules
             bool check = BCrypt.Net.BCrypt.Verify(oldPassword, customers.Password);
             if (!check)
             {
-                throw new ValidationException("Şifrə yanlışdır!");
+                throw new PasswordException();
             }
 
             return Task.CompletedTask;

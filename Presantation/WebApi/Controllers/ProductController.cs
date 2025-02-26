@@ -24,74 +24,51 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> GetOils()
         {
-            try
+            var response = await _mediator.Send(new GetProductsQuery() { CategoryId = 1 });
+            if (response == null || !response.Any())
             {
-                var response = await _mediator.Send(new GetProductsQuery() { CategoryId = 1 });
-                if (response == null || !response.Any())
-                {
-                    return Ok(new { success = false, message = "Məhsul tapılmadı." });
-                }
-
-                return Ok(new { success = true, data = response });
+                return Ok(new { success = false, message = "Məhsul tapılmadı." });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return Ok(new { success = true, data = response });
         }
 
         [HttpPost]
         [AtributteAuthenticator]
         public async Task<IActionResult> AddOil([FromBody] AddProductReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                AddProductCommand command = new AddProductCommand() { Request = request, CategoryId = 1 };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            AddProductCommand command = new AddProductCommand() { Request = request, CategoryId = 1 };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+            return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
         }
 
         [HttpPost]
         [AtributteAuthenticator]
         public async Task<IActionResult> UpdateOil([FromBody] UpdateProductReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                UpdateProductCommand command = new UpdateProductCommand() { Request = request };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            UpdateProductCommand command = new UpdateProductCommand() { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
         }
 
 
@@ -99,209 +76,142 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> DeleteOil([FromQuery] int producId)
         {
-            try
+            var response = await _mediator.Send(new DeleteProductCommand() { Id = producId });
+            if (response == null)
             {
-                var response = await _mediator.Send(new DeleteProductCommand() { Id = producId });
-                if (response == null)
-                {
-                    return NotFound(new { success = false, message = "Silinəcək məhsul tapılmadı." });
-                }
-
-                return Ok(new { success = true, message = "Məhsul uğurla silindi.", data = response });
-
+                return NotFound(new { success = false, message = "Silinəcək məhsul tapılmadı." });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+
+            return Ok(new { success = true, message = "Məhsul uğurla silindi.", data = response });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetAntifirizs()
         {
-            try
+            var response = await _mediator.Send(new GetProductsQuery() { CategoryId = 2 });
+            if (response == null || !response.Any())
             {
-                var response = await _mediator.Send(new GetProductsQuery() { CategoryId = 2 });
-                if (response == null || !response.Any())
-                {
-                    return Ok(new { success = false, message = "Məhsul tapılmadı." });
-                }
-
-                return Ok(new { success = true, data = response });
+                return Ok(new { success = false, message = "Məhsul tapılmadı." });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return Ok(new { success = true, data = response });
         }
         [HttpPost]
         [AtributteAuthenticator]
         public async Task<IActionResult> AddAntifiriz([FromBody] AddProductReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                AddProductCommand command = new AddProductCommand() { Request = request, CategoryId = 2 };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            AddProductCommand command = new AddProductCommand() { Request = request, CategoryId = 2 };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
         }
         [HttpPost]
         [AtributteAuthenticator]
         public async Task<IActionResult> UpdateAntifiriz([FromBody] UpdateProductReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                UpdateProductCommand command = new UpdateProductCommand() { Request = request };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            UpdateProductCommand command = new UpdateProductCommand() { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
         }
 
         [HttpDelete]
         [AtributteAuthenticator]
         public async Task<IActionResult> DeleteAntifiriz([FromQuery] int producId)
         {
-            try
+            var response = await _mediator.Send(new DeleteProductCommand() { Id = producId });
+            if (response == null)
             {
-                var response = await _mediator.Send(new DeleteProductCommand() { Id = producId });
-                if (response == null)
-                {
-                    return NotFound(new { success = false, message = "Silinəcək məhsul tapılmadı." });
-                }
-
-                return Ok(new { success = true, message = "Məhsul uğurla silindi.", data = response });
-
+                return NotFound(new { success = false, message = "Silinəcək məhsul tapılmadı." });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+
+            return Ok(new { success = true, message = "Məhsul uğurla silindi.", data = response });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetLiquid()
         {
-            try
+            var response = await _mediator.Send(new GetProductsQuery() { CategoryId = 3 });
+            if (response == null || !response.Any())
             {
-                var response = await _mediator.Send(new GetProductsQuery() { CategoryId = 3 });
-                if (response == null || !response.Any())
-                {
-                    return Ok(new { success = false, message = "Məhsul tapılmadı." });
-                }
+                return Ok(new { success = false, message = "Məhsul tapılmadı." });
+            }
 
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            return Ok(new { success = true, data = response });
         }
 
         [HttpPost]
         [AtributteAuthenticator]
         public async Task<IActionResult> AddLiquid([FromBody] AddProductReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                AddProductCommand command = new AddProductCommand() { Request = request, CategoryId = 3 };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            AddProductCommand command = new AddProductCommand() { Request = request, CategoryId = 3 };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
         }
 
         [HttpPost]
         [AtributteAuthenticator]
         public async Task<IActionResult> UpdateLiquid([FromBody] UpdateProductReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                UpdateProductCommand command = new UpdateProductCommand() { Request = request };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            UpdateProductCommand command = new UpdateProductCommand() { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Məhsul əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Məhsul uğurla əlavə edildi." });
         }
 
         [HttpDelete]
         [AtributteAuthenticator]
         public async Task<IActionResult> DeleteLiquid([FromQuery] int producId)
         {
-            try
+            var response = await _mediator.Send(new DeleteProductCommand() { Id = producId });
+            if (response == null)
             {
-                var response = await _mediator.Send(new DeleteProductCommand() { Id = producId });
-                if (response == null)
-                {
-                    return NotFound(new { success = false, message = "Silinəcək məhsul tapılmadı." });
-                }
-
-                return Ok(new { success = true, message = "Məhsul uğurla silindi.", data = response });
-
+                return NotFound(new { success = false, message = "Silinəcək məhsul tapılmadı." });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+
+            return Ok(new { success = true, message = "Məhsul uğurla silindi.", data = response });
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using FluentValidation;
+﻿using Application.Bases;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using SendGrid.Helpers.Errors.Model;
 namespace Application.Exceptions
 {
@@ -20,37 +22,30 @@ namespace Application.Exceptions
         private static Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
         {
             int statusCode = GetStatusCode(exception);
+
             httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = statusCode;
 
-            if (exception is Application.CQRS.Exceptions.ValidationException validationEx)
-            {
-                return httpContext.Response.WriteAsync(new ExceptionModel
-                {
-                    Errors = validationEx.Errors,
-                    StatusCode = StatusCodes.Status400BadRequest
-                }.ToString());
-            }
+            var errors = new List<string> { exception.Message };
 
-            List<string> errors = new()
-    {
-        $"Hata Mesajı : {exception.Message}"
-    };
-
-            return httpContext.Response.WriteAsync(new ExceptionModel
+            var response = new
             {
-                Errors = errors,
-                StatusCode = statusCode
-            }.ToString());
+                errors,
+                statusCode
+            };
+
+            return httpContext.Response.WriteAsync(JsonConvert.SerializeObject(response));
         }
 
+
         private static int GetStatusCode(Exception exception) =>
-            exception switch
-            {
-                BadRequestException => StatusCodes.Status400BadRequest,
-                NotFoundException => StatusCodes.Status400BadRequest,
-                ValidationException => StatusCodes.Status400BadRequest,
-                _ => StatusCodes.Status500InternalServerError
-            };
+          exception switch
+          {
+              BaseException baseException => baseException.StatusCode, // Xüsusi Exception-lar üçün
+              BadRequestException => StatusCodes.Status400BadRequest,
+              NotFoundException => StatusCodes.Status404NotFound,
+              ValidationException => StatusCodes.Status422UnprocessableEntity,
+              _ => StatusCodes.Status500InternalServerError
+          };
     }
 }

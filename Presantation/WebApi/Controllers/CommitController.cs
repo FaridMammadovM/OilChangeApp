@@ -26,27 +26,20 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> AddCommit([FromBody] AddCommitReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                AddCommitCommand command = new AddCommitCommand() { Request = request };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Müraciətiniz əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Müraciətiniz qeyda alındı" });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            AddCommitCommand command = new AddCommitCommand() { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Müraciətiniz əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Müraciətiniz qeyda alındı" });
         }
 
         [HttpPost]
@@ -80,32 +73,17 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> GetAllCommit()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetAllCommitQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetAllCommitQuery());
+            return Ok(new { success = true, data = response });
         }
 
         [HttpGet]
         [AtributteAuthenticator]
         public async Task<IActionResult> GetCommit([FromQuery] GetCommitQueryReqDto request)
         {
-            try
-            {
-                var response = await _mediator.Send(new GetCommitQuery() { Request = request });
+            var response = await _mediator.Send(new GetCommitQuery() { Request = request });
+            return Ok(new { success = true, data = response });
 
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
         }
     }
 }

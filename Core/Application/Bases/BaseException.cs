@@ -1,8 +1,16 @@
-﻿namespace Application.Bases
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Application.Bases
 {
     public class BaseException : ApplicationException
-    {
-        public BaseException() { }
-        public BaseException(string message) : base(message) { }
+    {     
+
+        public int StatusCode { get; }
+
+        public BaseException(string message, int statusCode = StatusCodes.Status400BadRequest)
+            : base(message)
+        {
+            StatusCode = statusCode;
+        }
     }
 }

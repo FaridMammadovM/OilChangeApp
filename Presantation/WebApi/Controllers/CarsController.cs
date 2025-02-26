@@ -29,16 +29,8 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> GetCars()
         {
-            try
-            {
-                var response = await _mediator.Send(new GetAllCarsQuery());
-
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+            var response = await _mediator.Send(new GetAllCarsQuery());
+            return Ok(new { success = true, data = response });
         }
 
 
@@ -50,16 +42,9 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> GetCarsById([FromQuery] int carId)
         {
-            try
-            {
-                var response = await _mediator.Send(new GeByIdCarQuery() { CarId = carId });
+            var response = await _mediator.Send(new GeByIdCarQuery() { CarId = carId });
+            return Ok(new { success = true, data = response });
 
-                return Ok(new { success = true, data = response });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
         }
 
         /// <summary>
@@ -78,27 +63,20 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> AddCar([FromBody] AddCarReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                AddCarCommand command = new AddCarCommand() { Request = request };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Maşın əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Maşın uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            AddCarCommand command = new AddCarCommand() { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Maşın əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Maşın uğurla əlavə edildi." });
         }
 
         /// <summary>
@@ -109,27 +87,20 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> UpdateCar([FromBody] UpdateCarReqDto request)
         {
-            try
+            if (request == null)
             {
-                if (request == null)
-                {
-                    return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
-                }
-
-                UpdateCarCommand command = new UpdateCarCommand() { Request = request };
-                var result = await _mediator.Send(command);
-
-                if (result == null)
-                {
-                    return BadRequest(new { success = false, message = "Maşın əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
-                }
-
-                return Ok(new { success = true, message = "Maşın uğurla əlavə edildi." });
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
             }
-            catch (Exception ex)
+
+            UpdateCarCommand command = new UpdateCarCommand() { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
             {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
+                return BadRequest(new { success = false, message = "Maşın əlavə edilə bilmədi. Məlumatlar düzgün deyil." });
             }
+
+            return Ok(new { success = true, message = "Maşın uğurla əlavə edildi." });
         }
 
         /// <summary>
@@ -140,21 +111,13 @@ namespace WebApi.Controllers
         [AtributteAuthenticator]
         public async Task<IActionResult> DeleteCar([FromQuery] int carId)
         {
-            try
+            var response = await _mediator.Send(new DeleteCarCommand() { CarId = carId });
+            if (response == null)
             {
-                var response = await _mediator.Send(new DeleteCarCommand() { CarId = carId });
-                if (response == null)
-                {
-                    return NotFound(new { success = false, message = "Silinəcək maşın tapılmadı." });
-                }
-
-                return Ok(new { success = true, message = "Maşın uğurla silindi.", data = response });
-
+                return NotFound(new { success = false, message = "Silinəcək maşın tapılmadı." });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = $"Xəta baş verdi: {ex.Message}" });
-            }
+
+            return Ok(new { success = true, message = "Maşın uğurla silindi.", data = response });
         }
     }
 }
