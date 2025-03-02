@@ -22,16 +22,35 @@ namespace Application.Exceptions
         private static Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
         {
             int statusCode = GetStatusCode(exception);
+            bool success = false;
 
             httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = statusCode;
+            string message = "";
 
             var errors = new List<string> { exception.Message };
-
+            if (exception is ValidationException validationException)
+            {
+                var firstError = validationException.Errors.FirstOrDefault();
+                if (firstError != null)
+                {
+                    message = firstError.ErrorMessage;
+                }
+                else
+                {
+                    message = exception.Message.ToString();
+                }
+            }
+            else
+            {
+                errors.Add(exception.Message);
+            }
             var response = new
             {
-                errors,
-                statusCode
+                success,
+                message
+                //errors,
+                //statusCode
             };
 
             return httpContext.Response.WriteAsync(JsonConvert.SerializeObject(response));

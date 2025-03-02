@@ -1,11 +1,11 @@
-﻿using Application.CQRS.Queries.Customer.Login.Dto;
-using Application.CQRS.Queries.Customer.Login;
+﻿using Application.CQRS.Queries.Customer.AdminLogin.Dtos;
 using Application.Interfaces.UnitOfWork;
 using Application.JWT;
 using Domain.Entities;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
-using Application.CQRS.Queries.Customer.AdminLogin.Dtos;
+using SendGrid.Helpers.Errors.Model;
 
 namespace Application.CQRS.Queries.Customer.AdminLogin
 {
@@ -28,11 +28,16 @@ namespace Application.CQRS.Queries.Customer.AdminLogin
                 .GetAsync(x => x.Username == request.Request.Username && x.IsDeleted == false);
 
             if (customer == null)
-                return null;
+            {
+                throw new ValidationException("Username və ya şifrə yanlışdır");
+
+            }
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(request.Request.Password, customer.Password);
             if (!isPasswordValid)
-                return null;     
+            {
+                throw new ValidationException("Username və ya şifrə yanlışdır");
+            }
 
             var accessToken = _jwtHelper.GenerateAccessToken(customer.Id.ToString());
             var refreshToken = customer.RefreshToken;
@@ -40,7 +45,7 @@ namespace Application.CQRS.Queries.Customer.AdminLogin
             refreshToken = _jwtHelper.GenerateRefreshToken();
             customer.RefreshToken = refreshToken;
             customer.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
-       
+
             await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(customer);
             await _unitOfWork.SaveAsync();
 

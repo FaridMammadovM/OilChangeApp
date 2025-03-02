@@ -32,7 +32,7 @@ namespace Application.CQRS.Commands.Customer.ChangePasswordWithAdmin
                 .GetAsync(c => c.IsDeleted == false && c.Id == userId);
             //await _customerRules.ChangePasswordWithAdmin(customerAdmin.RoleId);
             Customers customer = await _unitOfWork.GetReadRepository<Customers>()
-                .GetAsync(c => c.IsDeleted == false && c.Id == request.Request.CustomerId);
+                .GetAsync(c => c.IsDeleted == false && c.Id == request.Request.Id);
             customer.Password = _jwtHelper.HashPassword(request.Request.Password);
             customer.UpdatedBy = userId;
             await _unitOfWork.GetWriteRepository<Customers>().UpdateAsync(customer);
