@@ -2,6 +2,7 @@
 using Application.Interfaces.UnitOfWork;
 using Application.JWT;
 using Domain.Entities;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 
@@ -26,11 +27,15 @@ namespace Application.CQRS.Queries.Customer.Login
                 .GetAsync(x => x.Phone == request.Request.Phone && x.IsDeleted == false);
 
             if (customer == null)
-                return null;
+            {
+                throw new ValidationException("Nömrə və ya şifrə yanlışdır");
+            }
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(request.Request.Password, customer.Password);
             if (!isPasswordValid)
-                return null;
+            {
+                throw new ValidationException("Nömrə və ya şifrə yanlışdır");
+            }
 
             if (!customer.IsOtp)
             {

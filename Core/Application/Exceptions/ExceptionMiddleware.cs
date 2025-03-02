@@ -28,17 +28,20 @@ namespace Application.Exceptions
             httpContext.Response.StatusCode = statusCode;
             string message = "";
 
-            var errors = new List<string> { exception.Message };
+            var errors = new List<string>();
             if (exception is ValidationException validationException)
             {
                 var firstError = validationException.Errors.FirstOrDefault();
+                
                 if (firstError != null)
                 {
                     message = firstError.ErrorMessage;
+                    errors = validationException.Errors.Select(e => e.ErrorMessage).ToList();
                 }
                 else
                 {
                     message = exception.Message.ToString();
+                    errors.Add(exception.Message.ToString());
                 }
             }
             else
@@ -48,8 +51,8 @@ namespace Application.Exceptions
             var response = new
             {
                 success,
-                message
-                //errors,
+                message,
+                errors,
                 //statusCode
             };
 

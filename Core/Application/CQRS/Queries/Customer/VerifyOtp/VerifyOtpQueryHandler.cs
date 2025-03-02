@@ -3,6 +3,7 @@ using Application.CQRS.Rules;
 using Application.Interfaces.UnitOfWork;
 using Application.JWT;
 using Domain.Entities;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 
@@ -30,13 +31,13 @@ namespace Application.CQRS.Queries.Customer.VerifyOtp
 
             if (customer == null)
             {
-                return null;
+                throw new ValidationException("OTP düzgün deyil və ya müddəti bitib.");
             }
 
             if (customer.OtpExpirationTime < DateTime.UtcNow)
             {
 
-                return null;
+                throw new ValidationException("OTP düzgün deyil və ya müddəti bitib.");
             }
 
             var accessToken = _jwtHelper.GenerateAccessToken(customer.Id.ToString());
