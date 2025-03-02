@@ -13,7 +13,7 @@ namespace Application.CQRS.Commands.Customer.UpdateAdmin
             RuleFor(x => x.Request.Id)
               .NotEmpty()
               .WithMessage("Ad boş ola bilməz.")
-              .WithMessage("Ad maksimum 30 simvol olmalıdır.");
+              .WithMessage("RequestId boş ola bilməz.");
 
             RuleFor(x => x.Request.Username)
            .NotEmpty()
