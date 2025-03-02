@@ -8,6 +8,8 @@ namespace Domain.Entities
         public int CustomerId { get; set; }
         public Customers Customers { get; set; }
         public bool IsRequest { get; set; } = false;
+        public bool IsRead { get; set; } = false;
+
 
     }
 }

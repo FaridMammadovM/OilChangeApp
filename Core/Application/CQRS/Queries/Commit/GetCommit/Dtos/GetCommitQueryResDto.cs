@@ -5,6 +5,7 @@
         public int Id { get; set; }
         public string CommitMessage { get; set; }
         public bool IsRequest { get; set; }
+        public bool IsRead { get; set; }
         public DateTime InsertedDate { get; set; }
     }
 }

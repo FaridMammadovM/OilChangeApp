@@ -1,4 +1,5 @@
-﻿using Application.CQRS.Queries.Commit.GetAllCommit.Dtos;
+﻿using System.Threading;
+using Application.CQRS.Queries.Commit.GetAllCommit.Dtos;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
@@ -26,12 +27,14 @@ namespace Application.CQRS.Queries.Commit.GetAllCommit
 
             var mappedList = commitList.Select(c => new GetAllCommitResDto
             {
+                Id = c.Id,
                 CommitMessage = c.CommitMessage,
                 CustomerId = c.CustomerId,
                 Name = c.Customers?.Name,
                 Surname = c.Customers?.Surname,
                 Phone = c.Customers?.Phone,
                 IsRequest = c.IsRequest,
+                IsRead = c.IsRead,
                 InsertedDate = c.InsertedDate
             }).OrderByDescending(c => c.InsertedDate).ToList();
 

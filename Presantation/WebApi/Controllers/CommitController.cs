@@ -1,5 +1,7 @@
 ﻿using Application.CQRS.Commands.Commit.AddCommit;
 using Application.CQRS.Commands.Commit.AddCommit.Dtos;
+using Application.CQRS.Commands.Commit.ChangeCommitIsRead;
+using Application.CQRS.Commands.Commit.ChangeCommitIsRead.Dtos;
 using Application.CQRS.Commands.Commit.ResponseAdmin;
 using Application.CQRS.Commands.Commit.ResponseAdmin.Dtos;
 using Application.CQRS.Queries.Commit.GetAllCommit;
@@ -85,5 +87,26 @@ namespace WebApi.Controllers
             return Ok(new { success = true, data = response });
 
         }
+
+        [HttpPost]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> IsRead([FromBody] ChangeCommitIsReadReqDto request)
+        {
+            if (request == null)
+            {
+                return BadRequest(new { success = false, message = "Məlumatlar tam deyil." });
+            }
+
+            ChangeCommitIsReadCommand command = new ChangeCommitIsReadCommand() { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result == null)
+            {
+                return BadRequest(new { success = false, message = "Məlumat dəyişdirilə bilmədi. Məlumatlar düzgün deyil." });
+            }
+
+            return Ok(new { success = true, message = "Məlumat qeydə alındı" });
+        }
+        
     }
 }

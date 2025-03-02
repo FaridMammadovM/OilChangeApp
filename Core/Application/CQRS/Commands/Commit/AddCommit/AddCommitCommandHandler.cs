@@ -26,7 +26,8 @@ namespace Application.CQRS.Commands.Commit.AddCommit
                 CustomerId = userId,
                 CommitMessage = request.Request.CommitMessage,
                 InsertedBy = userId,
-                IsRequest = false
+                IsRequest = false,
+                IsRead = false
             };
 
             await _unitOfWork.GetWriteRepository<Commits>().AddAsync(commit);
