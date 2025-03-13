@@ -56,9 +56,7 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
                 EmployeeName = oilChange.Employees != null ? $"{oilChange.Employees.Name} {oilChange.Employees.Surname}" : null,
                 BranchId = oilChange.BranchId,
                 BranchName = oilChange.Branchies?.Name,
-                Description = oilChange.Description,
-                OilOwn = oilChange.OilOwn,
-                OilCode = oilChange.OilCode,
+                Description = oilChange.Description,                
                 Filters = oilChange.OilChangeFilters?.Select(f => new GetByIdOilChangeFilterDto
                 {
                     Id = f.Id,

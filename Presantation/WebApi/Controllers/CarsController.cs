@@ -4,6 +4,7 @@ using Application.CQRS.Commands.Car.DeleteCar;
 using Application.CQRS.Commands.Car.UpdateCar;
 using Application.CQRS.Commands.Car.UpdateCar.Dtos;
 using Application.CQRS.Queries.Car.GetAll;
+using Application.CQRS.Queries.Car.GetAll.Dtos;
 using Application.CQRS.Queries.Car.GetByİd;
 using Application.JWT;
 using MediatR;
@@ -27,9 +28,9 @@ namespace WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [AtributteAuthenticator]
-        public async Task<IActionResult> GetCars()
+        public async Task<IActionResult> GetCars([FromQuery] GetAllCarsReqDto request)
         {
-            var response = await _mediator.Send(new GetAllCarsQuery());
+            var response = await _mediator.Send(new GetAllCarsQuery() { Request = request });
             return Ok(new { success = true, data = response });
         }
 

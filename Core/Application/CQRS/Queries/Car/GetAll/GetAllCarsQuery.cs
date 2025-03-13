@@ -5,5 +5,6 @@ namespace Application.CQRS.Queries.Car.GetAll
 {
     public class GetAllCarsQuery : IRequest<IList<GetAllCarsResDto>>
     {
+        public GetAllCarsReqDto Request { get; set; }
     }
 }
