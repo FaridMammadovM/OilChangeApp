@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Application.CQRS.Queries.Commit.GetAllCommit.Dtos;
+﻿using Application.CQRS.Queries.Commit.GetAllCommit.Dtos;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
@@ -22,7 +21,7 @@ namespace Application.CQRS.Queries.Commit.GetAllCommit
         {
             var commitList = await _unitOfWork.GetReadRepository<Commits>().GetAllAsync(c => c.IsDeleted == false,
                    include: query => query
-            .Include(c => c.Customers)        
+            .Include(c => c.Customers)
             );
 
             var mappedList = commitList.Select(c => new GetAllCommitResDto

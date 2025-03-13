@@ -99,11 +99,11 @@ namespace WebApi.Controllers
 
             if (result != null)
             {
-                return Ok(new { success = true, message = "Password uğurla əlavə edildi.", data = result });
+                return Ok(new { success = true, message = "Şifrə uğurla əlavə edildi.", data = result });
             }
             else
             {
-                return BadRequest(new { success = false, message = "Password əlavə edilə bilmədi." });
+                return BadRequest(new { success = false, message = "Şifrə əlavə edilə bilmədi." });
             }
         }
 
@@ -116,11 +116,11 @@ namespace WebApi.Controllers
 
             if (result != null)
             {
-                return Ok(new { success = true, message = "Password uğurla əlavə edildi.", data = result });
+                return Ok(new { success = true, message = "Şifrə uğurla əlavə edildi.", data = result });
             }
             else
             {
-                return BadRequest(new { success = false, message = "Password əlavə edilə bilmədi." });
+                return BadRequest(new { success = false, message = "Şifrə əlavə edilə bilmədi." });
             }
         }
 

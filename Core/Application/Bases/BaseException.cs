@@ -3,7 +3,7 @@
 namespace Application.Bases
 {
     public class BaseException : ApplicationException
-    {     
+    {
 
         public int StatusCode { get; }
 

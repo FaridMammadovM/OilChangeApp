@@ -54,9 +54,9 @@ namespace Application.CQRS.Rules
         public Task CustomerFindUpdateUsername(IEnumerable<Customers> customers, UpdateAdminReqDto dto)
         {
             if (customers.Any(x => x.Username == dto.Username))
-                               throw new UsernameException();
+                throw new UsernameException();
 
-                return Task.CompletedTask;
+            return Task.CompletedTask;
         }
         public Task VerifyOtp(int roleId)
         {

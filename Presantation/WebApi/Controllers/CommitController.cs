@@ -107,6 +107,6 @@ namespace WebApi.Controllers
 
             return Ok(new { success = true, message = "Məlumat qeydə alındı" });
         }
-        
+
     }
 }

@@ -5,7 +5,6 @@ using Domain.Entities;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
-using SendGrid.Helpers.Errors.Model;
 
 namespace Application.CQRS.Queries.Customer.AdminLogin
 {

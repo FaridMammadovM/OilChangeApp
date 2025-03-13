@@ -39,12 +39,7 @@ namespace Application.CQRS.Queries.CostumersCarsMatrix.GetCostumersCarsMatrixId
                 CarNumber = matrix.CarNumber,
                 CarId = matrix.CarId,
                 Model = matrix.Cars?.Model,
-                Brand = matrix.Cars?.Brand,
-                MotorId = matrix.MotorId,
-                Year = matrix.Year,
-                ColorsId = matrix.ColorsId,
-                FuelTypeId = matrix.FuelTypeId,
-                Description = matrix.Description
+                Brand = matrix.Cars?.Brand
             }).ToList();
 
             return result;

@@ -42,10 +42,29 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
                     .Where(p => p.Phone.Contains(request.Request.Phone))
                     .ToList();
             }
+            if (request.Request.CarNumber != null && customers != null)
+            {
+                customers = customers
+        .Where(p => p.CustomersCars
+            .Any(c => c.CarNumber.Contains(request.Request.CarNumber.ToUpper())))
+        .ToList();
+            }
 
+            var customerDtos = customers.Select(c => new GetAllCustomerResDto
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Surname = c.Surname,
+                Phone = c.Phone,
+                CustomersCars = c.CustomersCars.Select(car => new GetAllCustomerResListNumberDto
+                {
+                    CarNumber = car.CarNumber
+                }).ToList()
+            }).ToList();
 
-
-            return _mapper.Map<GetAllCustomerResDto, Customers>(customers);
+            return customerDtos.OrderBy(c => c.Name)
+                .ThenBy(c => c.Surname)
+                .ToList();
 
         }
     }

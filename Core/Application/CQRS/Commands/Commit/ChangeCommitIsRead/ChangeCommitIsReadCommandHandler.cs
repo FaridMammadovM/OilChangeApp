@@ -1,5 +1,4 @@
 ﻿using Application.Beheviors;
-using Application.CQRS.Rules;
 using Application.Interfaces.UnitOfWork;
 using Domain.Entities;
 using MediatR;

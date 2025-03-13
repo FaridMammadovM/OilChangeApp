@@ -32,7 +32,7 @@ namespace Application.Exceptions
             if (exception is ValidationException validationException)
             {
                 var firstError = validationException.Errors.FirstOrDefault();
-                
+
                 if (firstError != null)
                 {
                     message = firstError.ErrorMessage;
