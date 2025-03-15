@@ -2,6 +2,6 @@
 {
     public class GetAllCarsReqDto
     {
-        public string BrandOrModel { get; set; }
+        public string? BrandOrModel { get; set; }
     }
 }

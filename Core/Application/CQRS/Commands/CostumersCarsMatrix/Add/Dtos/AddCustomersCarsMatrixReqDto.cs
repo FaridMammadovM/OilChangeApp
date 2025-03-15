@@ -5,5 +5,7 @@
         public int CarId { get; set; }
         public int CustomerId { get; set; }
         public string CarNumber { get; set; }
+        public string? Description { get; set; }
+
     }
 }

@@ -40,6 +40,7 @@ namespace Application.CQRS.Queries.OilChange.LastOilChanges
             ChangeDate = oilChange.ChangeDate.ToString("dd.MM.yyyy"),
             Model = x.customerCar.Cars?.Model,
             Brand = x.customerCar.Cars?.Brand,
+            CarNumber = x.customerCar.CarNumber,
             ChangeDateAsDateTime = oilChange.ChangeDate
         })
         .OrderByDescending(dto => dto.ChangeDateAsDateTime)

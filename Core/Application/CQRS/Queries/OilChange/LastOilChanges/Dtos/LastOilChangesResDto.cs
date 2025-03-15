@@ -9,6 +9,7 @@
         public string ChangeDate { get; set; }
         public string Model { get; set; }
         public string Brand { get; set; }
+        public string? CarNumber { get; set; }
         internal DateTime ChangeDateAsDateTime { get; set; }
     }
 }
