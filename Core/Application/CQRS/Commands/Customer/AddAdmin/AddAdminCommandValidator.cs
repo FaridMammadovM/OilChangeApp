@@ -41,11 +41,6 @@ namespace Application.CQRS.Commands.Customer.AddAdmin
                 .WithMessage("Şifrə ən az bir rəqəm içərməlidir.")
                 .Matches(@"[\W_]")
                 .WithMessage("Şifrə ən az bir xüsusi simvol içərməlidir.");
-
-            RuleFor(x => x.Request.RepeatPassword)
-                .Equal(x => x.Request.Password)
-                .WithMessage("Şifrələr uyğun deyil.");
-
         }
     }
 }

@@ -37,10 +37,6 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
                 .WithMessage("Şifrə ən az bir xüsusi simvol içərməlidir.");
 
 
-            RuleFor(x => x.Request.RepeatPassword)
-                .Equal(x => x.Request.Password)
-                .WithMessage("Şifrələr uyğun deyil.");
-
             RuleFor(x => x.Request.Phone)
                 .NotEmpty()
                 .WithMessage("Telefon nömrəsi boş ola bilməz.")

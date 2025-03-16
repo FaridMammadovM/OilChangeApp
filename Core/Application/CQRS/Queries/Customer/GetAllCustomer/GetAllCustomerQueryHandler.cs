@@ -22,7 +22,7 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
             IList<Customers> customers = await _unitOfWork.GetReadRepository<Customers>()
                 .GetAllAsync(c => c.IsDeleted == false && c.RoleId == 1,
             include: query => query
-            .Include(c => c.CustomersCars));
+            .Include(c => c.CustomersCars.Where(car => car.IsDeleted == false)));
 
             if (request.Request.Name != null && customers != null)
             {
