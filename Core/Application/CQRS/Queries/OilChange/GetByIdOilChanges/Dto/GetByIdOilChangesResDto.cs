@@ -22,7 +22,9 @@
         public int EmployeeId { get; set; }
         public string EmployeeName { get; set; }
         public int BranchId { get; set; }
-        public string BranchName { get; set; }      
+        public string BranchName { get; set; }
+        public string? CarNumber { get; set; }
+
         public string Description { get; set; }
         public IList<GetByIdOilChangeFilterDto> Filters { get; set; }
 

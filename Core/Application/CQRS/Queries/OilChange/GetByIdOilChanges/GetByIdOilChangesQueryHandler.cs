@@ -26,6 +26,7 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             .Include(c => c.WinterViscosity)
             .Include(c => c.SAEViscosity)
             .Include(c => c.Products)
+            .Include(c => c.CustomersCarsMatrix)
             .Include(c => c.Employees)
             .Include(o => o.OilChangeFilters).ThenInclude(f => f.Filter));
 
@@ -56,6 +57,7 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
                 EmployeeName = oilChange.Employees != null ? $"{oilChange.Employees.Name} {oilChange.Employees.Surname}" : null,
                 BranchId = oilChange.BranchId,
                 BranchName = oilChange.Branchies?.Name,
+                CarNumber = oilChange.CustomersCarsMatrix.CarNumber,
                 Description = oilChange.Description,                
                 Filters = oilChange.OilChangeFilters?.Select(f => new GetByIdOilChangeFilterDto
                 {
