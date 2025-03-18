@@ -16,6 +16,8 @@
         public int EmployeeId { get; set; }
         public int BranchId { get; set; }
         public decimal Price { get; set; }
+        public bool OilOwn { get; set; } = false;
+        public string? OilCode { get; set; }
         public string? Description { get; set; }
         public List<UpdateOilChangeFilterReqDto>? Filters { get; set; }
 

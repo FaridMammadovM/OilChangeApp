@@ -17,15 +17,15 @@ namespace Application.CQRS.Commands.OilChange.UpdateOilChange
                     .WithMessage("Əgər ServiceId 1 və ya 2 deyilsə, Filtr null olmalıdır.");
             });
 
-            When(x => x.Request.ServiceId == 1 || x.Request.ServiceId == 3 || x.Request.ServiceId == 5 || x.Request.ServiceId == 6 || x.Request.ServiceId == 7, () =>
+            When(x => x.Request.ServiceId == 1 || x.Request.ServiceId == 5 || x.Request.ServiceId == 6 || x.Request.ServiceId == 7, () =>
             {
                 RuleFor(x => x.Request.SAEViscosityId)
                     .Must(id => id == null)
-                    .WithMessage("Əgər ServiceId 1, 3, 5, 6 və 7-dirsə, SAEViscosityId null olmalıdır.");
+                    .WithMessage("Əgər ServiceId 1, 5, 6 və 7-dirsə, SAEViscosityId null olmalıdır.");
 
                 RuleFor(x => x.Request.WinterViscosityId)
                     .Must(id => id == null)
-                    .WithMessage("Əgər ServiceId 1, 3, 5, 6 və 7-dirsə, WinterViscosityId null olmalıdır.");
+                    .WithMessage("Əgər ServiceId 1, 5, 6 və 7-dirsə, WinterViscosityId null olmalıdır.");
             });
 
             When(x => x.Request.ServiceId == 4, () =>
@@ -44,6 +44,10 @@ namespace Application.CQRS.Commands.OilChange.UpdateOilChange
                 RuleFor(x => x.Request.Duration)
                     .Must(id => id == null)
                     .WithMessage("Əgər ServiceId 3-dürsə, Duration null olmalıdır.");
+
+                RuleFor(x => x.Request.SAEViscosityId)
+                .Must(id => id == null)
+                .WithMessage("Əgər ServiceId 3-dürsə, SAEViscosityId null olmalıdır.");
             });
 
             When(x => x.Request.ServiceId == 5 || x.Request.ServiceId == 6 || x.Request.ServiceId == 7, () =>
