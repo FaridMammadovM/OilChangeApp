@@ -62,6 +62,15 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
                 }).ToList()
             }).ToList();
 
+            if (request.Request.SortByDateAscending == false)
+            {
+                return customerDtos.OrderByDescending(c => c.InsertedBy).ToList();
+            }
+            else if (request.Request.SortByDateAscending == true)
+            {
+                return customerDtos.OrderBy(c => c.InsertedBy).ToList();
+
+            }
             return customerDtos.OrderBy(c => c.Name)
                 .ThenBy(c => c.Surname)
                 .ToList();

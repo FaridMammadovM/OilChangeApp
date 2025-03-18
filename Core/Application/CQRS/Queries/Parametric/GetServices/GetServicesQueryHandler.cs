@@ -18,7 +18,8 @@ namespace Application.CQRS.Queries.Parametric.GetServices
         }
         public async Task<IList<GetServicesResDto>> Handle(GetServicesQuery request, CancellationToken cancellationToken)
         {
-            var services = await _unitOfWork.GetReadRepository<Services>().GetAllAsync(car => car.IsDeleted == false);
+            var services = await _unitOfWork.GetReadRepository<Services>().GetAllAsync(model => model.IsDeleted == false);
+
             return _mapper.Map<GetServicesResDto, Services>(services);
         }
     }

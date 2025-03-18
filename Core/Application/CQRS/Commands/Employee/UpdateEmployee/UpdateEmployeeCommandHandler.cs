@@ -22,6 +22,7 @@ namespace Application.CQRS.Commands.Employee.UpdateEmployee
             var model = await _unitOfWork.GetReadRepository<Employees>().GetAsync(car => car.Id == request.Request.Id && car.IsDeleted == false);
             model.Name = request.Request.Name;
             model.Surname = request.Request.Surname;
+            model.Description = request.Request.Description;
             model.UpdatedBy = userId;
             await _unitOfWork.GetWriteRepository<Employees>().UpdateAsync(model);
             await _unitOfWork.SaveAsync();

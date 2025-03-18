@@ -24,7 +24,9 @@ namespace Application.CQRS.Queries.Customer.GetAdmins
             include: query => query
             .Include(c => c.CustomersCars));
 
-            return _mapper.Map<GetAdminsResDto, Customers>(customers);
+            var result = _mapper.Map<GetAdminsResDto, Customers>(customers);
+
+            return result.OrderByDescending(c => c.Id).ToList();
         }
     }
 }

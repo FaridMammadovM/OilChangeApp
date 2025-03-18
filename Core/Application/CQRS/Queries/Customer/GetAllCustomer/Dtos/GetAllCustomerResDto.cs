@@ -6,6 +6,8 @@
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Phone { get; set; }
+        internal int? InsertedBy { get; set; }
+
         public List<GetAllCustomerResListNumberDto> CustomersCars { get; set; }
     }
 }

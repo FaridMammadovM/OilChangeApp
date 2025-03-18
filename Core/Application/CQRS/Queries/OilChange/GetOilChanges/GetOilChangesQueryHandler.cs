@@ -73,9 +73,20 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
                 oilChangesResDtoList[i].BranchName = oilChangesList[i].Branchies.Name;
                 oilChangesResDtoList[i].Name = oilChangesList[i].CustomersCarsMatrix.Customers.Name;
                 oilChangesResDtoList[i].Surname = oilChangesList[i].CustomersCarsMatrix.Customers.Surname;
-            }
+                oilChangesResDtoList[i].ChangeDateAsDateTime = oilChangesList[i].ChangeDate;
 
+            }
+            if (request.Request.SortByDateAscending == false)
+            {
+                return oilChangesResDtoList.OrderByDescending(c => c.ChangeDateAsDateTime).ToList();
+            }
+            else if(request.Request.SortByDateAscending == true)
+            {
+                return oilChangesResDtoList.OrderBy(c => c.ChangeDateAsDateTime).ToList();
+
+            }
             return oilChangesResDtoList.OrderByDescending(c => c.Id).ToList();
+
         }
     }
 }

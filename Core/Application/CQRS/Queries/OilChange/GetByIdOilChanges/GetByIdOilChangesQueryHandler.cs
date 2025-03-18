@@ -80,7 +80,14 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             }
             else if (dto.ServiceId == 3)
             {
-                dto.GeneralName = oilChange.Indicator;
+                if (oilChange.WinterViscosity.Grade == 12.1M)
+                {
+                    dto.GeneralName = "G" + oilChange.WinterViscosity.Grade + "+";
+                }
+                else
+                {
+                    dto.GeneralName = "G" + oilChange.WinterViscosity.Grade;
+                }
             }
             else if (dto.ServiceId == 4)
             {

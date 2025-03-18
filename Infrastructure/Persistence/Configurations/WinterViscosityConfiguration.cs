@@ -28,7 +28,13 @@ namespace Persistence.Configurations
                 new WinterViscosity { Id = 10, Grade = 4,    ServiceType = 2, IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
                 new WinterViscosity { Id = 11, Grade = 5.1M, ServiceType = 2, IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
                 new WinterViscosity { Id = 12, Grade = 6,    ServiceType = 2, IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
-                new WinterViscosity { Id = 13, Grade = 5,    ServiceType = 2, IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 }
+                new WinterViscosity { Id = 13, Grade = 5,    ServiceType = 2, IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+
+                //antifirz
+                new WinterViscosity { Id = 14, Grade = 11,    ServiceType = 3, IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+                new WinterViscosity { Id = 15, Grade = 12,    ServiceType = 3, IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+                new WinterViscosity { Id = 16, Grade = 12.1M,    ServiceType = 3, IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 },
+                new WinterViscosity { Id = 17, Grade = 13,    ServiceType = 3, IsDeleted = false, InsertedDate = DateTime.Now, InsertedBy = 1 }
 
             };
 

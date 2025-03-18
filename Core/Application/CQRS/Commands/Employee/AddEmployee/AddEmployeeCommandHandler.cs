@@ -23,6 +23,7 @@ namespace Application.CQRS.Commands.Employee.AddEmployee
             Employees model = new Employees();
             model.Name = request.Request.Name;
             model.Surname = request.Request.Surname;
+            model.Description = request.Request.Description;
             model.InsertedBy = userId;
             await _unitOfWork.GetWriteRepository<Employees>().AddAsync(model);
             await _unitOfWork.SaveAsync();

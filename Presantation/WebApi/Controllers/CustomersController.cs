@@ -6,6 +6,7 @@ using Application.CQRS.Commands.Customer.ChangePassword;
 using Application.CQRS.Commands.Customer.ChangePassword.Dtos;
 using Application.CQRS.Commands.Customer.ChangePasswordWithAdmin;
 using Application.CQRS.Commands.Customer.ChangePasswordWithAdmin.Dtos;
+using Application.CQRS.Commands.Customer.CreateAccount;
 using Application.CQRS.Commands.Customer.DeleteCustomer;
 using Application.CQRS.Commands.Customer.UpdateAdmin;
 using Application.CQRS.Commands.Customer.UpdateAdmin.Dtos;
@@ -43,6 +44,21 @@ namespace WebApi.Controllers
             _mediator = mediator;
         }
 
+
+        [HttpPost]
+        //[AtributteAuthenticator]
+        public async Task<IActionResult> CreateAccount([FromBody] AddCustomerReqDto request)
+        {
+            var command = new CreateAccountCommand { Request = request };
+            var result = await _mediator.Send(command);
+
+            if (result != null)
+            {
+                return Ok(new { success = true, message = "İstifadəçi əlavə edildi.", data = result });
+            }
+
+            return BadRequest(new { success = false, message = "İstifadəçi əlavə edilə bilmədi." });
+        }
 
         [HttpPost]
         [AtributteAuthenticator]

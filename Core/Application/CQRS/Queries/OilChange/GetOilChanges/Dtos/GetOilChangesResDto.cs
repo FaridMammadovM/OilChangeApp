@@ -13,5 +13,7 @@
         public string BranchName { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        internal DateTime ChangeDateAsDateTime { get; set; }
+
     }
 }

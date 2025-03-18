@@ -2,6 +2,7 @@
 using Application.CQRS.Queries.Parametric.GetDOTs;
 using Application.CQRS.Queries.Parametric.GetFilters;
 using Application.CQRS.Queries.Parametric.GetFuelTypes;
+using Application.CQRS.Queries.Parametric.GetG;
 using Application.CQRS.Queries.Parametric.GetMotors;
 using Application.CQRS.Queries.Parametric.GetSAEViscosities;
 using Application.CQRS.Queries.Parametric.GetServices;
@@ -88,6 +89,13 @@ namespace WebApi.Controllers
             return Ok(new { success = true, data = response });
         }
 
+        [HttpGet]
+        [AtributteAuthenticator]
+        public async Task<IActionResult> GetG()
+        {
+            var response = await _mediator.Send(new GetGQuery());
+            return Ok(new { success = true, data = response });
+        }
     }
 }
 

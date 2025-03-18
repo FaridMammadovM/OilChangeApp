@@ -14,7 +14,7 @@ namespace Application.CQRS.Commands.OilChange.AddOilChange
             {
                 RuleFor(x => x.Request.Filters)
                     .Must(filters => filters == null || !filters.Any())
-                    .WithMessage("Əgər ServiceId 1 və ya 2 deyilsə, Filters null olmalıdır.");
+                    .WithMessage("Əgər ServiceId 1 və ya 2 deyilsə, Filtr null olmalıdır.");
             });
 
             When(x => x.Request.ServiceId == 1 || x.Request.ServiceId == 3 || x.Request.ServiceId == 5 || x.Request.ServiceId == 6 || x.Request.ServiceId == 7, () =>
