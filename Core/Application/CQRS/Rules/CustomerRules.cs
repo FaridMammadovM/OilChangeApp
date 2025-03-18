@@ -2,6 +2,7 @@
 using Application.Bases;
 using Application.CQRS.Commands.Customer.AddAdmin.Dtos;
 using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
+using Application.CQRS.Commands.Customer.CreateAccount.Dtos;
 using Application.CQRS.Commands.Customer.UpdateAdmin.Dtos;
 using Application.CQRS.Commands.Customer.UpdateCustomer.Dtos;
 using Application.CQRS.Exceptions;
@@ -13,6 +14,13 @@ namespace Application.CQRS.Rules
     public class CustomerRules : BaseRules
     {
         public Task CustomerFindPhone(IEnumerable<Customers> customers, AddCustomerReqDto dto)
+        {
+            if (customers.Any(x => x.Phone == dto.Phone))
+                throw new CustomerFindPhoneException();
+            return Task.CompletedTask;
+        }
+
+        public Task CustomerFindPhoneAccount(IEnumerable<Customers> customers, CreateAccountReqDto dto)
         {
             if (customers.Any(x => x.Phone == dto.Phone))
                 throw new CustomerFindPhoneException();

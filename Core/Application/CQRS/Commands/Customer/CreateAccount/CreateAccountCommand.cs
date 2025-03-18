@@ -1,11 +1,12 @@
-﻿using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
+﻿using Application.CQRS.Commands.Customer.CreateAccount.Dtos;
+using Application.CQRS.Queries.Customer.Login.Dto;
 using MediatR;
 
 namespace Application.CQRS.Commands.Customer.CreateAccount
 {
-    public class CreateAccountCommand : IRequest<Unit>
+    public class CreateAccountCommand : IRequest<LoginResDto>
     {
-        public AddCustomerReqDto Request { get; set; }
+        public CreateAccountReqDto Request { get; set; }
 
     }
 }

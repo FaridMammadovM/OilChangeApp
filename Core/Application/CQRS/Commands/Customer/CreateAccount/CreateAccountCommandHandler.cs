@@ -9,10 +9,13 @@ using Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using Application.CQRS.Queries.Customer.Login.Dto;
+using Application.CQRS.Queries.Customer.Login;
+using Application.CQRS.Commands.Customer.CreateAccount.Dtos;
 
 namespace Application.CQRS.Commands.Customer.CreateAccount
 {
-    public class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, Unit>
+    public class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, LoginResDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly CustomerRules _customerRules;
@@ -31,24 +34,39 @@ namespace Application.CQRS.Commands.Customer.CreateAccount
             _refreshTokenExpiration = int.Parse(configuration["JwtSettings:RefreshTokenExpiration"]);
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<Unit> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
+        public async Task<LoginResDto> Handle(CreateAccountCommand request, CancellationToken cancellationToken)
         {
             int userId = 1;
 
             IList<Customers> customersList = await _unitOfWork.GetReadRepository<Customers>()
                 .GetAllAsync(c => c.IsDeleted == false);
 
-            await _customerRules.CustomerFindPhone(customersList.Where(c => c.RoleId == 1), request.Request);
-            Customers customers = _mapper.Map<Customers, AddCustomerReqDto>(request.Request);
+            await _customerRules.CustomerFindPhoneAccount(customersList.Where(c => c.RoleId == 1), request.Request);
+            Customers customers = _mapper.Map<Customers, CreateAccountReqDto>(request.Request);
             customers.Password = _jwtHelper.HashPassword(request.Request.Password);
             customers.RefreshToken = _jwtHelper.GenerateRefreshToken();
             customers.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
             customers.InsertedBy = userId;
             customers.IsOtp = false;
-            customers.RoleId = 1;
+            customers.RoleId = 1;       
+
+            var otpCode = new OtpService().GenerateOtp();
+
+            customers.OtpCode = otpCode;
+            customers.OtpExpirationTime = DateTime.UtcNow.AddMinutes(3);
+            customers.NotificationToken = request.Request.NotificationToken;
             await _unitOfWork.GetWriteRepository<Customers>().AddAsync(customers);
             await _unitOfWork.SaveAsync();
-            return Unit.Value;
+
+            //await new OtpService().SendOtp(customer.Phone, otpCode);
+            AtaTeknolojiSmsService newAta = new AtaTeknolojiSmsService();
+            newAta.SmsGonder(customers.Phone, otpCode);
+
+            return new LoginResDto
+            {
+                RequiresOtp = true,
+                Message = "OTP göndərildi. Zəhmət olmasa, təsdiqləyin."
+            };
         }
     }
 }

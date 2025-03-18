@@ -7,6 +7,7 @@ using Application.CQRS.Commands.Customer.ChangePassword.Dtos;
 using Application.CQRS.Commands.Customer.ChangePasswordWithAdmin;
 using Application.CQRS.Commands.Customer.ChangePasswordWithAdmin.Dtos;
 using Application.CQRS.Commands.Customer.CreateAccount;
+using Application.CQRS.Commands.Customer.CreateAccount.Dtos;
 using Application.CQRS.Commands.Customer.DeleteCustomer;
 using Application.CQRS.Commands.Customer.UpdateAdmin;
 using Application.CQRS.Commands.Customer.UpdateAdmin.Dtos;
@@ -47,14 +48,14 @@ namespace WebApi.Controllers
 
         [HttpPost]
         //[AtributteAuthenticator]
-        public async Task<IActionResult> CreateAccount([FromBody] AddCustomerReqDto request)
+        public async Task<IActionResult> CreateAccount([FromBody] CreateAccountReqDto request)
         {
             var command = new CreateAccountCommand { Request = request };
             var result = await _mediator.Send(command);
 
             if (result != null)
             {
-                return Ok(new { success = true, message = "İstifadəçi əlavə edildi.", data = result });
+                return Ok(new { success = true, message = "OTP göndərildi. Zəhmət olmasa, təsdiqləyin.", data = result });
             }
 
             return BadRequest(new { success = false, message = "İstifadəçi əlavə edilə bilmədi." });
