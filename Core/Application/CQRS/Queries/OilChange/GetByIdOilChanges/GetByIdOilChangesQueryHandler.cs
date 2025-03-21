@@ -58,7 +58,7 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
                 BranchId = oilChange.BranchId,
                 BranchName = oilChange.Branchies?.Name,
                 CarNumber = oilChange.CustomersCarsMatrix.CarNumber,
-                Description = oilChange.Description,                
+                Description = oilChange.Description,
                 Filters = oilChange.OilChangeFilters?.Select(f => new GetByIdOilChangeFilterDto
                 {
                     Id = f.Id,

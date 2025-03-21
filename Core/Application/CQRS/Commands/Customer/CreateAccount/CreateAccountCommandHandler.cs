@@ -1,17 +1,15 @@
-﻿using Application.Beheviors;
-using Application.CQRS.Commands.Customer.AddCustomer.Dtos;
-using Application.CQRS.Commands.Customer.AddCustomer;
+﻿using Application.CQRS.Commands.Customer.CreateAccount.Dtos;
+using Application.CQRS.Queries.Customer.Login;
+using Application.CQRS.Queries.Customer.Login.Dto;
 using Application.CQRS.Rules;
 using Application.Interfaces.AutoMapper;
 using Application.Interfaces.UnitOfWork;
 using Application.JWT;
 using Domain.Entities;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using Application.CQRS.Queries.Customer.Login.Dto;
-using Application.CQRS.Queries.Customer.Login;
-using Application.CQRS.Commands.Customer.CreateAccount.Dtos;
 
 namespace Application.CQRS.Commands.Customer.CreateAccount
 {
@@ -41,14 +39,20 @@ namespace Application.CQRS.Commands.Customer.CreateAccount
             IList<Customers> customersList = await _unitOfWork.GetReadRepository<Customers>()
                 .GetAllAsync(c => c.IsDeleted == false);
 
-            await _customerRules.CustomerFindPhoneAccount(customersList.Where(c => c.RoleId == 1), request.Request);
+            bool check = await _customerRules.CustomerFindPhoneAccount(customersList.Where(c => c.RoleId == 1), request.Request);
+
+            if (check)
+            {
+                throw new ValidationException("Nömrə və ya şifrə yanlışdır");
+            }
+
             Customers customers = _mapper.Map<Customers, CreateAccountReqDto>(request.Request);
             customers.Password = _jwtHelper.HashPassword(request.Request.Password);
             customers.RefreshToken = _jwtHelper.GenerateRefreshToken();
             customers.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_refreshTokenExpiration);
             customers.InsertedBy = userId;
             customers.IsOtp = false;
-            customers.RoleId = 1;       
+            customers.RoleId = 1;
 
             var otpCode = new OtpService().GenerateOtp();
 

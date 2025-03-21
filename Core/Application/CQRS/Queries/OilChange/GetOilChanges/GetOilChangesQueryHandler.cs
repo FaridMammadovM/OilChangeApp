@@ -80,7 +80,7 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
             {
                 return oilChangesResDtoList.OrderByDescending(c => c.ChangeDateAsDateTime).ToList();
             }
-            else if(request.Request.SortByDateAscending == true)
+            else if (request.Request.SortByDateAscending == true)
             {
                 return oilChangesResDtoList.OrderBy(c => c.ChangeDateAsDateTime).ToList();
 

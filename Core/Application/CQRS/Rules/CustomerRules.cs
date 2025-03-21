@@ -20,11 +20,18 @@ namespace Application.CQRS.Rules
             return Task.CompletedTask;
         }
 
-        public Task CustomerFindPhoneAccount(IEnumerable<Customers> customers, CreateAccountReqDto dto)
+        public async Task<bool> CustomerFindPhoneAccount(IEnumerable<Customers> customers, CreateAccountReqDto dto)
         {
             if (customers.Any(x => x.Phone == dto.Phone))
-                throw new CustomerFindPhoneException();
-            return Task.CompletedTask;
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         public Task CustomerFindUsername(IEnumerable<Customers> customers, AddAdminReqDto dto)

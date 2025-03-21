@@ -25,7 +25,7 @@ namespace Application.CQRS.Queries.Employee.GetEmployees
             foreach (var dto in mappedDtos)
             {
                 dto.Fullname = $"{dto.Name} {dto.Surname}";
-            }          
+            }
 
             return mappedDtos.OrderBy(c => c.Name)
                .ThenBy(c => c.Surname)

@@ -50,13 +50,13 @@ namespace Application.CQRS.Commands.OilChange.AddOilChange
                     .WithMessage("Əgər ServiceId 3-dürsə, SAEViscosityId null olmalıdır.");
             });
 
-            When(x => x.Request.ServiceId == 5 || x.Request.ServiceId == 6 || x.Request.ServiceId == 7, () =>
-            {
-                RuleFor(x => x.Request.Duration)
-                    .Must(id => id == null)
-                    .WithMessage("Əgər ServiceId 5, 6 və 7-sə, Duration null olmalıdır.");
+            //When(x => x.Request.ServiceId == 5 || x.Request.ServiceId == 6 || x.Request.ServiceId == 7, () =>
+            //{
+            //    RuleFor(x => x.Request.Duration)
+            //        .Must(id => id == null)
+            //        .WithMessage("Əgər ServiceId 5, 6 və 7-sə, Duration null olmalıdır.");
 
-            });
+            //});
 
 
             When(x => x.Request.ServiceId == 2 || x.Request.ServiceId == 4, () =>
