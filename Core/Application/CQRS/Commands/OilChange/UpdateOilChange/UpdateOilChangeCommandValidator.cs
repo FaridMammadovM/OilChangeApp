@@ -48,6 +48,11 @@ namespace Application.CQRS.Commands.OilChange.UpdateOilChange
                 RuleFor(x => x.Request.SAEViscosityId)
                 .Must(id => id == null)
                 .WithMessage("Əgər ServiceId 3-dürsə, SAEViscosityId null olmalıdır.");
+
+
+                RuleFor(x => x.Request.WinterViscosityId)
+                 .Must(id => id != null)
+                 .WithMessage("Əgər WinterViscosityId 3-dürsə, WinterViscosityId null olmnalı deyil.");
             });
 
             //When(x => x.Request.ServiceId == 5 || x.Request.ServiceId == 6 || x.Request.ServiceId == 7, () =>
