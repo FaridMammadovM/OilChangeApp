@@ -9,5 +9,6 @@
         public string? Name { get; set; }
         public string? Surname { get; set; }
         public bool SortByDateAscending { get; set; } = false;
+        public DateTime? ChangeDate { get; set; }
     }
 }

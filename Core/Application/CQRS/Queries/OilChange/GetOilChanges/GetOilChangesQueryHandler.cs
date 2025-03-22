@@ -62,6 +62,10 @@ namespace Application.CQRS.Queries.OilChange.GetOilChanges
             {
                 oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.CustomersCarsMatrix.Customers.Surname.ToUpper().Contains(request.Request.Surname.ToUpper())).ToList();
             }
+            if (request.Request.ChangeDate != null && oilChangesList != null)
+            {
+                oilChangesList = (IList<OilChanges>)oilChangesList.Where(p => p.ChangeDate.Date == request.Request.ChangeDate).ToList();
+            }
 
             var oilChangesResDtoList = _mapper.Map<GetOilChangesResDto, OilChanges>(oilChangesList);
 

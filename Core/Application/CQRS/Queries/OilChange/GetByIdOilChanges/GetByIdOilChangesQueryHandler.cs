@@ -82,11 +82,11 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             {
                 if (oilChange.WinterViscosity.Id == 16)
                 {
-                    dto.GeneralName = "G" + oilChange.WinterViscosity.Grade + "+";
+                    dto.GeneralName = "G" + (int)oilChange.WinterViscosity.Grade + "+";
                 }
                 else
                 {
-                    dto.GeneralName = "G" + oilChange.WinterViscosity.Grade;
+                    dto.GeneralName = "G" + (int)oilChange.WinterViscosity.Grade;
                 }
             }
             else if (dto.ServiceId == 4)
