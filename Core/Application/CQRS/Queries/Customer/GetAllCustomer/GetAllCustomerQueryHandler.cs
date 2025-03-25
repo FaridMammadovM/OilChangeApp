@@ -71,9 +71,7 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
                 return customerDtos.OrderBy(c => c.InsertedBy).ToList();
 
             }
-            return customerDtos.OrderBy(c => c.Name)
-                .ThenBy(c => c.Surname)
-                .ToList();
+            return customerDtos.OrderByDescending(c => c.InsertedBy).ToList();
 
         }
     }

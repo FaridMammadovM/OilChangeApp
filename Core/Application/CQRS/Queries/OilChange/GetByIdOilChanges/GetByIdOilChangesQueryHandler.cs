@@ -59,6 +59,8 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
                 BranchName = oilChange.Branchies?.Name,
                 CarNumber = oilChange.CustomersCarsMatrix.CarNumber,
                 Description = oilChange.Description,
+                OilCode = oilChange.OilCode,
+                OilOwn = oilChange.OilOwn,
                 Filters = oilChange.OilChangeFilters?.Select(f => new GetByIdOilChangeFilterDto
                 {
                     Id = f.Id,
@@ -91,7 +93,15 @@ namespace Application.CQRS.Queries.OilChange.GetByIdOilChanges
             }
             else if (dto.ServiceId == 4)
             {
-                dto.GeneralName = "DOT: " + oilChange.WinterViscosity.Grade;
+                if (oilChange.WinterViscosity.Id == 11)
+                {
+                    dto.GeneralName = "DOT: " + oilChange.WinterViscosity.Grade;
+
+                }
+                else
+                {
+                    dto.GeneralName = "DOT: " + (int)oilChange.WinterViscosity.Grade;
+                }
             }
             else if (dto.ServiceId == 5 || dto.ServiceId == 6 || dto.ServiceId == 7)
             {

@@ -25,16 +25,16 @@ namespace Application.CQRS.Commands.Customer.AddCustomer
             RuleFor(x => x.Request.Password)
                 .NotEmpty()
                 .WithMessage("Şifrə boş ola bilməz.")
-                .MinimumLength(8)
-                .WithMessage("Şifrə ən az 8 simvol olmalıdır.")
-                .Matches(@"[A-Z]")
-                .WithMessage("Şifrə ən az bir böyük hərf içərməlidir.")
-                .Matches(@"[a-z]")
-                .WithMessage("Şifrə ən az bir kiçik hərf içərməlidir.")
-                .Matches(@"\d")
-                .WithMessage("Şifrə ən az bir rəqəm içərməlidir.")
-                .Matches(@"[\W_]")
-                .WithMessage("Şifrə ən az bir xüsusi simvol içərməlidir.");
+                .MinimumLength(6)
+                .WithMessage("Şifrə ən az 6 simvol olmalıdır.");
+                //.Matches(@"[A-Z]")
+                //.WithMessage("Şifrə ən az bir böyük hərf içərməlidir.")
+                //.Matches(@"[a-z]")
+                //.WithMessage("Şifrə ən az bir kiçik hərf içərməlidir.")
+                //.Matches(@"\d")
+                //.WithMessage("Şifrə ən az bir rəqəm içərməlidir.")
+                //.Matches(@"[\W_]")
+                //.WithMessage("Şifrə ən az bir xüsusi simvol içərməlidir.");
 
 
             RuleFor(x => x.Request.Phone)
