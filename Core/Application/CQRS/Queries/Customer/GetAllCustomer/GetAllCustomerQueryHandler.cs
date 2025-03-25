@@ -56,6 +56,8 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
                 Name = c.Name,
                 Surname = c.Surname,
                 Phone = c.Phone,
+                InsertedDate = c.InsertedDate,
+                InsertedBy = c.InsertedBy,
                 CustomersCars = c.CustomersCars.Select(car => new GetAllCustomerResListNumberDto
                 {
                     CarNumber = car.CarNumber
@@ -64,15 +66,13 @@ namespace Application.CQRS.Queries.Customer.GetAllCustomer
 
             if (request.Request.SortByDateAscending == false)
             {
-                return customerDtos.OrderByDescending(c => c.InsertedBy).ToList();
+                return customerDtos.OrderByDescending(c => c.InsertedDate).ToList();
             }
             else if (request.Request.SortByDateAscending == true)
             {
-                return customerDtos.OrderBy(c => c.InsertedBy).ToList();
-
+                return customerDtos.OrderBy(c => c.InsertedDate).ToList();
             }
-            return customerDtos.OrderByDescending(c => c.InsertedBy).ToList();
-
+            return customerDtos.OrderByDescending(c => c.InsertedDate).ToList();
         }
     }
 }

@@ -7,6 +7,7 @@
         public string Surname { get; set; }
         public string Phone { get; set; }
         internal int? InsertedBy { get; set; }
+        internal DateTime? InsertedDate { get; set; }
 
         public List<GetAllCustomerResListNumberDto> CustomersCars { get; set; }
     }
